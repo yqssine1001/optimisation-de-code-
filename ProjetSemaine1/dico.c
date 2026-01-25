@@ -197,17 +197,13 @@ int hash(char *m) {
 
 void insertDico(dico** dictionary, mot_t* linkWord) {
   dico* newDictionary = (dico*) malloc(sizeof(dico));
-  dico* newDictionaryPrevious = (dico*) malloc(sizeof(dico));
   newDictionary = *dictionary;
-  newDictionaryPrevious = newDictionary; 
   while(newDictionary != NULL && compareWord(&(newDictionary->mot->data),&(linkWord->data))>0) {
-    newDictionaryPrevious = newDictionary;
     *dictionary = newDictionary;
     insertDico(&(newDictionary->fg),linkWord);
     return;
   }
   while(newDictionary != NULL && compareWord(&(newDictionary->mot->data),&(linkWord->data))<0) {
-    newDictionaryPrevious = newDictionary;
     *dictionary = newDictionary;
     insertDico(&(newDictionary->fd),linkWord);
     return;
@@ -289,7 +285,11 @@ void displayNodes(dico *d, FILE* f) {
 
 void displayDico(dico* dictionary) {
   FILE *f = NULL;
-  f = fopen(DICORES, "rw+");
+  f = fopen(DICORES, "w+");
+  if (f == NULL) {
+    fprintf(stderr,"Erreur ouverture fichier %s\n",DICORES);
+    return;
+  }
   if (!feof(f))
     printf("Resultat existant dans le fichier resultat, on ecrase\n");
   if (dictionary == NULL) {
@@ -315,6 +315,10 @@ int main() {
   FILE* f = NULL;
   int i;
   f = fopen(TEXTE, "r");
+  if (f == NULL) {
+    fprintf(stderr,"Erreur ouverture fichier %s\n",TEXTE);
+    return -1;
+  }
   unsigned int* line = (unsigned int*) malloc(sizeof(int));
   unsigned int* colonne = (unsigned int*) malloc(sizeof(int));
   char* word = (char*) malloc(sizeof(char)*maxSizeWord);
