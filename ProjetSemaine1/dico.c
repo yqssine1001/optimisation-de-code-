@@ -8,13 +8,12 @@
 
 #define maxSizeWord 25
 #define SEP " ,.-"   
-
-#define TEXTE "hugo1.txt"
 #define DICORES "dictionnaires.txt"
 
 #define MaxSizeArray 16381
 
 char *separators=SEP; 
+char *texte;
 unsigned int current_line=1;
 unsigned int current_col=1; 
 
@@ -295,7 +294,7 @@ void displayDico(dico* dictionary) {
   if (dictionary == NULL) {
     printf("displayDico : NULL\n");
   } else {
-    fprintf(f, "Contenu dictionnaire pour %s : \n", TEXTE);
+    fprintf(f, "Contenu dictionnaire pour %s : \n", texte);
     dico* tempDico = (dico*) malloc(sizeof(dico));
     tempDico = dictionary;
     displayNodes(tempDico, f);
@@ -311,14 +310,23 @@ void serializeDico(dico * dictionary, mot_data_t **table) {
   }
 }
 
-int main() {
-  FILE* f = NULL;
-  int i;
-  f = fopen(TEXTE, "r");
-  if (f == NULL) {
-    fprintf(stderr,"Erreur ouverture fichier %s\n",TEXTE);
+int main(int argc, char *argv[]) {
+
+  if (argc < 2) 
+  {
+    fprintf(stderr, "Erreur : %s prend au moins un argument <fichier>\n", argv[0]);
     return -1;
   }
+
+  texte = argv[1];
+  FILE* f = fopen(texte, "r");
+  int i;
+
+  if (f == NULL) {
+    fprintf(stderr,"Erreur ouverture fichier %s\n",texte);
+    return -1;
+  }
+
   unsigned int* line = (unsigned int*) malloc(sizeof(int));
   unsigned int* colonne = (unsigned int*) malloc(sizeof(int));
   char* word = (char*) malloc(sizeof(char)*maxSizeWord);
