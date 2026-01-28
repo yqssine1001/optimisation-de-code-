@@ -51,3 +51,21 @@ Le fait que la vérification de l'ouverture du fichier n'est jamais faite pour `
 
 
 Après ces corrections, le programme ne génère plus d'erreur de segmentation fault.
+
+## Modularisation
+
+Nous avons décidé de tout d'abord renommer dico.c en main.c pour distinguer le programme principal du module dico.c qu'on va créer. Le programme est partagé entre 3 modules :
+  
+## dico.c / dico.h :
+  Contient des méthodes/définitions et structures liées à la gestion du dictionnaire.
+  
+## word.c / word.h :
+  Méthodes/définitions liées aux manipulations des mots.
+  
+## structNoeud.h :
+  Toutes les structures qui désignent les attributs du nœud de l'ABR, utilisées par d'autres modules.
+
+Pour le moment, on n'a pas touché les fonctions liées aux fichiers JSON car on n'a pas trouvé 
+la bibliothèque de '/opt/json-c-master'.
+
+

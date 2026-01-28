@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include "structNoeud.h"
+#include "word.h"
 
 #define MaxSizeArray 16381
 #define DICORES "dictionnaires.txt"

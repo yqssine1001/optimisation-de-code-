@@ -1,16 +1,8 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <stdint.h>
-#include <math.h>
-
-
-#include "structNoeud.h"
 #include "word.h"
-
-//#define SEP " ,.-"   
-
- 
+   
+char *separators=SEP; 
+unsigned int current_line=1;
+unsigned int current_col=1;
 
 char *next_word(FILE *f, unsigned int *nblin, unsigned int *nbcol){
   char s[100]; 

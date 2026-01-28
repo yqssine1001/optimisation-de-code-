@@ -1,11 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-#include <stdint.h>
-#include <math.h>
-
-
-
+#include "dico.h"
+//#include "json.h"
 int main(int argc, char *argv[]) {
 
   if (argc < 2) 
@@ -32,7 +28,7 @@ int main(int argc, char *argv[]) {
     word = next_word(f,line,colonne);
     addToDico(&dictionary,word,line,colonne);
   }
-  displayDico(dictionary);
+  displayDico(dictionary,texte);
   for(i=0; i<MaxSizeArray; i++)
     serialized_dico[i] = NULL;
   serializeDico(dictionary,serialized_dico);
