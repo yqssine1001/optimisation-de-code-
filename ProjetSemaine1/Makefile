@@ -28,6 +28,6 @@ $(EXEC): $(OBJS)
 	@echo "$(EXEC) are redy"
 
 clean:
-	-rm *.o $(exec)
+	-rm *.o $(EXEC)
 	@echo "clean effectué"
 #le - perme de inioré les erreur
