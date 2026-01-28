@@ -1,6 +1,8 @@
 #ifndef WORD_H
 #define WORD_H
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include "structNoeud.h"
 
 

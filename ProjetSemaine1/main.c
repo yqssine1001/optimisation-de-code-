@@ -3,6 +3,9 @@
 #include "dico.h"
 //#include "json.h"
 int main(int argc, char *argv[]) {
+#ifdef DEBUG
+  printf("DEBUG: work in progres!!!\n");
+#endif
 
   if (argc < 2) 
   {
@@ -37,14 +40,15 @@ int main(int argc, char *argv[]) {
       printf("Index %d -> ", i);
       displayWord(serialized_dico[i],stdout);
     }
-  /*
+#ifdef FICJSON
   struct json_object *o;
   o = createJSON(serialized_dico);
   FILE *fic = fopen("monfic.json","w");
   fprintf(fic, "%s\n",
 	  json_object_to_json_string_ext(o,JSON_C_TO_STRING_PRETTY));
   fclose(fic);
-  */
+
+#endif
   for(i=0; i<MaxSizeArray; i++)
     if (serialized_dico[i] != NULL) {
       deserializeDico(&copiedico, serialized_dico[i]);
@@ -52,5 +56,7 @@ int main(int argc, char *argv[]) {
   printf("A la fin : \n");
   displayNodes(copiedico, stdout);
   fclose(f);
+
+
   return 0;
 }
