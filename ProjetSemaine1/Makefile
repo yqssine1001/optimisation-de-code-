@@ -1,9 +1,9 @@
 .PHONY: clean
 
-CC = gcc    			#metode de compilation
+CC = gcc    			#méthode de compilation
 CFLAGS = -Wall 		#on compile comment
-SRCS = $(wildcard *.c) 	#recupére tous les FIle de .c
-OBJS = $(SRCS:.c=.o)	#perme de faire traitment de text il change pour tous element de SRCS qui posser un .c par un .o
+SRCS = $(wildcard *.c) 	#récupère tous les fichiers .c
+OBJS = $(SRCS:.c=.o)	#permet de faire traitement de texte il change pour tous element de SRCS qui possèdent un .c par un .o
 EXEC = main#			les objectif ALL
 
 
@@ -25,7 +25,7 @@ ALL: $(EXEC)
 
 $(EXEC): $(OBJS)
 	$(CC) $(OBJS) -o $(EXEC) -lm
-	@echo "$(EXEC) are redy"
+	@echo "$(EXEC) are ready"
 
 clean:
 	-rm *.o $(EXEC)
