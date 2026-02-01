@@ -19,11 +19,9 @@ Parmi les 2 modules du projet, il faut identifier ceux qui peuvent être transfo
 
 Un problème se présente cependant : word.c dépend de structNoeud.h, qui est spécifique au projet. La solution a été de découper structNoeud.h pour récupérer uniquement les parties nécessaires à word pour y mettre dans word.h et de même pour dico.
 
-ainsi, word.h n'inclut plus structNoeud.h, ce qui permet de rendre word.c / word.h indépendant et réutilisable $\implies$ création d'une bibliothèque word :
-`lib_word/` :
-- `include/word.h` Interface publique de la bibliothèque word
-- `src/word.c` La source est gardée car le sujet demande par la suite de pouvoir compiler la bibliothèque
-- `lib/` pour les fichiers compilés de la bibliothèque
+Ainsi, word.h n'inclut plus structNoeud.h, ce qui permet de rendre word.c / word.h indépendant et réutilisable $\implies$ création d'une bibliothèque word :
 
-
-
+- **`lib_word/` :**
+  - `lib_word/include/word.h` Interface publique de la bibliothèque word
+  - `lib_word/src/word.c` La source est gardée car le sujet demande par la suite de pouvoir compiler la bibliothèque
+  - `lib_word/lib/` pour les fichiers compilés de la bibliothèque
