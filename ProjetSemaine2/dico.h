@@ -5,7 +5,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
-#include "structNoeud.h"
 #include "word.h"
 #ifdef FICJSON
 #include "json.h"
@@ -14,6 +13,11 @@
 #define MaxSizeArray 16381
 #define DICORES "dictionnaires.txt"
 
+typedef struct mot_t mot_t;
+struct mot_t {
+  int lehash;
+  mot_data_t data;
+};
 
 typedef struct dico dico;
 struct dico {

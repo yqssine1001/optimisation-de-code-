@@ -5,7 +5,9 @@ CFLAGS = -Wall 		#on compile comment
 SRCS = $(wildcard *.c) 	#récupère tous les fichiers .c
 OBJS = $(SRCS:.c=.o)	#permet de faire traitement de texte il change pour tous element de SRCS qui possèdent un .c par un .o
 EXEC = main#			les objectif ALL
-LDFLAGS= -lm
+CPPFLAGS += -I ./lib_word/include
+LDFLAGS = -lm
+LDFLAGS += -L ./lib_word/lib -lword
 
 #CFLAGS+= -D varableC=$(varableMAKE)
 ifdef DEBUG
