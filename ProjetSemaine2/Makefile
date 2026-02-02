@@ -1,13 +1,16 @@
-.PHONY: clean
+.PHONY: clean all
 
-CC = gcc    			#méthode de compilation
-CFLAGS = -Wall 		#on compile comment
-SRCS = $(wildcard *.c) 	#récupère tous les fichiers .c
-OBJS = $(SRCS:.c=.o)	#permet de faire traitement de texte il change pour tous element de SRCS qui possèdent un .c par un .o
+CC = gcc
+SRCDIR=src
+OBJDIR=obj
+EXECDIR=bin
+LIB_PATH=lib_word
+SRCS = $(wildcard $(SRCDIR)/*.c) 	#récupère tous les fichiers .c
+OBJS = $(SRCS:$(SRCDIR)/%.c=$(OBJDIR)/%.o)	#permet de faire traitement de texte il change pour tous element de SRCS qui possèdent un .c par un .o
 EXEC = main#			les objectif ALL
-CPPFLAGS += -I ./lib_word/include
-LDFLAGS = -lm
-LDFLAGS += -L ./lib_word/lib -lword
+CFLAGS = -Wall -Werror
+CPPFLAGS = -I$(LIB_PATH)/include -Iinclude
+LDFLAGS = -lm -L$(LIB_PATH)/lib -lword
 
 #CFLAGS+= -D varableC=$(varableMAKE)
 ifdef DEBUG
@@ -24,13 +27,15 @@ endif
 
 
 
-ALL: $(EXEC)
+all: $(EXECDIR)/$(EXEC)
 
-$(EXEC): $(OBJS)
-	$(CC) $(OBJS) -o $(EXEC) $(LDFLAGS)
-	@echo "$(EXEC) are ready"
+$(EXECDIR)/$(EXEC): $(OBJS)
+	$(CC) $(OBJS) $(LDFLAGS) -o $@ 
+
+$(OBJDIR)/%.o: $(SRCDIR)/%.c
+	$(CC) -c $(CFLAGS) $(CPPFLAGS) $< -o $@
 
 clean:
-	-rm *.o $(EXEC)
+	-rm $(OBJDIR)/*.o $(EXECDIR)/*
 	@echo "clean effectué"
-#le - perme de inioré les erreur
+#le - permet d'ignorer les erreurs
