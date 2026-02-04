@@ -27,7 +27,7 @@ endif
 
 
 
-all: $(EXECDIR)/$(EXEC)
+all: $(EXECDIR)/$(EXEC) doxy
 
 $(EXECDIR)/$(EXEC): $(OBJS)
 	$(CC) $(OBJS) $(LDFLAGS) -o $@ 
@@ -36,6 +36,8 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	$(CC) -c $(CFLAGS) $(CPPFLAGS) $< -o $@
 
 clean:
-	-rm $(OBJDIR)/*.o $(EXECDIR)/*
+	-rm $(OBJDIR)/*.o $(EXECDIR)/* 
 	@echo "clean effectué"
 #le - permet d'ignorer les erreurs
+doxy: $(wildcard include/*.h) $(wildcard $(LIB_PATH)/include/*.h)
+	doxygen Doxyfile
