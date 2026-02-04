@@ -1,6 +1,5 @@
 # Rapport Hebdomadaire - Semaine 2
 
-
 ## Création de bibliothèques
 
 Au stade actuel du projet, nous avons la stucture suivante :
