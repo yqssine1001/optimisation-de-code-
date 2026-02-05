@@ -1,4 +1,4 @@
-.PHONY: clean all
+.PHONY: clean all mk_dir
 
 CC = gcc
 SRCDIR=src
@@ -27,7 +27,7 @@ endif
 
 
 
-all: $(EXECDIR)/$(EXEC) doxy
+all: mk_dir $(EXECDIR)/$(EXEC) doxy
 
 $(EXECDIR)/$(EXEC): $(OBJS)
 	$(CC) $(OBJS) $(LDFLAGS) -o $@ 
@@ -38,6 +38,10 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.c
 clean:
 	-rm $(OBJDIR)/*.o $(EXECDIR)/* 
 	@echo "clean effectué"
+
+mk_dir: 
+	-mkdir obj
+	-mkdir bin
 #le - permet d'ignorer les erreurs
 doxy: $(wildcard include/*.h) $(wildcard $(LIB_PATH)/include/*.h)
 	doxygen Doxyfile

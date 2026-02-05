@@ -15,7 +15,8 @@
  */
 #define MaxSizeArray 16381
 #define DICORES "dictionnaires.txt"
-
+typedef struct dico dico;
+typedef struct mot_t mot_t;
 /**
  * @brief Un mot avec son contenu et son hash
  * @param lehash le hash du mot
@@ -36,8 +37,7 @@ struct dico {
   dico *fg, *fd;
 };
 
-typedef struct dico dico;
-typedef struct mot_t mot_t;
+
 
 /**
  * @fn void insertDico(dico **dictionary, mot_t *linkWord)
