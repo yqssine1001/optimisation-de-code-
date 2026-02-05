@@ -42,3 +42,11 @@ Etant donné que les fichier (les headers, les sources, les exécutables...) ét
 - `bin/` : contient les exécutables compilés du projet (juste le main pour l'instant)
 
 
+## Documentation des fonctions
+Afin de mieux comprendre le code, nous avons decide de le documenter. Ainsi, a ete ajoute une "javadoc" a chaque declaration de fonction dans un header, que ce soit les fonctions de la bibliotheque ou celles declarees dans les headers du dossier include. Pour cela, il a ete choisit de respecter l'ecriture des javadoc, pour deux chose :
+permettre a un IDE assez intelligent de l'afficher correctement et permettre l'automatisation de l'ecriture d'une vrai documentation externe. Pour ce faire, il y a fallu 
+utiliser l'outil doxygen. Ce dernier permet de generer automatiquement une documentation d'un projet en prenant specifiquement certaines extensions de fichier et certains 
+formatage de commentaire (pour les fichiers source).
+Ainsi, Doxyfile est la configuration de doxygen pour le projet, et genere une sortie en html et en LaTeX necessitant compilation au moyen d'un makefile cree par doxygen.
+Pour automatiser cela, la generation de la documentaton se fait a chaque compilation complete du projet (make all) si besoin est et le resultat est stocke dans un dossier
+documentation prevu a cet effet. De plus, doxygen pourrait aussi servir pour transformer directement un markdown en pdf.
