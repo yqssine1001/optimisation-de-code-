@@ -24,3 +24,21 @@ Ainsi, word.h n'inclut plus structNoeud.h, ce qui permet de rendre word.c / word
   - `lib_word/include/word.h` Interface publique de la bibliothèque word
   - `lib_word/src/word.c` La source est gardée car le sujet demande par la suite de pouvoir compiler la bibliothèque
   - `lib_word/lib/` pour les fichiers compilés de la bibliothèque
+
+
+## Compilation avec bibliothèque statique et partagée
+
+Après avoir mis les règles de compilation de bibliothèques statiques et partagées dans le Makefile, Nous avons créé deux cibles pour gérer la compilation du projet avec la possibilité de choisir entre une compilation en utilisant les bibliothèques statiques (.a) ou partagées (.so).
+- `make static` : compile le projet en utilisant la bibliothèque statique libword.a
+- `make shared` : compile le projet en utilisant la bibliothèque partagée libword.so
+
+
+## Structuration du projet
+
+Etant donné que les fichier (les headers, les sources, les exécutables...) étaient tous regroupés dans le même dossier, pour assurer une meilleure organisation et une meilleure visibilité du projet, nous avons décidé de structurer le projet de la manière suivante :
+- `src/` : contient les fichiers sources (.c) du projet
+- `include/` : contient les fichiers d'en-tête (.h) du projet
+- `lib_word/` : contient les fichiers de la bibliothèque word
+- `bin/` : contient les exécutables compilés du projet (juste le main pour l'instant)
+
+
