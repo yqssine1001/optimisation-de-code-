@@ -40,9 +40,9 @@ clean:
 	@echo "clean effectué"
 
 mk_dir: 
-	-mkdir obj
-	-mkdir bin
-	-mkdir documentation
+	-mkdir -p obj
+	-mkdir -p bin
+	-mkdir -p documentation
 #le - permet d'ignorer les erreurs
 doxy: $(wildcard include/*.h) $(wildcard $(LIB_PATH)/include/*.h)
 	doxygen Doxyfile
