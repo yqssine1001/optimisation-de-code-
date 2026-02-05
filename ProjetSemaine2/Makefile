@@ -42,6 +42,7 @@ clean:
 mk_dir: 
 	-mkdir obj
 	-mkdir bin
+	-mkdir documentation
 #le - permet d'ignorer les erreurs
 doxy: $(wildcard include/*.h) $(wildcard $(LIB_PATH)/include/*.h)
 	doxygen Doxyfile
