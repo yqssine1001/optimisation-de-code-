@@ -1,0 +1,135 @@
+\doxysection{Référence du fichier include/\+dico.h}
+\hypertarget{dico_8h}{}\label{dico_8h}\index{include/dico.h@{include/dico.h}}
+
+
+Fonctions d\textquotesingle{}utilisation des dictionnaires.  
+
+
+{\ttfamily \+\#include $<$stdio.\+h$>$}\newline
+{\ttfamily \+\#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \+\#include $<$string.\+h$>$}\newline
+{\ttfamily \+\#include $<$math.\+h$>$}\newline
+{\ttfamily \+\#include "{}word.\+h"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{structmot__t}{mot\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Un mot avec son contenu et son hash. \end{DoxyCompactList}\item 
+struct \doxymbox{\hyperlink{structdico}{dico}}
+\begin{DoxyCompactList}\small\item\em Un mot et ses voisins. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{dico_8h_a796e7597c2dd26a8ccda9a578ce97eca}\label{dico_8h_a796e7597c2dd26a8ccda9a578ce97eca} 
+\+\#define {\bfseries Max\+Size\+Array}~16381
+\item 
+\Hypertarget{dico_8h_aff03ef1d563e292c6c9e1be5dd68c201}\label{dico_8h_aff03ef1d563e292c6c9e1be5dd68c201} 
+\+\#define {\bfseries DICORES}~"{}dictionnaires.\+txt"{}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{dico_8h_a281b75d3a79fcdb88518c2d63d268692}\label{dico_8h_a281b75d3a79fcdb88518c2d63d268692} 
+typedef struct dico {\bfseries dico}
+\item 
+\Hypertarget{dico_8h_a6926639a30009affa3a2d2793d29f52e}\label{dico_8h_a6926639a30009affa3a2d2793d29f52e} 
+typedef struct mot\+\_\+t {\bfseries mot\+\_\+t}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{dico_8h_ad85aff62729a7b6d5b2deb078c928ceb}{insert\+Dico}} (\doxymbox{\hyperlink{structdico}{dico}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}dictionary, \doxymbox{\hyperlink{structmot__t}{mot\+\_\+t}} \texorpdfstring{$\ast$}{*}link\+Word)
+\begin{DoxyCompactList}\small\item\em Ajoute un mot a sa place dans un dictionnaire. \end{DoxyCompactList}\item 
+\Hypertarget{dico_8h_a35551231eb5459f7e83c2128586b3a87}\label{dico_8h_a35551231eb5459f7e83c2128586b3a87} 
+void {\bfseries add\+To\+Dico} (\doxymbox{\hyperlink{structdico}{dico}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}dictionary, char \texorpdfstring{$\ast$}{*}word, unsigned int \texorpdfstring{$\ast$}{*}line, unsigned int \texorpdfstring{$\ast$}{*}colonne)
+\item 
+void \doxymbox{\hyperlink{dico_8h_ab65bed6b5efbd207f41f0bbb8150d2e5}{display\+Dico}} (\doxymbox{\hyperlink{structdico}{dico}} \texorpdfstring{$\ast$}{*}dictionary, char \texorpdfstring{$\ast$}{*}texte)
+\begin{DoxyCompactList}\small\item\em Affiche le dictionnaire d\textquotesingle{}un tableau de caractère dans DICORES. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{dico_8h_a2673eae0d1e9bf3077be9b8d33166eba}{display\+Nodes}} (\doxymbox{\hyperlink{structdico}{dico}} \texorpdfstring{$\ast$}{*}d, FILE \texorpdfstring{$\ast$}{*}f)
+\begin{DoxyCompactList}\small\item\em affiche une partie d\textquotesingle{}un dictionnaire dans un fichier spécifique \end{DoxyCompactList}\item 
+\Hypertarget{dico_8h_ad6454eb485e674630bde12d1adc062ab}\label{dico_8h_ad6454eb485e674630bde12d1adc062ab} 
+void {\bfseries serialize\+Dico} (\doxymbox{\hyperlink{structdico}{dico}} \texorpdfstring{$\ast$}{*}dictionary, \doxymbox{\hyperlink{structmot__data__t}{mot\+\_\+data\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}table)
+\item 
+void \doxymbox{\hyperlink{dico_8h_ab31a61102af8de632953cd7a666cab65}{deserialize\+Dico}} (\doxymbox{\hyperlink{structdico}{dico}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}dic, \doxymbox{\hyperlink{structmot__data__t}{mot\+\_\+data\+\_\+t}} \texorpdfstring{$\ast$}{*}elt)
+\begin{DoxyCompactList}\small\item\em passe d\textquotesingle{}un dictionnaire serialise a un dictionaire \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Fonctions d\textquotesingle{}utilisation des dictionnaires. 
+
+
+
+\label{doc-func-members}
+\Hypertarget{dico_8h_doc-func-members}
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{dico_8h_ab31a61102af8de632953cd7a666cab65}\index{dico.h@{dico.h}!deserializeDico@{deserializeDico}}
+\index{deserializeDico@{deserializeDico}!dico.h@{dico.h}}
+\doxysubsubsection{\texorpdfstring{deserializeDico()}{deserializeDico()}}
+{\footnotesize\ttfamily \label{dico_8h_ab31a61102af8de632953cd7a666cab65} 
+void deserialize\+Dico (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{structdico}{dico}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{dic}{, }\item[{\doxymbox{\hyperlink{structmot__data__t}{mot\+\_\+data\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{elt}{}\end{DoxyParamCaption})}
+
+
+
+passe d\textquotesingle{}un dictionnaire serialise a un dictionaire 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em dic} & le dictionnaire qui va recevoir le contenu \\
+\hline
+{\em elt} & le dicctionnaire serialise \\
+\hline
+\end{DoxyParams}
+\Hypertarget{dico_8h_ab65bed6b5efbd207f41f0bbb8150d2e5}\index{dico.h@{dico.h}!displayDico@{displayDico}}
+\index{displayDico@{displayDico}!dico.h@{dico.h}}
+\doxysubsubsection{\texorpdfstring{displayDico()}{displayDico()}}
+{\footnotesize\ttfamily \label{dico_8h_ab65bed6b5efbd207f41f0bbb8150d2e5} 
+void display\+Dico (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{structdico}{dico}} \texorpdfstring{$\ast$}{*}}]{dictionary}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{texte}{}\end{DoxyParamCaption})}
+
+
+
+Affiche le dictionnaire d\textquotesingle{}un tableau de caractère dans DICORES. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em dictionary} & le dictionnaire a afficher \\
+\hline
+{\em texte} & le texte qui a donne le dictionnaire \\
+\hline
+\end{DoxyParams}
+\Hypertarget{dico_8h_a2673eae0d1e9bf3077be9b8d33166eba}\index{dico.h@{dico.h}!displayNodes@{displayNodes}}
+\index{displayNodes@{displayNodes}!dico.h@{dico.h}}
+\doxysubsubsection{\texorpdfstring{displayNodes()}{displayNodes()}}
+{\footnotesize\ttfamily \label{dico_8h_a2673eae0d1e9bf3077be9b8d33166eba} 
+void display\+Nodes (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{structdico}{dico}} \texorpdfstring{$\ast$}{*}}]{d}{, }\item[{FILE \texorpdfstring{$\ast$}{*}}]{f}{}\end{DoxyParamCaption})}
+
+
+
+affiche une partie d\textquotesingle{}un dictionnaire dans un fichier spécifique 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em d} & le dictionnaire \\
+\hline
+{\em f} & le fichier où l\textquotesingle{}afficher \\
+\hline
+\end{DoxyParams}
+\Hypertarget{dico_8h_ad85aff62729a7b6d5b2deb078c928ceb}\index{dico.h@{dico.h}!insertDico@{insertDico}}
+\index{insertDico@{insertDico}!dico.h@{dico.h}}
+\doxysubsubsection{\texorpdfstring{insertDico()}{insertDico()}}
+{\footnotesize\ttfamily \label{dico_8h_ad85aff62729a7b6d5b2deb078c928ceb} 
+void insert\+Dico (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{structdico}{dico}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{dictionary}{, }\item[{\doxymbox{\hyperlink{structmot__t}{mot\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{link\+Word}{}\end{DoxyParamCaption})}
+
+
+
+Ajoute un mot a sa place dans un dictionnaire. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em dictionary} & le dictionaire \\
+\hline
+{\em link\+Word} & le mot a ajouter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+null 
+\end{DoxyReturn}
