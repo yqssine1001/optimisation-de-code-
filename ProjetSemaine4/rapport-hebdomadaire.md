@@ -1,5 +1,17 @@
 # Rapport Hebdomadaire - Semaine 4
 
+Pour cette semaine, nous avons tester le code, notamment avec des tests systèmes, des tests sur la sérialisation/désérialisation, et des tests unitaires notamment pour la fonction `compareWord` de la bibliothèque word.
+
+Pour cela nous avons ajouté des dossiers dans l'arborescence du projet pour gérer l'implémentation des tests :
+
+- `test_include` : pour les fichiers d'entête des tests
+- `test_src` : pour les fichiers sources des tests
+- `test_obj` : pour les fichiers objets des tests
+
+Les tests sont lancés par l'exécutable principal du projet `bin/main`.
+
+> Pour lancer le programme principal sans exécuter les tests, **il faut compiler l'application avec la commande `make FINAL=1`**.
+
 ## Tests unitaires
 
 Après avoir intégré la bibliothèque de tests unitaires CuTest dans le projet, nous avons créé une suite de tests pour la fonction `compareWord` de la bibliothèque word. Cette suite de tests comprend plusieurs cas de test pour rechercher des défaillances potentielles dans cette dernière :
