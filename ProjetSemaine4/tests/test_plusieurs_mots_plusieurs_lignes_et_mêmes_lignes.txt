@@ -1,5 +1,0 @@
-aaa bbb ccc ddd eee ccc aaa ddd
-eee hhh sss aaa bbb uuu ccc eee
-zzz hhh ooo fff eee aaa bbb eee
-ooo iii ttt fff aaa uuu bbb ccc
-

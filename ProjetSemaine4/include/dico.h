@@ -92,5 +92,13 @@ struct json_object *createJSON(mot_data_t **d);
 mot_data_t **extractJSON(struct json_object *o);
 #endif
 
+/**
+ * @fn int monDico(int argc, char *argv[])
+ * @brief Point d'entrée du programme, lance le programme principal
+ * @param argc 
+ * @param argv 
+ * @return int 
+ */
+int monDico(int argc, char *argv[]);
 
 #endif

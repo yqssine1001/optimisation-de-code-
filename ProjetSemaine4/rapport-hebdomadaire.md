@@ -8,7 +8,7 @@ Pour cela nous avons ajouté des dossiers dans l'arborescence du projet pour gé
 - `test_src` : pour les fichiers sources des tests
 - `test_obj` : pour les fichiers objets des tests
 
-Les tests sont lancés par l'exécutable principal du projet `bin/main`.
+Les tests sont lancés par l'exécutable principal du projet `bin/main` crée par la commande `make`.
 
 > Pour lancer le programme principal sans exécuter les tests, **il faut compiler l'application avec la commande `make FINAL=1`**.
 
@@ -33,4 +33,10 @@ Etant donné que nous avons connaissance de l'implémentation de `compareWord`, 
 Ces 10 tests n'ont pas détecté de défaillance, alors:
 - compareWord est spécifiquement correcte.
 - Les tests sont insuffisants pour détecter une défaillance potentielle.
+
+## Tests systèmes
+
+Pour les tests systèmes, nous avons créé un répertoire `tests_system` dans lequel deux sous répertoires ont été créés : `input` pour les fichiers d'entrée des tests et `expected_output` pour les résultats attendus.
+
+Les tests systèmes appelent la fonction `monDico` dans un processus fils (pour que les fuites mémoire ou corruptions d'un appel précédent n'affectent pas les tests systèmes suivants), et comparent la sortie de cette dernière avec les résultats attendus.
 

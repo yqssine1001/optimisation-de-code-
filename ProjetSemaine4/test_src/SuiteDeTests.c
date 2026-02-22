@@ -3,9 +3,12 @@
 #include <string.h>
 #include <stdint.h>
 #include <stdbool.h>
+#include <unistd.h>
+#include <sys/wait.h>
 #include "CuTest.h"
 #include "compare_file.h"
 #include "word.h"
+#include "dico.h"
 
 
 /* ------------------------------------------------------------------ */
@@ -105,10 +108,52 @@ void test_compareWord_un_caractere(CuTest *tc) {
 }
 
 /* ------------------------------------------------------------------ */
+/* Tests systèmes                                                     */
+/* ------------------------------------------------------------------ */
+
+/* Fonction générique : lance monDico dans un processus fils isolé sur 'filename' (L'isolation par fork() car évite que les fuites mémoire / corruptions d'un appel précédent de monDico affectent les tests suivants. )*/
+static void run_systeme_test(CuTest *tc, const char *filename) {
+    char input[256], expected[256];
+    snprintf(input, sizeof(input), "tests_systeme/inputs/%s", filename);
+    snprintf(expected, sizeof(expected), "tests_systeme/expected_outputs/%s", filename);
+
+    pid_t pid = fork();
+    CuAssert(tc, "fork() a echoue", pid >= 0);
+
+    if (pid == 0) {
+        char *argv[] = { "main", input, NULL };
+        exit(monDico(2, argv));
+    }
+
+    int status;
+    waitpid(pid, &status, 0);
+
+    // Vérifie que monDico s'est terminé normalement avec code 0
+    CuAssert(tc, "monDico : signal inattendu", WIFEXITED(status));
+    CuAssertIntEquals(tc, 0, WEXITSTATUS(status));
+
+    // Compare dictionnaires.txt avec la sortie attendue
+    int diff = compare_file(DICORES, expected);
+    CuAssertIntEquals(tc, 0, diff);
+}
+
+
+void test_systeme_plusieurs_espaces(CuTest *tc) {
+    run_systeme_test(tc, "test_avec_plusieurs_espaces.txt");
+}
+
+void test_systeme_ponctuation(CuTest *tc) {
+    run_systeme_test(tc, "test_ponctuation.txt");
+}
+
+
+
+/* ------------------------------------------------------------------ */
 /* Suite de tests                                                     */
 /* ------------------------------------------------------------------ */
 CuSuite *MaTestSuite(void) {
     CuSuite *suite = CuSuiteNew();
+    // Ajouter les tests unitaires pour compareWord
     SUITE_ADD_TEST(suite, test_compareWord_w1_null);
     SUITE_ADD_TEST(suite, test_compareWord_w2_null);
     SUITE_ADD_TEST(suite, test_compareWord_both_null);
@@ -119,6 +164,9 @@ CuSuite *MaTestSuite(void) {
     SUITE_ADD_TEST(suite, test_compareWord_w2_prefixe_de_w1);
     SUITE_ADD_TEST(suite, test_compareWord_casse);
     SUITE_ADD_TEST(suite, test_compareWord_un_caractere);
+    // Ajouter les tests système
+    SUITE_ADD_TEST(suite, test_systeme_plusieurs_espaces);
+    SUITE_ADD_TEST(suite, test_systeme_ponctuation);
     return suite;
 }
 
