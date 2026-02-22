@@ -2,7 +2,16 @@
 #include <stdlib.h>
 #include "dico.h"
 
+#ifndef FINAL
+
+#define FINAL 0
+#include "CuTest.h"
+#include "AllTests.h"
+
+#endif
+
 int main(int argc, char *argv[]) {
+#if FINAL
 #ifdef DEBUG
   printf("DEBUG: work in progres!!!\n");
 #endif
@@ -57,6 +66,8 @@ int main(int argc, char *argv[]) {
   displayNodes(copiedico, stdout);
   fclose(f);
 
-
+#else
+    RunAllTests();
+#endif
   return 0;
 }

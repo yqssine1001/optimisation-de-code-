@@ -1,0 +1,126 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdint.h>
+#include <stdbool.h>
+#include "CuTest.h"
+#include "compare_file.h"
+#include "word.h"
+
+
+/* ------------------------------------------------------------------ */
+/* Tests unitaires pour compareWord                                   */
+/* ------------------------------------------------------------------ */
+
+// Permet de créer un mot_data_t à partir d'une chaîne de caractères
+static mot_data_t *make_word(const char *mot) {
+    mot_data_t *w = (mot_data_t *) malloc(sizeof(mot_data_t));
+    strncpy(w->lemot, mot, maxSizeWord - 1);
+    w->lemot[maxSizeWord - 1] = '\0';
+    w->tete_liste = NULL;
+    w->queue_liste = NULL;
+    return w;
+}
+
+/* compareWord(NULL, w2) doit retourner 1 */
+void test_compareWord_w1_null(CuTest *tc) {
+    mot_data_t *w2 = make_word("bonjour");
+    CuAssertIntEquals(tc, 1, compareWord(NULL, w2));
+    free(w2);
+}
+
+/* compareWord(w1, NULL) doit retourner -1 */
+void test_compareWord_w2_null(CuTest *tc) {
+    mot_data_t *w1 = make_word("bonjour");
+    CuAssertIntEquals(tc, -1, compareWord(w1, NULL));
+    free(w1);
+}
+
+/* compareWord(NULL, NULL) : w1 est NULL => retourne 1 en premier */
+void test_compareWord_both_null(CuTest *tc) {
+    CuAssertIntEquals(tc, 1, compareWord(NULL, NULL));
+}
+
+/* Deux mots identiques => retourne 0 */
+void test_compareWord_egal(CuTest *tc) {
+    mot_data_t *w1 = make_word("chat");
+    mot_data_t *w2 = make_word("chat");
+    CuAssertIntEquals(tc, 0, compareWord(w1, w2));
+    free(w1);
+    free(w2);
+}
+
+/* w1 < w2 alphabetiquement ("abc" < "abd") => retourne -1 */
+void test_compareWord_w1_inferieur(CuTest *tc) {
+    mot_data_t *w1 = make_word("abc");
+    mot_data_t *w2 = make_word("abd");
+    CuAssertTrue(tc, compareWord(w1, w2) < 0);
+    free(w1);
+    free(w2);
+}
+
+/* w1 > w2 alphabetiquement ("abd" > "abc") => retourne 1 */
+void test_compareWord_w1_superieur(CuTest *tc) {
+    mot_data_t *w1 = make_word("abd");
+    mot_data_t *w2 = make_word("abc");
+    CuAssertTrue(tc, compareWord(w1, w2) > 0);
+    free(w1);
+    free(w2);
+}
+
+/* w1 est un prefixe de w2 ("ab" < "abc") => retourne -1 */
+void test_compareWord_w1_prefixe_de_w2(CuTest *tc) {
+    mot_data_t *w1 = make_word("ab");
+    mot_data_t *w2 = make_word("abc");
+    CuAssertTrue(tc, compareWord(w1, w2) < 0);
+    free(w1);
+    free(w2);
+}
+
+/* w2 est un prefixe de w1 ("abc" > "ab") => retourne 1 */
+void test_compareWord_w2_prefixe_de_w1(CuTest *tc) {
+    mot_data_t *w1 = make_word("abc");
+    mot_data_t *w2 = make_word("ab");
+    CuAssertTrue(tc, compareWord(w1, w2) > 0);
+    free(w1);
+    free(w2);
+}
+
+/* Casse 'A' < 'a' => retourne -1 */
+void test_compareWord_casse(CuTest *tc) {
+    mot_data_t *w1 = make_word("ABC");
+    mot_data_t *w2 = make_word("abc");
+    CuAssertTrue(tc, compareWord(w1, w2) < 0);
+    free(w1);
+    free(w2);
+}
+
+/* Mots d'une seule lettre differente "a" et "b" => retourne -1 */
+void test_compareWord_un_caractere(CuTest *tc) {
+    mot_data_t *w1 = make_word("a");
+    mot_data_t *w2 = make_word("b");
+    CuAssertTrue(tc, compareWord(w1, w2) < 0);
+    free(w1);
+    free(w2);
+}
+
+/* ------------------------------------------------------------------ */
+/* Suite de tests                                                     */
+/* ------------------------------------------------------------------ */
+CuSuite *MaTestSuite(void) {
+    CuSuite *suite = CuSuiteNew();
+    SUITE_ADD_TEST(suite, test_compareWord_w1_null);
+    SUITE_ADD_TEST(suite, test_compareWord_w2_null);
+    SUITE_ADD_TEST(suite, test_compareWord_both_null);
+    SUITE_ADD_TEST(suite, test_compareWord_egal);
+    SUITE_ADD_TEST(suite, test_compareWord_w1_inferieur);
+    SUITE_ADD_TEST(suite, test_compareWord_w1_superieur);
+    SUITE_ADD_TEST(suite, test_compareWord_w1_prefixe_de_w2);
+    SUITE_ADD_TEST(suite, test_compareWord_w2_prefixe_de_w1);
+    SUITE_ADD_TEST(suite, test_compareWord_casse);
+    SUITE_ADD_TEST(suite, test_compareWord_un_caractere);
+    return suite;
+}
+
+
+
