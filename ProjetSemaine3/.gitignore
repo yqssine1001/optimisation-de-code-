@@ -1,0 +1,8 @@
+.idea/
+.vscode/
+.code/
+documentation/*
+obj/*
+bin/*
+lib_word/obj/
+lib_word/lib/
