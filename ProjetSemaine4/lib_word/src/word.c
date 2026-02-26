@@ -83,7 +83,7 @@ void displayWord(mot_data_t* word, FILE *filedes) {
       fflush(stdout);
     }
     while(list != NULL) {
-      fprintf(filedes," (%i,%i)",list->line,list->colonne);
+      fprintf(filedes," (%i,%i)\n",list->line,list->colonne);
       list = list->next;
     }
   }
