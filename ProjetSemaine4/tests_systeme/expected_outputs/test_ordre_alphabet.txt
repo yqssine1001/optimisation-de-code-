@@ -1,2 +1,0 @@
-Contenu dictionnaire pour ./tests_systeme/inputs/test_ordre_alpabet.txt : 
-abe (3,1)abeille (2,1)abolition (4,1)ananas (1,1)
