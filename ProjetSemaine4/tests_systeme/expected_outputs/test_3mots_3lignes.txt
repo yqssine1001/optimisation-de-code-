@@ -1,2 +1,4 @@
 Contenu dictionnaire pour ./tests_systeme/inputs/test_3mots_3lignes.txt : 
-schtroumpf (1,11) (2,6) (3,1)titi (1,6) (2,1) (3,12)toto (1,1) (2,17) (3,17)
+schtroumpf (1,11) (2,6) (3,1)
+titi (1,6) (2,1) (3,12)
+toto (1,1) (2,17) (3,17)

@@ -1,2 +1,3 @@
 Contenu dictionnaire pour ./tests_systeme/inputs/test_ponctuation.txt : 
-cat (1,15)toto (1,33)
+cat (1,15)
+toto (1,33)
