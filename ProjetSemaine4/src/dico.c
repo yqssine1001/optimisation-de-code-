@@ -210,7 +210,7 @@ int monDico(int argc, char *argv[]) {
   dico* dictionary = NULL;
   dico* copiedico = NULL;     
   mot_data_t **serialized_dico = (mot_data_t **)malloc(MaxSizeArray*sizeof(mot_data_t *));
-  while((word = next_word(f,line,colonne))!=NULL) {//!feof(f)
+  while((word = next_word(f,line,colonne))!=NULL) {
     addToDico(&dictionary,word,line,colonne);
   }
   displayDico(dictionary,texte);
