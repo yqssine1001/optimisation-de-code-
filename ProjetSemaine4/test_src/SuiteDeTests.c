@@ -145,8 +145,18 @@ void test_systeme_plusieurs_espaces(CuTest *tc) {
 void test_systeme_ponctuation(CuTest *tc) {
     run_systeme_test(tc, "test_ponctuation.txt");
 }
-
-
+void test_systeme_vide(CuTest *tc) {
+    run_systeme_test(tc, "test_vide.txt");
+}
+void test_systeme_ordre(CuTest *tc) {
+    run_systeme_test(tc, "test_ordre.txt");
+}
+void test_systeme_EOF(CuTest *tc) {
+    run_systeme_test(tc, "test_EOF.txt");
+}
+void test_systeme_normal(CuTest *tc) {
+    run_systeme_test(tc, "test_3mots_3lignes.txt");
+}
 
 /* ------------------------------------------------------------------ */
 /* Suite de tests                                                     */
@@ -167,6 +177,10 @@ CuSuite *MaTestSuite(void) {
     // Ajouter les tests système
     SUITE_ADD_TEST(suite, test_systeme_plusieurs_espaces);
     SUITE_ADD_TEST(suite, test_systeme_ponctuation);
+    SUITE_ADD_TEST(suite, test_systeme_vide);
+    SUITE_ADD_TEST(suite, test_systeme_ordre);
+    SUITE_ADD_TEST(suite, test_systeme_EOF);
+    SUITE_ADD_TEST(suite, test_systeme_normal);
     return suite;
 }
 
