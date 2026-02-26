@@ -10,24 +10,29 @@ char *next_word(FILE *f, unsigned int *nblin, unsigned int *nbcol){
   unsigned int i=0, startl = current_line, startc = current_col;
   char sep;
   sep = fgetc(f);
-  while (strchr(separators,sep) != NULL  || sep == '\n') { 
+  //ignorer separateurs et sauts de ligne
+  while ( (sep!=EOF) & (strchr(separators,sep) != NULL  || sep == '\n')) { 
     startc++;
     if (sep == '\n'){ 
       startl++; startc = 1;
     } 
     sep = fgetc(f);
-  } 
+  }
+  if(sep==EOF)
+    return NULL;
   ungetc(sep,f);
   if (nblin != NULL) *nblin = startl;  
   if (nbcol != NULL) *nbcol = startc;
-  while ((strchr(separators, s[i]=fgetc(f)) == NULL) && s[i] != '\n'){
+  while ((strchr(separators, s[i]=fgetc(f)) == NULL) && s[i] != '\n' && s[i]!=EOF){
     i++; startc++;
   }
+  if(s[i]==EOF)
+    return NULL;
   sep = s[i]; 
   s[i] = '\0';
   res = (char *)malloc(strlen(s)+1); 
   strcpy(res,s);
-  while (strchr(separators,sep) != NULL  || sep == '\n') { 
+  while ( (sep!=EOF) & (strchr(separators,sep) != NULL  || sep == '\n')) { 
     startc++;
     if (sep == '\n'){  
       startl++; startc = 1;
