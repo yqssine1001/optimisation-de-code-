@@ -1,0 +1,2 @@
+Contenu dictionnaire pour ./tests_systeme/inputs/test_EOF.txt : 
+avec (1,36) (2,15)cette (1,41)cinq (1,7)courbe (3,10)de (2,41)elle (2,20)glace (2,35)j’habite (1,25)pensee (1,47)poids (3,26)presence (2,47)que (1,21)sa (2,44)semaines (1,12)seul (2,10)son (3,22)sous (3,17)toujours (2,1) (2,26) (3,1)voila (1,1)
