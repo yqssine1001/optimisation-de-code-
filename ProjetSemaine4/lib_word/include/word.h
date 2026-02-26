@@ -9,7 +9,7 @@
  * \brief Fonctions de manipulation des mots
  */
 
-#define SEP " ,.-"
+#define SEP " ,.-`~'()<>?!;:\"\\&+*/#@^$=_%[]{}"
 
 #define maxSizeWord 25
 
