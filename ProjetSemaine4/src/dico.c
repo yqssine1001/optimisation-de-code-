@@ -189,12 +189,12 @@ int monDico(int argc, char *argv[]) {
 #ifdef DEBUG
   printf("DEBUG: work in progres!!!\n");
 #endif
-
   if (argc < 2) 
   {
     fprintf(stderr, "Erreur : %s prend au moins un argument <fichier>\n", argv[0]);
     return -1;
   }
+  
   char *texte = argv[1];
   FILE* f = fopen(texte, "r");
   int i;
