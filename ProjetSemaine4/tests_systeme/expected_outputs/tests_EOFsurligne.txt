@@ -1,0 +1,2 @@
+Contenu dictionnaire pour ./tests_systeme/inputs/test_EOFsurligne.txt : 
+accourant (1,43)bonne (1,4) (1,14)caisse (2,23)chambre (1,61)dans (1,53)de (2,54)dit (1,21)en (1,40)envoyée (2,45)jour (1,28)m’a (2,39)ma (1,1) (1,11)ouvrir (2,12)papa (2,34)paris (2,57)que (2,30)sa (1,58)sophie (1,33)un (1,25)une (2,19)venez (2,1)vite (2,7)
