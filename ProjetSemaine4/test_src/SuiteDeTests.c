@@ -25,6 +25,17 @@ static mot_data_t *make_word(const char *mot) {
     return w;
 }
 
+int compare_dico(dico *d1, dico *d2)
+{
+    if(!d1 && !d2)
+        return 1;
+    if(!d1 || !d2)
+        return 0;
+    if(d1->mot->lehash != d2->mot->lehash)
+        return 0;
+    return compare_dico(d1->fd, d2->fd) && compare_dico(d1->fg, d2->fg);
+}
+
 /* compareWord(NULL, w2) doit retourner 1 */
 void test_compareWord_w1_null(CuTest *tc) {
     mot_data_t *w2 = make_word("bonjour");
@@ -158,6 +169,53 @@ void test_systeme_normal(CuTest *tc) {
     run_systeme_test(tc, "test_3mots_3lignes.txt");
 }
 
+int test_serealisation(char * path)
+{
+    FILE *f = fopen(path, "r");
+    if(!f) 
+    {
+        perror(path);
+        return -1;
+    }
+    int i;
+    unsigned int* line = (unsigned int*) malloc(sizeof(int));
+    unsigned int* colonne = (unsigned int*) malloc(sizeof(int));
+    char* word = (char*) malloc(sizeof(char)*maxSizeWord);
+    dico* dictionary = NULL;
+    dico* copiedico = NULL; 
+    mot_data_t **serialized_dico = (mot_data_t **)malloc(MaxSizeArray*sizeof(mot_data_t *));
+    while((word = next_word(f,line,colonne))!=NULL) {
+        addToDico(&dictionary,word,line,colonne);
+    }
+    for(i=0; i<MaxSizeArray; i++)
+    serialized_dico[i] = NULL;
+    serializeDico(dictionary,serialized_dico);
+    for(i=0; i<MaxSizeArray; i++)
+    if (serialized_dico[i] != NULL) {
+      deserializeDico(&copiedico, serialized_dico[i]);
+    }
+    return compare_dico(dictionary, copiedico);
+}
+
+void test_ser_plusieurs_espaces(CuTest *tc) {
+    CuAssertTrue(tc, test_serealisation("tests_systeme/inputs/test_avec_plusieurs_espaces.txt"));
+}
+
+void test_ser_ponctuation(CuTest *tc) {
+    CuAssertTrue(tc, test_serealisation("tests_systeme/inputs/est_ponctuation.txt"));
+}
+void test_ser_vide(CuTest *tc) {
+    CuAssertTrue(tc, test_serealisation("tests_systeme/inputs/test_vide.txt"));
+}
+void test_ser_ordre(CuTest *tc) {
+    CuAssertTrue(tc, test_serealisation("tests_systeme/inputs/test_ordre.txt"));
+}
+void test_ser_EOF(CuTest *tc) {
+    CuAssertTrue(tc, test_serealisation("tests_systeme/inputs/test_EOF.txt"));
+}
+void test_ser_normal(CuTest *tc) {
+    CuAssertTrue(tc, test_serealisation("tests_systeme/inputs/test_3mots_3lignes.txt"));
+}
 /* ------------------------------------------------------------------ */
 /* Suite de tests                                                     */
 /* ------------------------------------------------------------------ */
@@ -181,6 +239,13 @@ CuSuite *MaTestSuite(void) {
     SUITE_ADD_TEST(suite, test_systeme_ordre);
     SUITE_ADD_TEST(suite, test_systeme_EOF);
     SUITE_ADD_TEST(suite, test_systeme_normal);
+    // Ajouter les test serealisation
+    SUITE_ADD_TEST(suite, test_ser_plusieurs_espaces);
+    SUITE_ADD_TEST(suite, test_ser_ponctuation);
+    SUITE_ADD_TEST(suite, test_ser_vide);
+    SUITE_ADD_TEST(suite, test_ser_ordre);
+    SUITE_ADD_TEST(suite, test_ser_EOF);
+    SUITE_ADD_TEST(suite, test_ser_normal);
     return suite;
 }
 
