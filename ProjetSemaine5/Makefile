@@ -32,6 +32,13 @@ LDFLAGS+= -L/opt/json-c-master/lib -ljson-c
 $(shell touch $(SRCS))
 endif
 
+ifdef COV
+OPTGCOV= -fprofile-arcs -ftest-coverage
+CFLAGS+=$(OPTGCOV)
+LDFLAGS+=$(OPTGCOV)
+$(shell touch $(SRCS))
+endif 
+
 ifdef FINAL # La variable FINAL doit être définie à 1 pour compiler le code final
 CPPFLAGS+= -DFINAL=$(FINAL)
 $(shell touch $(SRCS))
@@ -85,7 +92,7 @@ $(TEST_OBJDIR)/%.o: $(TEST_SRCDIR)/%.c
 
 
 clean:
-	-rm $(OBJDIR)/*.o  $(EXECDIR)/* $(TEST_OBJDIR)/*.o $(LIB_OBJDIR)/*.o $(LIB_LIBDIR)/*.a $(LIB_LIBDIR)/*.so
+	-rm $(OBJDIR)/*.o  $(EXECDIR)/* $(TEST_OBJDIR)/*.o $(LIB_OBJDIR)/*.o $(LIB_LIBDIR)/*.a $(LIB_LIBDIR)/*.so *.c.gcov $(OBJDIR)/*.gcno $(OBJDIR)/*.gcda $(TEST_OBJDIR)/*.gcno $(TEST_OBJDIR)/*.gcda
 	@echo "clean effectué"
 
 mk_dir: 

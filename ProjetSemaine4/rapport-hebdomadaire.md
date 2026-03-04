@@ -40,3 +40,40 @@ Pour les tests systèmes, nous avons créé un répertoire `tests_system` dans l
 
 Les tests systèmes appelent la fonction `monDico` dans un processus fils (pour que les fuites mémoire ou corruptions d'un appel précédent n'affectent pas les tests systèmes suivants), et comparent la sortie de cette dernière avec les résultats attendus.
 
+## Couverture de code
+
+Après avoir ajouté, quelques tests (unitaires et systèmes) automatisés, nous avons utilisé l'outil `gcov` pour analyser si les tests que nous avons écrits couvrent bien le code de notre projet. 
+
+Une des stratégies de test est basée sur la couverture du code : L'idée est que si on exécute pas une partie du code (qui contient une **faute**), alors on ne peut pas produire la défaillance (il est important de noter que la couverture du code n'est pas une garantie absolue de l'absence de défauts).
+
+Pour se donner une idée de la qualité des tests, il suffirait de vérifier la couverture de `src/dico.c` et de `lib_word/src/word.c`.
+
+D'après les résultats de `gcov` :
+
+Pour `dico.c`
+```
+>>> gcov -b -c -o obj src/dico.c
+File 'src/dico.c'
+Lines executed:93.91% of 115
+Branches executed:100.00% of 48
+Taken at least once:87.50% of 48
+Calls executed:92.11% of 38
+Creating 'dico.c.gcov'
+
+Lines executed:93.91% of 115
+```
+Pour `word.c`
+
+```
+gcov -b -c -o lib_word/obj/ lib_word/src/word.c 
+File 'lib_word/src/word.c'
+Lines executed:98.51% of 67
+Branches executed:100.00% of 58
+Taken at least once:89.66% of 58
+Calls executed:100.00% of 10
+Creating 'word.c.gcov'
+
+Lines executed:98.51% of 67
+```
+
+Nous avons une couverture du code de 93.91% pour `dico.c` et de 98.51% pour `word.c`, il reste encore des lignes de code non couvertes par les tests. Il serait intéressant d'analyser ces lignes non couvertes pour voir si elles contiennent des défaillances potentielles et d'ajouter des tests pour les couvrir.
