@@ -66,8 +66,7 @@ int compareWord(mot_data_t* w1, mot_data_t* w2) {
 
 void incWord(emplacement_t* location, unsigned int line, unsigned int colonne) {
   emplacement_t* newLocation = (emplacement_t*) malloc(sizeof(emplacement_t));
-  emplacement_t* tempLocation = (emplacement_t*) malloc(sizeof(emplacement_t));
-  tempLocation = location;
+  emplacement_t* tempLocation = location;
   newLocation->next = NULL;
   newLocation->line = line;
   newLocation->colonne = colonne;
