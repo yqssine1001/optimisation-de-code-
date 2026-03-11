@@ -26,7 +26,7 @@ struct mot_t {
   int lehash;
   mot_data_t data;
 };
-/** 
+/**
  * @brief Un mot et ses voisins
  * @param mot Le mot contenu
  * @param fg Le mot de gauche
@@ -74,7 +74,7 @@ void displayNodes(dico *d, FILE* f);
  * @fn serializeDico(dico *dictionary, mot_dat_ **table)*
  * @brief passe d'un dictionnaire a un tableau de mots
  * @param dictionary le dictionnaire
- * @param table la table pour aplatir 
+ * @param table la table pour aplatir
  */
 void serializeDico(dico * dictionary, mot_data_t **table);
 /**
@@ -95,9 +95,9 @@ mot_data_t **extractJSON(struct json_object *o);
 /**
  * @fn int monDico(int argc, char *argv[])
  * @brief Point d'entrée du programme, lance le programme principal
- * @param argc 
- * @param argv 
- * @return int 
+ * @param argc
+ * @param argv
+ * @return int
  */
 int monDico(int argc, char *argv[]);
 
