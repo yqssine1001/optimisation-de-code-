@@ -12,7 +12,6 @@ int hash(char *m) {
 
 void insertDico(dico** dictionary, mot_t* linkWord) {
   dico* newDictionary = *dictionary;
-  dico* newDictionary = *dictionary;
   while(newDictionary != NULL && compareWord(&(newDictionary->mot->data),&(linkWord->data))>0) {
     *dictionary = newDictionary;
     insertDico(&(newDictionary->fg),linkWord);
