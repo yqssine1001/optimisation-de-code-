@@ -167,6 +167,8 @@ Aucune erreur détectée. Le crash SEGV précédent dans `incWord` est résolu.
 
 Toujours aucun comportement indéfini détecté.
 
+> Remarque : Le lanceur de test possède des erreurs de mémoire à son exécution, mais le programme du dico lui même n'en présente plus.
+
 
 ## Conclusion
 
