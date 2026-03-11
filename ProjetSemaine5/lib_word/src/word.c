@@ -11,7 +11,7 @@ char *next_word(FILE *f, unsigned int *nblin, unsigned int *nbcol){
   char sep;
   sep = fgetc(f);
   //ignorer separateurs et sauts de ligne
-  while ( (sep!=EOF) & (strchr(separators,sep) != NULL  || sep == '\n')) { 
+  while ( (sep!=EOF) && (strchr(separators,sep) != NULL  || sep == '\n')) { 
     startc++;
     if (sep == '\n'){ 
       startl++; startc = 1;
@@ -32,7 +32,7 @@ char *next_word(FILE *f, unsigned int *nblin, unsigned int *nbcol){
   s[i] = '\0';
   res = (char *)malloc(strlen(s)+1); 
   strcpy(res,s);
-  while ( (sep!=EOF) & (strchr(separators,sep) != NULL  || sep == '\n')) { 
+  while ( (sep!=EOF) && (strchr(separators,sep) != NULL  || sep == '\n')) { 
     startc++;
     if (sep == '\n'){  
       startl++; startc = 1;

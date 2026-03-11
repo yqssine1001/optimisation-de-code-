@@ -16,7 +16,7 @@ LIB_SRCS = $(wildcard $(LIB_SRCDIR)/*.c)
 LIB_OBJS = $(LIB_SRCS:$(LIB_SRCDIR)/%.c=$(LIB_OBJDIR)/%.o)
 LIB_OBJS_PIC = $(LIB_SRCS:$(LIB_SRCDIR)/%.c=$(LIB_OBJDIR)/%.pic.o) # objet pic pour library partagée
 EXEC = main#			les objectif ALL
-CFLAGS = -Wall -Werror
+CFLAGS = -Wall -Werror -g
 CPPFLAGS = -I$(LIB_PATH)/include -Iinclude -Itest_include
 LDFLAGS = -lm # pour lier la math library
 LDFLAGS_SHARED = -L$(LIB_LIBDIR) -lword # pour lier la library partagée

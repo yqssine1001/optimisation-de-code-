@@ -114,8 +114,8 @@ void test_compareWord_un_caractere(CuTest *tc) {
 /* Fonction générique : lance monDico dans un processus fils isolé sur 'filename' (L'isolation par fork() car évite que les fuites mémoire / corruptions d'un appel précédent de monDico affectent les tests suivants. )*/
 static void run_systeme_test(CuTest *tc, const char *filename) {
     char input[256], expected[256];
-    snprintf(input, sizeof(input), "tests_systeme/inputs/%s", filename);
-    snprintf(expected, sizeof(expected), "tests_systeme/expected_outputs/%s", filename);
+    snprintf(input, sizeof(input), "./tests_systeme/inputs/%s", filename);
+    snprintf(expected, sizeof(expected), "./tests_systeme/expected_outputs/%s", filename);
 
     pid_t pid = fork();
     CuAssert(tc, "fork() a echoue", pid >= 0);

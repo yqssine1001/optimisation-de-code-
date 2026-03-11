@@ -12,6 +12,7 @@ int hash(char *m) {
 
 void insertDico(dico** dictionary, mot_t* linkWord) {
   dico* newDictionary = *dictionary;
+  dico* newDictionary = *dictionary;
   while(newDictionary != NULL && compareWord(&(newDictionary->mot->data),&(linkWord->data))>0) {
     *dictionary = newDictionary;
     insertDico(&(newDictionary->fg),linkWord);
@@ -24,6 +25,8 @@ void insertDico(dico** dictionary, mot_t* linkWord) {
   }
   if (newDictionary != NULL && compareWord(&(newDictionary->mot->data),&(linkWord->data))==0) {
     incWord(newDictionary->mot->data.queue_liste,linkWord->data.tete_liste->line,linkWord->data.tete_liste->colonne);
+    free(linkWord->data.tete_liste);
+    free(linkWord);
   }
   else {
     newDictionary = (dico*) malloc(sizeof(dico));
@@ -40,6 +43,7 @@ void addToDico(dico** dictionary, char* word, unsigned int* line, unsigned int* 
   newLinkWord->lehash = hash(word);
   location->line = *line;
   location -> colonne = *colonne;
+  location->next = NULL;
   newLinkWord->data.tete_liste = location;
   newLinkWord->data.queue_liste = location;
   if(*dictionary==NULL) {
@@ -67,11 +71,10 @@ void displayDico(dico* dictionary,char *texte) {
     printf("displayDico : NULL\n");
   } else {
     fprintf(f, "Contenu dictionnaire pour %s : \n", texte);
-    dico* tempDico = (dico*) malloc(sizeof(dico));
-    tempDico = dictionary;
-    displayNodes(tempDico, f);
+    displayNodes(dictionary, f);
     fflush(f);
   }
+  fclose(f);
 }
 
 void displayNodes(dico *d, FILE* f) {
@@ -79,6 +82,38 @@ void displayNodes(dico *d, FILE* f) {
     displayNodes(d->fg, f);
     displayWord(&(d->mot->data),f);
     displayNodes(d->fd, f);
+  }
+}
+
+// Fonctions de libération mémoire
+static void freeEmplacements(emplacement_t *e) {
+  while (e) {
+    emplacement_t *next = e->next;
+    free(e);
+    e = next;
+  }
+}
+
+void freeDico(dico *d) {
+  if (d) {
+    freeDico(d->fg);
+    freeDico(d->fd);
+    
+    if (d->mot) {
+      freeEmplacements(d->mot->data.tete_liste);
+      free(d->mot);
+    }
+
+    free(d);
+  }
+}
+
+static void freeDicoShallow(dico *d) {
+  if (d) {
+    freeDicoShallow(d->fg);
+    freeDicoShallow(d->fd);
+    free(d->mot);
+    free(d);
   }
 }
 
@@ -91,18 +126,17 @@ void serializeDico(dico * dictionary, mot_data_t **table) {
 }
 
 void deserializeDico(dico** dic, mot_data_t *elt) {
-  dico *temp = NULL;
-  mot_t* newLinkWord = (mot_t*) malloc(sizeof(mot_t));
-  newLinkWord->lehash = hash(elt->lemot);
-  newLinkWord->data = *elt;
   if((*dic)==NULL) {
-    temp = (dico *)malloc(sizeof(dico));
+    dico *temp = (dico *)malloc(sizeof(dico));
+    mot_t* newLinkWord = (mot_t*) malloc(sizeof(mot_t));
+    newLinkWord->lehash = hash(elt->lemot);
+    newLinkWord->data = *elt;
     temp->fg = temp->fd = NULL;
     temp->mot = newLinkWord;
     *dic = temp;
     return;
   }
-  if (compareWord(&((*dic)->mot->data),(mot_data_t*)newLinkWord)>0) {
+  if (compareWord(&((*dic)->mot->data),(mot_data_t*)elt)>0) {   
     deserializeDico(&(*dic)->fg, elt);
   }
   else
@@ -203,14 +237,15 @@ int monDico(int argc, char *argv[]) {
     return -1;
   }
 
-  unsigned int* line = (unsigned int*) malloc(sizeof(int));
-  unsigned int* colonne = (unsigned int*) malloc(sizeof(int));
-  char* word = (char*) malloc(sizeof(char)*maxSizeWord);
+  unsigned int line = 0;
+  unsigned int colonne = 0;
+  char* word = NULL;
   dico* dictionary = NULL;
   dico* copiedico = NULL;
   mot_data_t **serialized_dico = (mot_data_t **)malloc(MaxSizeArray*sizeof(mot_data_t *));
-  while((word = next_word(f,line,colonne))!=NULL) {
-    addToDico(&dictionary,word,line,colonne);
+  while((word = next_word(f,&line,&colonne))!=NULL) {
+    addToDico(&dictionary,word,&line,&colonne);
+    free(word);
   }
   displayDico(dictionary,texte);
   for(i=0; i<MaxSizeArray; i++)
@@ -237,6 +272,9 @@ int monDico(int argc, char *argv[]) {
   printf("A la fin : \n");
   displayNodes(copiedico, stdout);
   fclose(f);
+  freeDicoShallow(copiedico);
+  freeDico(dictionary);
+  free(serialized_dico);
 
   return 0;
 }
