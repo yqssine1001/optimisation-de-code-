@@ -22,10 +22,10 @@ void insertDico(dico** dictionary, mot_t* linkWord) {
     insertDico(&(newDictionary->fd),linkWord);
     return;
   }
-  if (newDictionary != NULL && compareWord(&(newDictionary->mot->data),&(linkWord->data))==0) { 
+  if (newDictionary != NULL && compareWord(&(newDictionary->mot->data),&(linkWord->data))==0) {
     incWord(newDictionary->mot->data.queue_liste,linkWord->data.tete_liste->line,linkWord->data.tete_liste->colonne);
   }
-  else { 
+  else {
     newDictionary = (dico*) malloc(sizeof(dico));
     newDictionary->mot = linkWord;
     newDictionary->fg = newDictionary->fd = NULL;
@@ -85,7 +85,7 @@ void displayNodes(dico *d, FILE* f) {
 void serializeDico(dico * dictionary, mot_data_t **table) {
   if (dictionary) {
     serializeDico(dictionary->fg, table);
-    table[abs(dictionary->mot->lehash)] = &(dictionary->mot->data); 
+    table[abs(dictionary->mot->lehash)] = &(dictionary->mot->data);
     serializeDico(dictionary->fd, table);
   }
 }
@@ -102,7 +102,7 @@ void deserializeDico(dico** dic, mot_data_t *elt) {
     *dic = temp;
     return;
   }
-  if (compareWord(&((*dic)->mot->data),(mot_data_t*)newLinkWord)>0) {   
+  if (compareWord(&((*dic)->mot->data),(mot_data_t*)newLinkWord)>0) {
     deserializeDico(&(*dic)->fg, elt);
   }
   else
@@ -119,7 +119,7 @@ struct json_object *createJSON(mot_data_t **d){
     if (d[i] != NULL) {
       int j=0;
       struct json_object *newelem = json_object_new_object();
-      char* mot = d[i]->lemot;   
+      char* mot = d[i]->lemot;
       emplacement_t* list = d[i]->tete_liste;
       struct json_object *l = json_object_new_array();
       json_object_object_add(newelem, "index", json_object_new_int(i));
@@ -133,7 +133,7 @@ struct json_object *createJSON(mot_data_t **d){
 	list = list->next;
       }
       json_object_object_add(newelem, "liste", l);
-      json_object_array_add(t,newelem); 
+      json_object_array_add(t,newelem);
     }
   }
   json_object_object_add(r,"dico",t);
@@ -146,24 +146,24 @@ mot_data_t **extractJSON(struct json_object *o){
   size_t n;
   struct json_object *t;
   for(k=0; k<MaxSizeArray; k++) d[k] = NULL;
-  json_object_object_get_ex(o, "dico", &t); 
+  json_object_object_get_ex(o, "dico", &t);
   n = json_object_array_length(t);
-  for(k=0; k<n; k++) { 
+  for(k=0; k<n; k++) {
     struct json_object *i, *m, *l, *line, *col;
     int ind, j;
     size_t n2;
     struct json_object* structmot = json_object_array_get_idx(t,k);
-    json_object_object_get_ex(structmot, "index", &i);  
+    json_object_object_get_ex(structmot, "index", &i);
     ind = json_object_get_int(i);
     d[ind] = (mot_data_t*) malloc(sizeof(mot_data_t));
-    json_object_object_get_ex(structmot, "mot", &m);  
+    json_object_object_get_ex(structmot, "mot", &m);
     strcpy(d[ind]->lemot,json_object_get_string(m));
     d[ind]->tete_liste = NULL;
     d[ind]->queue_liste = NULL;
-    json_object_object_get_ex(structmot, "liste", &l); 
+    json_object_object_get_ex(structmot, "liste", &l);
     n2 = json_object_array_length(l);
-    for(j=0; j<=n2; j++) { 
-      struct json_object* coord = json_object_array_get_idx(l,j); 
+    for(j=0; j<=n2; j++) {
+      struct json_object* coord = json_object_array_get_idx(l,j);
       struct emplacement_t *maillon = (struct emplacement_t *) malloc(sizeof(struct emplacement_t));
       json_object_object_get_ex(coord, "ligne", &line);
       maillon->line = json_object_get_int(line);
@@ -188,12 +188,12 @@ int monDico(int argc, char *argv[]) {
 #ifdef DEBUG
   printf("DEBUG: work in progres!!!\n");
 #endif
-  if (argc < 2) 
+  if (argc < 2)
   {
     fprintf(stderr, "Erreur : %s prend au moins un argument <fichier>\n", argv[0]);
     return -1;
   }
-  
+
   char *texte = argv[1];
   FILE* f = fopen(texte, "r");
   int i;
@@ -207,7 +207,7 @@ int monDico(int argc, char *argv[]) {
   unsigned int* colonne = (unsigned int*) malloc(sizeof(int));
   char* word = (char*) malloc(sizeof(char)*maxSizeWord);
   dico* dictionary = NULL;
-  dico* copiedico = NULL;     
+  dico* copiedico = NULL;
   mot_data_t **serialized_dico = (mot_data_t **)malloc(MaxSizeArray*sizeof(mot_data_t *));
   while((word = next_word(f,line,colonne))!=NULL) {
     addToDico(&dictionary,word,line,colonne);
@@ -240,4 +240,3 @@ int monDico(int argc, char *argv[]) {
 
   return 0;
 }
-

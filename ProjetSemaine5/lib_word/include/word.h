@@ -21,9 +21,9 @@ typedef struct emplacement_t emplacement_t;
  * @param next la case suivante (colonne + 1 ou line+1 et colonne <- 0)
  */
 struct emplacement_t {
-  unsigned int line;
-  unsigned int colonne;
-  emplacement_t* next;
+    emplacement_t* next;
+    unsigned int line;
+    unsigned int colonne;
 };
 
 typedef struct mot_data_t mot_data_t;
@@ -33,9 +33,9 @@ typedef struct mot_data_t mot_data_t;
  * @param queue_liste Dernier mot de la liste
  */
 struct mot_data_t {
-  char lemot[maxSizeWord];
-  emplacement_t* tete_liste;
-  emplacement_t* queue_liste;
+    emplacement_t* tete_liste;
+    emplacement_t* queue_liste;
+    char lemot[maxSizeWord];
 };
 
 /**
