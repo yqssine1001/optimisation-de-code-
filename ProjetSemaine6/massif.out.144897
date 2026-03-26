@@ -1,0 +1,956 @@
+desc: (none)
+cmd: ./bin/main ./Exemples/hugo.txt
+time_unit: i
+#-----------
+snapshot=0
+#-----------
+time=0
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=1
+#-----------
+time=159387
+mem_heap_B=472
+mem_heap_extra_B=16
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=2
+#-----------
+time=167554
+mem_heap_B=139811
+mem_heap_extra_B=101
+mem_stacks_B=0
+heap_tree=detailed
+n3: 139811 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 131048 0x109A34: monDico (dico.c:244)
+  n0: 131048 0x109C1F: main (main.c:13)
+ n1: 8192 0x49DAE04: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 8192 0x49E9B48: _IO_doallocbuf (genops.c:373)
+   n1: 8192 0x49E9B48: _IO_doallocbuf (genops.c:368)
+    n1: 8192 0x49E7945: _IO_file_underflow@@GLIBC_2.2.5 (fileops.c:487)
+     n1: 8192 0x49E9BEA: _IO_default_uflow (genops.c:388)
+      n1: 8192 0x109C69: next_word (word.c:12)
+       n1: 8192 0x109A75: monDico (dico.c:245)
+        n0: 8192 0x109C1F: main (main.c:13)
+ n0: 571 in 5 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=3
+#-----------
+time=172778
+mem_heap_B=140010
+mem_heap_extra_B=174
+mem_stacks_B=0
+heap_tree=detailed
+n3: 140010 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 131048 0x109A34: monDico (dico.c:244)
+  n0: 131048 0x109C1F: main (main.c:13)
+ n1: 8192 0x49DAE04: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 8192 0x49E9B48: _IO_doallocbuf (genops.c:373)
+   n1: 8192 0x49E9B48: _IO_doallocbuf (genops.c:368)
+    n1: 8192 0x49E7945: _IO_file_underflow@@GLIBC_2.2.5 (fileops.c:487)
+     n1: 8192 0x49E9BEA: _IO_default_uflow (genops.c:388)
+      n1: 8192 0x109C69: next_word (word.c:12)
+       n1: 8192 0x109A75: monDico (dico.c:245)
+        n0: 8192 0x109C1F: main (main.c:13)
+ n0: 770 in 6 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=4
+#-----------
+time=180211
+mem_heap_B=140364
+mem_heap_extra_B=324
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=5
+#-----------
+time=186408
+mem_heap_B=140491
+mem_heap_extra_B=373
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=6
+#-----------
+time=192086
+mem_heap_B=140678
+mem_heap_extra_B=458
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=7
+#-----------
+time=197473
+mem_heap_B=140867
+mem_heap_extra_B=541
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=8
+#-----------
+time=202152
+mem_heap_B=141059
+mem_heap_extra_B=621
+mem_stacks_B=0
+heap_tree=detailed
+n3: 141059 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 131048 0x109A34: monDico (dico.c:244)
+  n0: 131048 0x109C1F: main (main.c:13)
+ n1: 8192 0x49DAE04: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 8192 0x49E9B48: _IO_doallocbuf (genops.c:373)
+   n1: 8192 0x49E9B48: _IO_doallocbuf (genops.c:368)
+    n1: 8192 0x49E7945: _IO_file_underflow@@GLIBC_2.2.5 (fileops.c:487)
+     n1: 8192 0x49E9BEA: _IO_default_uflow (genops.c:388)
+      n1: 8192 0x109C69: next_word (word.c:12)
+       n1: 8192 0x109A75: monDico (dico.c:245)
+        n0: 8192 0x109C1F: main (main.c:13)
+ n0: 1819 in 6 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=9
+#-----------
+time=208707
+mem_heap_B=141324
+mem_heap_extra_B=724
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=10
+#-----------
+time=218281
+mem_heap_B=141517
+mem_heap_extra_B=803
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=11
+#-----------
+time=225886
+mem_heap_B=141630
+mem_heap_extra_B=850
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=12
+#-----------
+time=232622
+mem_heap_B=141744
+mem_heap_extra_B=896
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=13
+#-----------
+time=239525
+mem_heap_B=141880
+mem_heap_extra_B=960
+mem_stacks_B=0
+heap_tree=detailed
+n3: 141880 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 131048 0x109A34: monDico (dico.c:244)
+  n0: 131048 0x109C1F: main (main.c:13)
+ n1: 8192 0x49DAE04: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 8192 0x49E9B48: _IO_doallocbuf (genops.c:373)
+   n1: 8192 0x49E9B48: _IO_doallocbuf (genops.c:368)
+    n1: 8192 0x49E7945: _IO_file_underflow@@GLIBC_2.2.5 (fileops.c:487)
+     n1: 8192 0x49E9BEA: _IO_default_uflow (genops.c:388)
+      n1: 8192 0x109C69: next_word (word.c:12)
+       n1: 8192 0x109A75: monDico (dico.c:245)
+        n0: 8192 0x109C1F: main (main.c:13)
+ n0: 2640 in 7 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=14
+#-----------
+time=246934
+mem_heap_B=142077
+mem_heap_extra_B=1035
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=15
+#-----------
+time=253718
+mem_heap_B=142265
+mem_heap_extra_B=1119
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=16
+#-----------
+time=257646
+mem_heap_B=142332
+mem_heap_extra_B=1148
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=17
+#-----------
+time=263732
+mem_heap_B=142389
+mem_heap_extra_B=1179
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=18
+#-----------
+time=268797
+mem_heap_B=142636
+mem_heap_extra_B=1276
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=19
+#-----------
+time=277884
+mem_heap_B=142845
+mem_heap_extra_B=1363
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=20
+#-----------
+time=287076
+mem_heap_B=143134
+mem_heap_extra_B=1482
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=21
+#-----------
+time=293289
+mem_heap_B=143260
+mem_heap_extra_B=1540
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=22
+#-----------
+time=303243
+mem_heap_B=143467
+mem_heap_extra_B=1629
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=23
+#-----------
+time=311044
+mem_heap_B=143595
+mem_heap_extra_B=1677
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=24
+#-----------
+time=319136
+mem_heap_B=143779
+mem_heap_extra_B=1765
+mem_stacks_B=0
+heap_tree=detailed
+n4: 143779 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 131048 0x109A34: monDico (dico.c:244)
+  n0: 131048 0x109C1F: main (main.c:13)
+ n1: 8192 0x49DAE04: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 8192 0x49E9B48: _IO_doallocbuf (genops.c:373)
+   n1: 8192 0x49E9B48: _IO_doallocbuf (genops.c:368)
+    n1: 8192 0x49E7945: _IO_file_underflow@@GLIBC_2.2.5 (fileops.c:487)
+     n1: 8192 0x49E9BEA: _IO_default_uflow (genops.c:388)
+      n1: 8192 0x109C69: next_word (word.c:12)
+       n1: 8192 0x109A75: monDico (dico.c:245)
+        n0: 8192 0x109C1F: main (main.c:13)
+ n1: 2296 0x109496: addToDico (dico.c:39)
+  n1: 2296 0x109A52: monDico (dico.c:246)
+   n0: 2296 0x109C1F: main (main.c:13)
+ n0: 2243 in 6 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=25
+#-----------
+time=324801
+mem_heap_B=143893
+mem_heap_extra_B=1811
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=26
+#-----------
+time=330742
+mem_heap_B=144083
+mem_heap_extra_B=1893
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=27
+#-----------
+time=339642
+mem_heap_B=144281
+mem_heap_extra_B=1967
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=28
+#-----------
+time=346158
+mem_heap_B=144467
+mem_heap_extra_B=2053
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=29
+#-----------
+time=355045
+mem_heap_B=144661
+mem_heap_extra_B=2131
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=30
+#-----------
+time=364772
+mem_heap_B=144859
+mem_heap_extra_B=2213
+mem_stacks_B=0
+heap_tree=detailed
+n4: 144859 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 131048 0x109A34: monDico (dico.c:244)
+  n0: 131048 0x109C1F: main (main.c:13)
+ n1: 8192 0x49DAE04: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 8192 0x49E9B48: _IO_doallocbuf (genops.c:373)
+   n1: 8192 0x49E9B48: _IO_doallocbuf (genops.c:368)
+    n1: 8192 0x49E7945: _IO_file_underflow@@GLIBC_2.2.5 (fileops.c:487)
+     n1: 8192 0x49E9BEA: _IO_default_uflow (genops.c:388)
+      n1: 8192 0x109C69: next_word (word.c:12)
+       n1: 8192 0x109A75: monDico (dico.c:245)
+        n0: 8192 0x109C1F: main (main.c:13)
+ n1: 2912 0x109496: addToDico (dico.c:39)
+  n1: 2912 0x109A52: monDico (dico.c:246)
+   n0: 2912 0x109C1F: main (main.c:13)
+ n0: 2707 in 6 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=31
+#-----------
+time=371608
+mem_heap_B=144902
+mem_heap_extra_B=2234
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=32
+#-----------
+time=379218
+mem_heap_B=145026
+mem_heap_extra_B=2294
+mem_stacks_B=0
+heap_tree=detailed
+n4: 145026 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 131048 0x109A34: monDico (dico.c:244)
+  n0: 131048 0x109C1F: main (main.c:13)
+ n1: 8192 0x49DAE04: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 8192 0x49E9B48: _IO_doallocbuf (genops.c:373)
+   n1: 8192 0x49E9B48: _IO_doallocbuf (genops.c:368)
+    n1: 8192 0x49E7945: _IO_file_underflow@@GLIBC_2.2.5 (fileops.c:487)
+     n1: 8192 0x49E9BEA: _IO_default_uflow (genops.c:388)
+      n1: 8192 0x109C69: next_word (word.c:12)
+       n1: 8192 0x109A75: monDico (dico.c:245)
+        n0: 8192 0x109C1F: main (main.c:13)
+ n1: 2968 0x109496: addToDico (dico.c:39)
+  n1: 2968 0x109A52: monDico (dico.c:246)
+   n0: 2968 0x109C1F: main (main.c:13)
+ n0: 2818 in 6 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=33
+#-----------
+time=383981
+mem_heap_B=145130
+mem_heap_extra_B=2326
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=34
+#-----------
+time=389364
+mem_heap_B=145306
+mem_heap_extra_B=2406
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=35
+#-----------
+time=395710
+mem_heap_B=145427
+mem_heap_extra_B=2461
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=36
+#-----------
+time=400515
+mem_heap_B=145526
+mem_heap_extra_B=2498
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=37
+#-----------
+time=407781
+mem_heap_B=145636
+mem_heap_extra_B=2548
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=38
+#-----------
+time=413413
+mem_heap_B=145738
+mem_heap_extra_B=2582
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=39
+#-----------
+time=420737
+mem_heap_B=145916
+mem_heap_extra_B=2660
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=40
+#-----------
+time=425431
+mem_heap_B=145943
+mem_heap_extra_B=2673
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=41
+#-----------
+time=431304
+mem_heap_B=146132
+mem_heap_extra_B=2756
+mem_stacks_B=0
+heap_tree=detailed
+n5: 146132 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 131048 0x109A34: monDico (dico.c:244)
+  n0: 131048 0x109C1F: main (main.c:13)
+ n1: 8192 0x49DAE04: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 8192 0x49E9B48: _IO_doallocbuf (genops.c:373)
+   n1: 8192 0x49E9B48: _IO_doallocbuf (genops.c:368)
+    n1: 8192 0x49E7945: _IO_file_underflow@@GLIBC_2.2.5 (fileops.c:487)
+     n1: 8192 0x49E9BEA: _IO_default_uflow (genops.c:388)
+      n1: 8192 0x109C69: next_word (word.c:12)
+       n1: 8192 0x109A75: monDico (dico.c:245)
+        n0: 8192 0x109C1F: main (main.c:13)
+ n1: 3584 0x109496: addToDico (dico.c:39)
+  n1: 3584 0x109A52: monDico (dico.c:246)
+   n0: 3584 0x109C1F: main (main.c:13)
+ n0: 1796 in 5 places, all below massif's threshold (1.00%)
+ n1: 1512 0x10943C: insertDico (dico.c:31)
+  n0: 1512 in 2 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=42
+#-----------
+time=440053
+mem_heap_B=146315
+mem_heap_extra_B=2829
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=43
+#-----------
+time=444732
+mem_heap_B=146342
+mem_heap_extra_B=2842
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=44
+#-----------
+time=450258
+mem_heap_B=147928
+mem_heap_extra_B=2888
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=45
+#-----------
+time=454821
+mem_heap_B=156120
+mem_heap_extra_B=2896
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=46
+#-----------
+time=554246
+mem_heap_B=156120
+mem_heap_extra_B=2896
+mem_stacks_B=0
+heap_tree=peak
+n4: 156120 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 131048 0x109A34: monDico (dico.c:244)
+  n0: 131048 0x109C1F: main (main.c:13)
+ n1: 16384 0x49DAE04: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 16384 0x49E9B48: _IO_doallocbuf (genops.c:373)
+   n2: 16384 0x49E9B48: _IO_doallocbuf (genops.c:368)
+    n1: 8192 0x49E7945: _IO_file_underflow@@GLIBC_2.2.5 (fileops.c:487)
+     n1: 8192 0x49E9BEA: _IO_default_uflow (genops.c:388)
+      n1: 8192 0x109C69: next_word (word.c:12)
+       n1: 8192 0x109A75: monDico (dico.c:245)
+        n0: 8192 0x109C1F: main (main.c:13)
+    n1: 8192 0x49E7CC7: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:746)
+     n1: 8192 0x49E8766: _IO_new_file_xsputn (fileops.c:1245)
+      n1: 8192 0x49E8766: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1198)
+       n1: 8192 0x49B71D1: __printf_buffer_flush_to_file (printf_buffer_to_file.c:59)
+        n1: 8192 0x49B728F: __printf_buffer_to_file_done (printf_buffer_to_file.c:120)
+         n1: 8192 0x49C1F98: __vfprintf_internal (vfprintf-internal.c:1545)
+          n1: 8192 0x49B5E25: fprintf (fprintf.c:32)
+           n1: 8192 0x10964D: displayDico (dico.c:72)
+            n1: 8192 0x109A93: monDico (dico.c:249)
+             n0: 8192 0x109C1F: main (main.c:13)
+ n0: 4936 in 7 places, all below massif's threshold (1.00%)
+ n1: 3752 0x109496: addToDico (dico.c:39)
+  n1: 3752 0x109A52: monDico (dico.c:246)
+   n0: 3752 0x109C1F: main (main.c:13)
+#-----------
+snapshot=47
+#-----------
+time=1055951
+mem_heap_B=147480
+mem_heap_extra_B=2888
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=48
+#-----------
+time=1064534
+mem_heap_B=147800
+mem_heap_extra_B=3016
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=49
+#-----------
+time=1073169
+mem_heap_B=147960
+mem_heap_extra_B=3080
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=50
+#-----------
+time=1080726
+mem_heap_B=148120
+mem_heap_extra_B=3144
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=51
+#-----------
+time=1087246
+mem_heap_B=148200
+mem_heap_extra_B=3176
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=52
+#-----------
+time=1098915
+mem_heap_B=148360
+mem_heap_extra_B=3240
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=53
+#-----------
+time=1111184
+mem_heap_B=148440
+mem_heap_extra_B=3272
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=54
+#-----------
+time=1116032
+mem_heap_B=148600
+mem_heap_extra_B=3336
+mem_stacks_B=0
+heap_tree=detailed
+n5: 148600 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 131048 0x109A34: monDico (dico.c:244)
+  n0: 131048 0x109C1F: main (main.c:13)
+ n1: 8192 0x49DAE04: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 8192 0x49E9B48: _IO_doallocbuf (genops.c:373)
+   n2: 8192 0x49E9B48: _IO_doallocbuf (genops.c:368)
+    n1: 8192 0x49E7945: _IO_file_underflow@@GLIBC_2.2.5 (fileops.c:487)
+     n1: 8192 0x49E9BEA: _IO_default_uflow (genops.c:388)
+      n1: 8192 0x109C69: next_word (word.c:12)
+       n1: 8192 0x109A75: monDico (dico.c:245)
+        n0: 8192 0x109C1F: main (main.c:13)
+    n0: 0 in 1 place, below massif's threshold (1.00%)
+ n0: 4024 in 8 places, all below massif's threshold (1.00%)
+ n1: 3752 0x109496: addToDico (dico.c:39)
+  n1: 3752 0x109A52: monDico (dico.c:246)
+   n0: 3752 0x109C1F: main (main.c:13)
+ n1: 1584 0x10943C: insertDico (dico.c:31)
+  n0: 1584 in 2 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=55
+#-----------
+time=1120667
+mem_heap_B=148680
+mem_heap_extra_B=3368
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=56
+#-----------
+time=1128163
+mem_heap_B=148840
+mem_heap_extra_B=3432
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=57
+#-----------
+time=1136694
+mem_heap_B=149000
+mem_heap_extra_B=3496
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=58
+#-----------
+time=1143673
+mem_heap_B=149080
+mem_heap_extra_B=3528
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=59
+#-----------
+time=1150210
+mem_heap_B=149160
+mem_heap_extra_B=3560
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=60
+#-----------
+time=1157883
+mem_heap_B=149320
+mem_heap_extra_B=3624
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=61
+#-----------
+time=1163253
+mem_heap_B=149400
+mem_heap_extra_B=3656
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=62
+#-----------
+time=1173010
+mem_heap_B=149480
+mem_heap_extra_B=3688
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=63
+#-----------
+time=1187453
+mem_heap_B=149640
+mem_heap_extra_B=3752
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=64
+#-----------
+time=1197016
+mem_heap_B=149720
+mem_heap_extra_B=3784
+mem_stacks_B=0
+heap_tree=detailed
+n6: 149720 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 131048 0x109A34: monDico (dico.c:244)
+  n0: 131048 0x109C1F: main (main.c:13)
+ n1: 8192 0x49DAE04: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 8192 0x49E9B48: _IO_doallocbuf (genops.c:373)
+   n2: 8192 0x49E9B48: _IO_doallocbuf (genops.c:368)
+    n1: 8192 0x49E7945: _IO_file_underflow@@GLIBC_2.2.5 (fileops.c:487)
+     n1: 8192 0x49E9BEA: _IO_default_uflow (genops.c:388)
+      n1: 8192 0x109C69: next_word (word.c:12)
+       n1: 8192 0x109A75: monDico (dico.c:245)
+        n0: 8192 0x109C1F: main (main.c:13)
+    n0: 0 in 1 place, below massif's threshold (1.00%)
+ n1: 3752 0x109496: addToDico (dico.c:39)
+  n1: 3752 0x109A52: monDico (dico.c:246)
+   n0: 3752 0x109C1F: main (main.c:13)
+ n0: 3576 in 7 places, all below massif's threshold (1.00%)
+ n1: 1584 0x10943C: insertDico (dico.c:31)
+  n0: 1584 in 2 places, all below massif's threshold (1.00%)
+ n1: 1568 0x109885: deserializeDico (dico.c:130)
+  n0: 1568 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=65
+#-----------
+time=1201336
+mem_heap_B=149800
+mem_heap_extra_B=3816
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=66
+#-----------
+time=1213740
+mem_heap_B=149880
+mem_heap_extra_B=3848
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=67
+#-----------
+time=1224184
+mem_heap_B=149960
+mem_heap_extra_B=3880
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=68
+#-----------
+time=1237302
+mem_heap_B=150040
+mem_heap_extra_B=3912
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=69
+#-----------
+time=1241836
+mem_heap_B=150120
+mem_heap_extra_B=3944
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=70
+#-----------
+time=1251370
+mem_heap_B=150200
+mem_heap_extra_B=3976
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=71
+#-----------
+time=1256072
+mem_heap_B=150280
+mem_heap_extra_B=4008
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=72
+#-----------
+time=1263356
+mem_heap_B=150440
+mem_heap_extra_B=4072
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=73
+#-----------
+time=1268883
+mem_heap_B=150600
+mem_heap_extra_B=4136
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=74
+#-----------
+time=1274397
+mem_heap_B=150760
+mem_heap_extra_B=4200
+mem_stacks_B=0
+heap_tree=detailed
+n6: 150760 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 131048 0x109A34: monDico (dico.c:244)
+  n0: 131048 0x109C1F: main (main.c:13)
+ n1: 8192 0x49DAE04: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 8192 0x49E9B48: _IO_doallocbuf (genops.c:373)
+   n2: 8192 0x49E9B48: _IO_doallocbuf (genops.c:368)
+    n1: 8192 0x49E7945: _IO_file_underflow@@GLIBC_2.2.5 (fileops.c:487)
+     n1: 8192 0x49E9BEA: _IO_default_uflow (genops.c:388)
+      n1: 8192 0x109C69: next_word (word.c:12)
+       n1: 8192 0x109A75: monDico (dico.c:245)
+        n0: 8192 0x109C1F: main (main.c:13)
+    n0: 0 in 1 place, below massif's threshold (1.00%)
+ n0: 3888 in 7 places, all below massif's threshold (1.00%)
+ n1: 3752 0x109496: addToDico (dico.c:39)
+  n1: 3752 0x109A52: monDico (dico.c:246)
+   n0: 3752 0x109C1F: main (main.c:13)
+ n1: 2296 0x109885: deserializeDico (dico.c:130)
+  n0: 2296 in 3 places, all below massif's threshold (1.00%)
+ n1: 1584 0x10943C: insertDico (dico.c:31)
+  n0: 1584 in 2 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=75
+#-----------
+time=1282298
+mem_heap_B=150920
+mem_heap_extra_B=4264
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=76
+#-----------
+time=1288894
+mem_heap_B=151080
+mem_heap_extra_B=4328
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=77
+#-----------
+time=1295283
+mem_heap_B=151240
+mem_heap_extra_B=4392
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=78
+#-----------
+time=1299389
+mem_heap_B=151400
+mem_heap_extra_B=4456
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=79
+#-----------
+time=1304399
+mem_heap_B=151560
+mem_heap_extra_B=4520
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=80
+#-----------
+time=1309956
+mem_heap_B=151720
+mem_heap_extra_B=4584
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=81
+#-----------
+time=1314677
+mem_heap_B=151880
+mem_heap_extra_B=4648
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=82
+#-----------
+time=1320907
+mem_heap_B=152040
+mem_heap_extra_B=4712
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=83
+#-----------
+time=1325402
+mem_heap_B=152120
+mem_heap_extra_B=4744
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=84
+#-----------
+time=1332680
+mem_heap_B=152280
+mem_heap_extra_B=4808
+mem_stacks_B=0
+heap_tree=detailed
+n6: 152280 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 131048 0x109A34: monDico (dico.c:244)
+  n0: 131048 0x109C1F: main (main.c:13)
+ n1: 8192 0x49DAE04: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 8192 0x49E9B48: _IO_doallocbuf (genops.c:373)
+   n2: 8192 0x49E9B48: _IO_doallocbuf (genops.c:368)
+    n1: 8192 0x49E7945: _IO_file_underflow@@GLIBC_2.2.5 (fileops.c:487)
+     n1: 8192 0x49E9BEA: _IO_default_uflow (genops.c:388)
+      n1: 8192 0x109C69: next_word (word.c:12)
+       n1: 8192 0x109A75: monDico (dico.c:245)
+        n0: 8192 0x109C1F: main (main.c:13)
+    n0: 0 in 1 place, below massif's threshold (1.00%)
+ n0: 4344 in 7 places, all below massif's threshold (1.00%)
+ n1: 3752 0x109496: addToDico (dico.c:39)
+  n1: 3752 0x109A52: monDico (dico.c:246)
+   n0: 3752 0x109C1F: main (main.c:13)
+ n3: 3360 0x109885: deserializeDico (dico.c:130)
+  n1: 1680 0x109961: deserializeDico (dico.c:142)
+   n0: 1680 in 3 places, all below massif's threshold (1.00%)
+  n1: 1624 0x109945: deserializeDico (dico.c:139)
+   n0: 1624 in 3 places, all below massif's threshold (1.00%)
+  n0: 56 in 1 place, below massif's threshold (1.00%)
+ n1: 1584 0x10943C: insertDico (dico.c:31)
+  n0: 1584 in 2 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=85
+#-----------
+time=1343045
+mem_heap_B=152360
+mem_heap_extra_B=4840
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=86
+#-----------
+time=1350903
+mem_heap_B=152440
+mem_heap_extra_B=4872
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=87
+#-----------
+time=1474776
+mem_heap_B=144304
+mem_heap_extra_B=4880
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=88
+#-----------
+time=1478756
+mem_heap_B=140496
+mem_heap_extra_B=3536
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=89
+#-----------
+time=1482758
+mem_heap_B=137384
+mem_heap_extra_B=2256
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=90
+#-----------
+time=1486793
+mem_heap_B=134728
+mem_heap_extra_B=1136
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=91
+#-----------
+time=1490725
+mem_heap_B=132072
+mem_heap_extra_B=24
+mem_stacks_B=0
+heap_tree=empty

@@ -1,0 +1,29 @@
+==20695== Memcheck, a memory error detector
+==20695== Copyright (C) 2002-2024, and GNU GPL'd, by Julian Seward et al.
+==20695== Using Valgrind-3.24.0 and LibVEX; rerun with -h for copyright info
+==20695== Command: ./string_analysis2 toto
+==20695== Parent PID: 17274
+==20695== 
+==20695== Invalid write of size 1
+==20695==    at 0x484DE16: strcpy (vg_replace_strmem.c:564)
+==20695==    by 0x1091B7: shazam (string_analysis2.c:8)
+==20695==    by 0x10921F: main (string_analysis2.c:20)
+==20695==  Address 0x4a70044 is 0 bytes after a block of size 4 alloc'd
+==20695==    at 0x4844818: malloc (vg_replace_malloc.c:446)
+==20695==    by 0x1091A0: shazam (string_analysis2.c:7)
+==20695==    by 0x10921F: main (string_analysis2.c:20)
+==20695== 
+==20695== Conditional jump or move depends on uninitialised value(s)
+==20695==    at 0x1091DD: bof (string_analysis2.c:14)
+==20695==    by 0x109245: main (string_analysis2.c:22)
+==20695== 
+==20695== 
+==20695== HEAP SUMMARY:
+==20695==     in use at exit: 0 bytes in 0 blocks
+==20695==   total heap usage: 2 allocs, 2 frees, 1,028 bytes allocated
+==20695== 
+==20695== All heap blocks were freed -- no leaks are possible
+==20695== 
+==20695== Use --track-origins=yes to see where uninitialised values come from
+==20695== For lists of detected and suppressed errors, rerun with: -s
+==20695== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)

@@ -1,0 +1,448 @@
+--------------------------------------------------------------------------------
+Command:            ./bin/main ./Exemples/hugo.txt
+Massif arguments:   (none)
+ms_print arguments: massif.out.144897
+--------------------------------------------------------------------------------
+
+
+    KB
+155.3^                     :::::#########################                     
+     |                     :    #                         :@:::@:::@::@:::::: 
+     |            :::@:@@:@:    #                        ::@:::@:::@::@:     :
+     |        @@:@:::@:@@:@:    #                        ::@:::@:::@::@:     :
+     |        @@:@:::@:@@:@:    #                        ::@:::@:::@::@:     :
+     |        @@:@:::@:@@:@:    #                        ::@:::@:::@::@:     :
+     |        @@:@:::@:@@:@:    #                        ::@:::@:::@::@:     :
+     |        @@:@:::@:@@:@:    #                        ::@:::@:::@::@:     :
+     |        @@:@:::@:@@:@:    #                        ::@:::@:::@::@:     :
+     |        @@:@:::@:@@:@:    #                        ::@:::@:::@::@:     :
+     |        @@:@:::@:@@:@:    #                        ::@:::@:::@::@:     :
+     |        @@:@:::@:@@:@:    #                        ::@:::@:::@::@:     :
+     |        @@:@:::@:@@:@:    #                        ::@:::@:::@::@:     :
+     |        @@:@:::@:@@:@:    #                        ::@:::@:::@::@:     :
+     |        @@:@:::@:@@:@:    #                        ::@:::@:::@::@:     :
+     |        @@:@:::@:@@:@:    #                        ::@:::@:::@::@:     :
+     |        @@:@:::@:@@:@:    #                        ::@:::@:::@::@:     :
+     |        @@:@:::@:@@:@:    #                        ::@:::@:::@::@:     :
+     |        @@:@:::@:@@:@:    #                        ::@:::@:::@::@:     :
+     |        @@:@:::@:@@:@:    #                        ::@:::@:::@::@:     :
+   0 +----------------------------------------------------------------------->Mi
+     0                                                                   1.422
+
+Number of snapshots: 92
+ Detailed snapshots: [2, 3, 8, 13, 24, 30, 32, 41, 46 (peak), 54, 64, 74, 84]
+
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+  0              0                0                0             0            0
+  1        159,387              488              472            16            0
+  2        167,554          139,912          139,811           101            0
+99.93% (139,811B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->93.66% (131,048B) 0x109A34: monDico (dico.c:244)
+| ->93.66% (131,048B) 0x109C1F: main (main.c:13)
+|   
+->05.86% (8,192B) 0x49DAE04: _IO_file_doallocate (filedoalloc.c:101)
+| ->05.86% (8,192B) 0x49E9B48: _IO_doallocbuf (genops.c:373)
+|   ->05.86% (8,192B) 0x49E9B48: _IO_doallocbuf (genops.c:368)
+|     ->05.86% (8,192B) 0x49E7945: _IO_file_underflow@@GLIBC_2.2.5 (fileops.c:487)
+|       ->05.86% (8,192B) 0x49E9BEA: _IO_default_uflow (genops.c:388)
+|         ->05.86% (8,192B) 0x109C69: next_word (word.c:12)
+|           ->05.86% (8,192B) 0x109A75: monDico (dico.c:245)
+|             ->05.86% (8,192B) 0x109C1F: main (main.c:13)
+|               
+->00.41% (571B) in 1+ places, all below ms_print's threshold (01.00%)
+
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+  3        172,778          140,184          140,010           174            0
+99.88% (140,010B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->93.48% (131,048B) 0x109A34: monDico (dico.c:244)
+| ->93.48% (131,048B) 0x109C1F: main (main.c:13)
+|   
+->05.84% (8,192B) 0x49DAE04: _IO_file_doallocate (filedoalloc.c:101)
+| ->05.84% (8,192B) 0x49E9B48: _IO_doallocbuf (genops.c:373)
+|   ->05.84% (8,192B) 0x49E9B48: _IO_doallocbuf (genops.c:368)
+|     ->05.84% (8,192B) 0x49E7945: _IO_file_underflow@@GLIBC_2.2.5 (fileops.c:487)
+|       ->05.84% (8,192B) 0x49E9BEA: _IO_default_uflow (genops.c:388)
+|         ->05.84% (8,192B) 0x109C69: next_word (word.c:12)
+|           ->05.84% (8,192B) 0x109A75: monDico (dico.c:245)
+|             ->05.84% (8,192B) 0x109C1F: main (main.c:13)
+|               
+->00.55% (770B) in 1+ places, all below ms_print's threshold (01.00%)
+
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+  4        180,211          140,688          140,364           324            0
+  5        186,408          140,864          140,491           373            0
+  6        192,086          141,136          140,678           458            0
+  7        197,473          141,408          140,867           541            0
+  8        202,152          141,680          141,059           621            0
+99.56% (141,059B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->92.50% (131,048B) 0x109A34: monDico (dico.c:244)
+| ->92.50% (131,048B) 0x109C1F: main (main.c:13)
+|   
+->05.78% (8,192B) 0x49DAE04: _IO_file_doallocate (filedoalloc.c:101)
+| ->05.78% (8,192B) 0x49E9B48: _IO_doallocbuf (genops.c:373)
+|   ->05.78% (8,192B) 0x49E9B48: _IO_doallocbuf (genops.c:368)
+|     ->05.78% (8,192B) 0x49E7945: _IO_file_underflow@@GLIBC_2.2.5 (fileops.c:487)
+|       ->05.78% (8,192B) 0x49E9BEA: _IO_default_uflow (genops.c:388)
+|         ->05.78% (8,192B) 0x109C69: next_word (word.c:12)
+|           ->05.78% (8,192B) 0x109A75: monDico (dico.c:245)
+|             ->05.78% (8,192B) 0x109C1F: main (main.c:13)
+|               
+->01.28% (1,819B) in 6 places, all below massif's threshold (1.00%)
+  
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+  9        208,707          142,048          141,324           724            0
+ 10        218,281          142,320          141,517           803            0
+ 11        225,886          142,480          141,630           850            0
+ 12        232,622          142,640          141,744           896            0
+ 13        239,525          142,840          141,880           960            0
+99.33% (141,880B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->91.74% (131,048B) 0x109A34: monDico (dico.c:244)
+| ->91.74% (131,048B) 0x109C1F: main (main.c:13)
+|   
+->05.74% (8,192B) 0x49DAE04: _IO_file_doallocate (filedoalloc.c:101)
+| ->05.74% (8,192B) 0x49E9B48: _IO_doallocbuf (genops.c:373)
+|   ->05.74% (8,192B) 0x49E9B48: _IO_doallocbuf (genops.c:368)
+|     ->05.74% (8,192B) 0x49E7945: _IO_file_underflow@@GLIBC_2.2.5 (fileops.c:487)
+|       ->05.74% (8,192B) 0x49E9BEA: _IO_default_uflow (genops.c:388)
+|         ->05.74% (8,192B) 0x109C69: next_word (word.c:12)
+|           ->05.74% (8,192B) 0x109A75: monDico (dico.c:245)
+|             ->05.74% (8,192B) 0x109C1F: main (main.c:13)
+|               
+->01.85% (2,640B) in 7 places, all below massif's threshold (1.00%)
+  
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 14        246,934          143,112          142,077         1,035            0
+ 15        253,718          143,384          142,265         1,119            0
+ 16        257,646          143,480          142,332         1,148            0
+ 17        263,732          143,568          142,389         1,179            0
+ 18        268,797          143,912          142,636         1,276            0
+ 19        277,884          144,208          142,845         1,363            0
+ 20        287,076          144,616          143,134         1,482            0
+ 21        293,289          144,800          143,260         1,540            0
+ 22        303,243          145,096          143,467         1,629            0
+ 23        311,044          145,272          143,595         1,677            0
+ 24        319,136          145,544          143,779         1,765            0
+98.79% (143,779B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->90.04% (131,048B) 0x109A34: monDico (dico.c:244)
+| ->90.04% (131,048B) 0x109C1F: main (main.c:13)
+|   
+->05.63% (8,192B) 0x49DAE04: _IO_file_doallocate (filedoalloc.c:101)
+| ->05.63% (8,192B) 0x49E9B48: _IO_doallocbuf (genops.c:373)
+|   ->05.63% (8,192B) 0x49E9B48: _IO_doallocbuf (genops.c:368)
+|     ->05.63% (8,192B) 0x49E7945: _IO_file_underflow@@GLIBC_2.2.5 (fileops.c:487)
+|       ->05.63% (8,192B) 0x49E9BEA: _IO_default_uflow (genops.c:388)
+|         ->05.63% (8,192B) 0x109C69: next_word (word.c:12)
+|           ->05.63% (8,192B) 0x109A75: monDico (dico.c:245)
+|             ->05.63% (8,192B) 0x109C1F: main (main.c:13)
+|               
+->01.58% (2,296B) 0x109496: addToDico (dico.c:39)
+| ->01.58% (2,296B) 0x109A52: monDico (dico.c:246)
+|   ->01.58% (2,296B) 0x109C1F: main (main.c:13)
+|     
+->01.54% (2,243B) in 6 places, all below massif's threshold (1.00%)
+  
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 25        324,801          145,704          143,893         1,811            0
+ 26        330,742          145,976          144,083         1,893            0
+ 27        339,642          146,248          144,281         1,967            0
+ 28        346,158          146,520          144,467         2,053            0
+ 29        355,045          146,792          144,661         2,131            0
+ 30        364,772          147,072          144,859         2,213            0
+98.50% (144,859B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->89.10% (131,048B) 0x109A34: monDico (dico.c:244)
+| ->89.10% (131,048B) 0x109C1F: main (main.c:13)
+|   
+->05.57% (8,192B) 0x49DAE04: _IO_file_doallocate (filedoalloc.c:101)
+| ->05.57% (8,192B) 0x49E9B48: _IO_doallocbuf (genops.c:373)
+|   ->05.57% (8,192B) 0x49E9B48: _IO_doallocbuf (genops.c:368)
+|     ->05.57% (8,192B) 0x49E7945: _IO_file_underflow@@GLIBC_2.2.5 (fileops.c:487)
+|       ->05.57% (8,192B) 0x49E9BEA: _IO_default_uflow (genops.c:388)
+|         ->05.57% (8,192B) 0x109C69: next_word (word.c:12)
+|           ->05.57% (8,192B) 0x109A75: monDico (dico.c:245)
+|             ->05.57% (8,192B) 0x109C1F: main (main.c:13)
+|               
+->01.98% (2,912B) 0x109496: addToDico (dico.c:39)
+| ->01.98% (2,912B) 0x109A52: monDico (dico.c:246)
+|   ->01.98% (2,912B) 0x109C1F: main (main.c:13)
+|     
+->01.84% (2,707B) in 6 places, all below massif's threshold (1.00%)
+  
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 31        371,608          147,136          144,902         2,234            0
+ 32        379,218          147,320          145,026         2,294            0
+98.44% (145,026B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->88.95% (131,048B) 0x109A34: monDico (dico.c:244)
+| ->88.95% (131,048B) 0x109C1F: main (main.c:13)
+|   
+->05.56% (8,192B) 0x49DAE04: _IO_file_doallocate (filedoalloc.c:101)
+| ->05.56% (8,192B) 0x49E9B48: _IO_doallocbuf (genops.c:373)
+|   ->05.56% (8,192B) 0x49E9B48: _IO_doallocbuf (genops.c:368)
+|     ->05.56% (8,192B) 0x49E7945: _IO_file_underflow@@GLIBC_2.2.5 (fileops.c:487)
+|       ->05.56% (8,192B) 0x49E9BEA: _IO_default_uflow (genops.c:388)
+|         ->05.56% (8,192B) 0x109C69: next_word (word.c:12)
+|           ->05.56% (8,192B) 0x109A75: monDico (dico.c:245)
+|             ->05.56% (8,192B) 0x109C1F: main (main.c:13)
+|               
+->02.01% (2,968B) 0x109496: addToDico (dico.c:39)
+| ->02.01% (2,968B) 0x109A52: monDico (dico.c:246)
+|   ->02.01% (2,968B) 0x109C1F: main (main.c:13)
+|     
+->01.91% (2,818B) in 6 places, all below massif's threshold (1.00%)
+  
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 33        383,981          147,456          145,130         2,326            0
+ 34        389,364          147,712          145,306         2,406            0
+ 35        395,710          147,888          145,427         2,461            0
+ 36        400,515          148,024          145,526         2,498            0
+ 37        407,781          148,184          145,636         2,548            0
+ 38        413,413          148,320          145,738         2,582            0
+ 39        420,737          148,576          145,916         2,660            0
+ 40        425,431          148,616          145,943         2,673            0
+ 41        431,304          148,888          146,132         2,756            0
+98.15% (146,132B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->88.02% (131,048B) 0x109A34: monDico (dico.c:244)
+| ->88.02% (131,048B) 0x109C1F: main (main.c:13)
+|   
+->05.50% (8,192B) 0x49DAE04: _IO_file_doallocate (filedoalloc.c:101)
+| ->05.50% (8,192B) 0x49E9B48: _IO_doallocbuf (genops.c:373)
+|   ->05.50% (8,192B) 0x49E9B48: _IO_doallocbuf (genops.c:368)
+|     ->05.50% (8,192B) 0x49E7945: _IO_file_underflow@@GLIBC_2.2.5 (fileops.c:487)
+|       ->05.50% (8,192B) 0x49E9BEA: _IO_default_uflow (genops.c:388)
+|         ->05.50% (8,192B) 0x109C69: next_word (word.c:12)
+|           ->05.50% (8,192B) 0x109A75: monDico (dico.c:245)
+|             ->05.50% (8,192B) 0x109C1F: main (main.c:13)
+|               
+->02.41% (3,584B) 0x109496: addToDico (dico.c:39)
+| ->02.41% (3,584B) 0x109A52: monDico (dico.c:246)
+|   ->02.41% (3,584B) 0x109C1F: main (main.c:13)
+|     
+->01.21% (1,796B) in 5 places, all below massif's threshold (1.00%)
+| 
+->01.02% (1,512B) 0x10943C: insertDico (dico.c:31)
+  ->01.02% (1,512B) in 2 places, all below massif's threshold (1.00%)
+    
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 42        440,053          149,144          146,315         2,829            0
+ 43        444,732          149,184          146,342         2,842            0
+ 44        450,258          150,816          147,928         2,888            0
+ 45        454,821          159,016          156,120         2,896            0
+ 46        554,246          159,016          156,120         2,896            0
+98.18% (156,120B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->82.41% (131,048B) 0x109A34: monDico (dico.c:244)
+| ->82.41% (131,048B) 0x109C1F: main (main.c:13)
+|   
+->10.30% (16,384B) 0x49DAE04: _IO_file_doallocate (filedoalloc.c:101)
+| ->10.30% (16,384B) 0x49E9B48: _IO_doallocbuf (genops.c:373)
+|   ->10.30% (16,384B) 0x49E9B48: _IO_doallocbuf (genops.c:368)
+|     ->05.15% (8,192B) 0x49E7945: _IO_file_underflow@@GLIBC_2.2.5 (fileops.c:487)
+|     | ->05.15% (8,192B) 0x49E9BEA: _IO_default_uflow (genops.c:388)
+|     |   ->05.15% (8,192B) 0x109C69: next_word (word.c:12)
+|     |     ->05.15% (8,192B) 0x109A75: monDico (dico.c:245)
+|     |       ->05.15% (8,192B) 0x109C1F: main (main.c:13)
+|     |         
+|     ->05.15% (8,192B) 0x49E7CC7: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:746)
+|       ->05.15% (8,192B) 0x49E8766: _IO_new_file_xsputn (fileops.c:1245)
+|         ->05.15% (8,192B) 0x49E8766: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1198)
+|           ->05.15% (8,192B) 0x49B71D1: __printf_buffer_flush_to_file (printf_buffer_to_file.c:59)
+|             ->05.15% (8,192B) 0x49B728F: __printf_buffer_to_file_done (printf_buffer_to_file.c:120)
+|               ->05.15% (8,192B) 0x49C1F98: __vfprintf_internal (vfprintf-internal.c:1545)
+|                 ->05.15% (8,192B) 0x49B5E25: fprintf (fprintf.c:32)
+|                   ->05.15% (8,192B) 0x10964D: displayDico (dico.c:72)
+|                     ->05.15% (8,192B) 0x109A93: monDico (dico.c:249)
+|                       ->05.15% (8,192B) 0x109C1F: main (main.c:13)
+|                         
+->03.10% (4,936B) in 7 places, all below massif's threshold (1.00%)
+| 
+->02.36% (3,752B) 0x109496: addToDico (dico.c:39)
+  ->02.36% (3,752B) 0x109A52: monDico (dico.c:246)
+    ->02.36% (3,752B) 0x109C1F: main (main.c:13)
+      
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 47      1,055,951          150,368          147,480         2,888            0
+ 48      1,064,534          150,816          147,800         3,016            0
+ 49      1,073,169          151,040          147,960         3,080            0
+ 50      1,080,726          151,264          148,120         3,144            0
+ 51      1,087,246          151,376          148,200         3,176            0
+ 52      1,098,915          151,600          148,360         3,240            0
+ 53      1,111,184          151,712          148,440         3,272            0
+ 54      1,116,032          151,936          148,600         3,336            0
+97.80% (148,600B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->86.25% (131,048B) 0x109A34: monDico (dico.c:244)
+| ->86.25% (131,048B) 0x109C1F: main (main.c:13)
+|   
+->05.39% (8,192B) 0x49DAE04: _IO_file_doallocate (filedoalloc.c:101)
+| ->05.39% (8,192B) 0x49E9B48: _IO_doallocbuf (genops.c:373)
+|   ->05.39% (8,192B) 0x49E9B48: _IO_doallocbuf (genops.c:368)
+|     ->05.39% (8,192B) 0x49E7945: _IO_file_underflow@@GLIBC_2.2.5 (fileops.c:487)
+|     | ->05.39% (8,192B) 0x49E9BEA: _IO_default_uflow (genops.c:388)
+|     |   ->05.39% (8,192B) 0x109C69: next_word (word.c:12)
+|     |     ->05.39% (8,192B) 0x109A75: monDico (dico.c:245)
+|     |       ->05.39% (8,192B) 0x109C1F: main (main.c:13)
+|     |         
+|     ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+|     
+->02.65% (4,024B) in 8 places, all below massif's threshold (1.00%)
+| 
+->02.47% (3,752B) 0x109496: addToDico (dico.c:39)
+| ->02.47% (3,752B) 0x109A52: monDico (dico.c:246)
+|   ->02.47% (3,752B) 0x109C1F: main (main.c:13)
+|     
+->01.04% (1,584B) 0x10943C: insertDico (dico.c:31)
+  ->01.04% (1,584B) in 2 places, all below massif's threshold (1.00%)
+    
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 55      1,120,667          152,048          148,680         3,368            0
+ 56      1,128,163          152,272          148,840         3,432            0
+ 57      1,136,694          152,496          149,000         3,496            0
+ 58      1,143,673          152,608          149,080         3,528            0
+ 59      1,150,210          152,720          149,160         3,560            0
+ 60      1,157,883          152,944          149,320         3,624            0
+ 61      1,163,253          153,056          149,400         3,656            0
+ 62      1,173,010          153,168          149,480         3,688            0
+ 63      1,187,453          153,392          149,640         3,752            0
+ 64      1,197,016          153,504          149,720         3,784            0
+97.53% (149,720B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->85.37% (131,048B) 0x109A34: monDico (dico.c:244)
+| ->85.37% (131,048B) 0x109C1F: main (main.c:13)
+|   
+->05.34% (8,192B) 0x49DAE04: _IO_file_doallocate (filedoalloc.c:101)
+| ->05.34% (8,192B) 0x49E9B48: _IO_doallocbuf (genops.c:373)
+|   ->05.34% (8,192B) 0x49E9B48: _IO_doallocbuf (genops.c:368)
+|     ->05.34% (8,192B) 0x49E7945: _IO_file_underflow@@GLIBC_2.2.5 (fileops.c:487)
+|     | ->05.34% (8,192B) 0x49E9BEA: _IO_default_uflow (genops.c:388)
+|     |   ->05.34% (8,192B) 0x109C69: next_word (word.c:12)
+|     |     ->05.34% (8,192B) 0x109A75: monDico (dico.c:245)
+|     |       ->05.34% (8,192B) 0x109C1F: main (main.c:13)
+|     |         
+|     ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+|     
+->02.44% (3,752B) 0x109496: addToDico (dico.c:39)
+| ->02.44% (3,752B) 0x109A52: monDico (dico.c:246)
+|   ->02.44% (3,752B) 0x109C1F: main (main.c:13)
+|     
+->02.33% (3,576B) in 7 places, all below massif's threshold (1.00%)
+| 
+->01.03% (1,584B) 0x10943C: insertDico (dico.c:31)
+| ->01.03% (1,584B) in 2 places, all below massif's threshold (1.00%)
+|   
+->01.02% (1,568B) 0x109885: deserializeDico (dico.c:130)
+  ->01.02% (1,568B) in 3 places, all below massif's threshold (1.00%)
+    
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 65      1,201,336          153,616          149,800         3,816            0
+ 66      1,213,740          153,728          149,880         3,848            0
+ 67      1,224,184          153,840          149,960         3,880            0
+ 68      1,237,302          153,952          150,040         3,912            0
+ 69      1,241,836          154,064          150,120         3,944            0
+ 70      1,251,370          154,176          150,200         3,976            0
+ 71      1,256,072          154,288          150,280         4,008            0
+ 72      1,263,356          154,512          150,440         4,072            0
+ 73      1,268,883          154,736          150,600         4,136            0
+ 74      1,274,397          154,960          150,760         4,200            0
+97.29% (150,760B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->84.57% (131,048B) 0x109A34: monDico (dico.c:244)
+| ->84.57% (131,048B) 0x109C1F: main (main.c:13)
+|   
+->05.29% (8,192B) 0x49DAE04: _IO_file_doallocate (filedoalloc.c:101)
+| ->05.29% (8,192B) 0x49E9B48: _IO_doallocbuf (genops.c:373)
+|   ->05.29% (8,192B) 0x49E9B48: _IO_doallocbuf (genops.c:368)
+|     ->05.29% (8,192B) 0x49E7945: _IO_file_underflow@@GLIBC_2.2.5 (fileops.c:487)
+|     | ->05.29% (8,192B) 0x49E9BEA: _IO_default_uflow (genops.c:388)
+|     |   ->05.29% (8,192B) 0x109C69: next_word (word.c:12)
+|     |     ->05.29% (8,192B) 0x109A75: monDico (dico.c:245)
+|     |       ->05.29% (8,192B) 0x109C1F: main (main.c:13)
+|     |         
+|     ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+|     
+->02.51% (3,888B) in 7 places, all below massif's threshold (1.00%)
+| 
+->02.42% (3,752B) 0x109496: addToDico (dico.c:39)
+| ->02.42% (3,752B) 0x109A52: monDico (dico.c:246)
+|   ->02.42% (3,752B) 0x109C1F: main (main.c:13)
+|     
+->01.48% (2,296B) 0x109885: deserializeDico (dico.c:130)
+| ->01.48% (2,296B) in 3 places, all below massif's threshold (1.00%)
+|   
+->01.02% (1,584B) 0x10943C: insertDico (dico.c:31)
+  ->01.02% (1,584B) in 2 places, all below massif's threshold (1.00%)
+    
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 75      1,282,298          155,184          150,920         4,264            0
+ 76      1,288,894          155,408          151,080         4,328            0
+ 77      1,295,283          155,632          151,240         4,392            0
+ 78      1,299,389          155,856          151,400         4,456            0
+ 79      1,304,399          156,080          151,560         4,520            0
+ 80      1,309,956          156,304          151,720         4,584            0
+ 81      1,314,677          156,528          151,880         4,648            0
+ 82      1,320,907          156,752          152,040         4,712            0
+ 83      1,325,402          156,864          152,120         4,744            0
+ 84      1,332,680          157,088          152,280         4,808            0
+96.94% (152,280B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->83.42% (131,048B) 0x109A34: monDico (dico.c:244)
+| ->83.42% (131,048B) 0x109C1F: main (main.c:13)
+|   
+->05.21% (8,192B) 0x49DAE04: _IO_file_doallocate (filedoalloc.c:101)
+| ->05.21% (8,192B) 0x49E9B48: _IO_doallocbuf (genops.c:373)
+|   ->05.21% (8,192B) 0x49E9B48: _IO_doallocbuf (genops.c:368)
+|     ->05.21% (8,192B) 0x49E7945: _IO_file_underflow@@GLIBC_2.2.5 (fileops.c:487)
+|     | ->05.21% (8,192B) 0x49E9BEA: _IO_default_uflow (genops.c:388)
+|     |   ->05.21% (8,192B) 0x109C69: next_word (word.c:12)
+|     |     ->05.21% (8,192B) 0x109A75: monDico (dico.c:245)
+|     |       ->05.21% (8,192B) 0x109C1F: main (main.c:13)
+|     |         
+|     ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+|     
+->02.77% (4,344B) in 7 places, all below massif's threshold (1.00%)
+| 
+->02.39% (3,752B) 0x109496: addToDico (dico.c:39)
+| ->02.39% (3,752B) 0x109A52: monDico (dico.c:246)
+|   ->02.39% (3,752B) 0x109C1F: main (main.c:13)
+|     
+->02.14% (3,360B) 0x109885: deserializeDico (dico.c:130)
+| ->01.07% (1,680B) 0x109961: deserializeDico (dico.c:142)
+| | ->01.07% (1,680B) in 3 places, all below massif's threshold (1.00%)
+| |   
+| ->01.03% (1,624B) 0x109945: deserializeDico (dico.c:139)
+| | ->01.03% (1,624B) in 3 places, all below massif's threshold (1.00%)
+| |   
+| ->00.04% (56B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->01.01% (1,584B) 0x10943C: insertDico (dico.c:31)
+  ->01.01% (1,584B) in 2 places, all below massif's threshold (1.00%)
+    
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 85      1,343,045          157,200          152,360         4,840            0
+ 86      1,350,903          157,312          152,440         4,872            0
+ 87      1,474,776          149,184          144,304         4,880            0
+ 88      1,478,756          144,032          140,496         3,536            0
+ 89      1,482,758          139,640          137,384         2,256            0
+ 90      1,486,793          135,864          134,728         1,136            0
+ 91      1,490,725          132,096          132,072            24            0
