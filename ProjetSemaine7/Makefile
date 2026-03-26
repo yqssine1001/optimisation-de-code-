@@ -104,7 +104,7 @@ $(TEST_OBJDIR)/%.o: $(TEST_SRCDIR)/%.c
 
 
 clean:
-	 rm -rf $(OBJDIR) $(TEST_OBJDIR) $(LIB_OBJDIR) $(EXECDIR)
+	 rm -rf $(OBJDIR) $(TEST_OBJDIR) $(LIB_OBJDIR) $(EXECDIR) afl_out
 
 mk_dir: 
 	-mkdir -p obj
