@@ -21,9 +21,9 @@ typedef struct emplacement_t emplacement_t;
  * @param next la case suivante (colonne + 1 ou line+1 et colonne <- 0)
  */
 struct emplacement_t {
-    emplacement_t* next;
-    unsigned int line;
-    unsigned int colonne;
+  emplacement_t *next;
+  unsigned int line;
+  unsigned int colonne;
 };
 
 typedef struct mot_data_t mot_data_t;
@@ -33,9 +33,9 @@ typedef struct mot_data_t mot_data_t;
  * @param queue_liste Dernier mot de la liste
  */
 struct mot_data_t {
-    emplacement_t* tete_liste;
-    emplacement_t* queue_liste;
-    char lemot[maxSizeWord];
+  emplacement_t *tete_liste;
+  emplacement_t *queue_liste;
+  char lemot[maxSizeWord];
 };
 
 /**
@@ -52,9 +52,10 @@ char *next_word(FILE *f, unsigned int *nblin, unsigned int *nbcol);
  * @brief Compare deux mots entre eux et retourne un entier entre comparaison
  * @param w1 le premier mot a comparer
  * @param w2 le second mot a comparer
- * @return 1 si w1 est nul ou plus grand que w2 et egal a w2, -1 si w2 est nul ou plus grand que w1 et egal à w1, sinon la difference entre les deux mots.
+ * @return 1 si w1 est nul ou plus grand que w2 et egal a w2, -1 si w2 est nul
+ * ou plus grand que w1 et egal à w1, sinon la difference entre les deux mots.
  */
-int compareWord(mot_data_t* w1, mot_data_t* w2);
+int compareWord(mot_data_t *w1, mot_data_t *w2);
 /**
  * @fn incWord(emplacement_t *location, unsigned int line, unsigned int colonne)
  * @brief Ajoute un case d'emplacement en queue
@@ -62,14 +63,14 @@ int compareWord(mot_data_t* w1, mot_data_t* w2);
  * @param line la ligne pour la nouvelle case
  * @param colonne la colonne pour la nouvelle case
  */
-void incWord(emplacement_t* location, unsigned int line, unsigned int colonne);
+void incWord(mot_data_t *source, unsigned int line, unsigned int colonne);
 /**
  * @fn displayWord(mot_data_t *word, FILE *filedes)
- * @brief Affiche un mot dans un fichier ainsi que l'emplacement de chacun de ses caracteres
+ * @brief Affiche un mot dans un fichier ainsi que l'emplacement de chacun de
+ * ses caracteres
  * @param word le mot a afficher
  * @param filedes le fichier ou l'ecrire
  */
-void displayWord(mot_data_t* word, FILE *filedes);
-
+void displayWord(mot_data_t *word, FILE *filedes);
 
 #endif
