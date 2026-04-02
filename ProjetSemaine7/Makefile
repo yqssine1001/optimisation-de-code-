@@ -60,6 +60,13 @@ ifdef ASAN
 CFLAGS += -fsanitize=address
 LDFLAGS+=-fsanitize=address
 endif
+
+ifdef PROF
+CFLAGS += -pg
+LDFLAGS+= -pg
+$(shell touch $(SRCS))
+endif
+
 all: mk_dir libword $(EXECDIR)/$(EXEC) doxy
 
 #library statique libword.a
@@ -87,11 +94,17 @@ static: mk_dir $(LIB_LIBDIR)/libword.a $(OBJS) $(TEST_OBJS)
 	$(CC) $(OBJS) $(TEST_OBJS) $(LIB_LIBDIR)/libword.a $(LDFLAGS) -o $(EXECDIR)/$(EXEC)
 	@echo "=== Application compilée avec library statique ==="
 
+
 # app avec library partagée
 shared: mk_dir $(LIB_LIBDIR)/libword.so $(OBJS) $(TEST_OBJS)
 	$(CC) $(OBJS) $(TEST_OBJS) $(LDFLAGS_SHARED) $(LDFLAGS) -o $(EXECDIR)/$(EXEC)
 	@echo "=== Application compilée avec library partagée ==="
 	@echo -e "\033[1;33mIMPORTANT : exécuter 'export LD_LIBRARY_PATH=lib_word/lib:$\{LD_LIBRARY_PATH}' avant d'exécuter l'application\033[0m"
+
+
+prof: mk_dir $(LIB_LIBDIR)/libword.a $(OBJS) $(TEST_OBJS)
+	$(CC) $(OBJS) $(TEST_OBJS) $(LIB_LIBDIR)/libword.a $(LDFLAGS) -o $(EXECDIR)/$(EXEC)
+	@echo "=== Application compilée avec library statique avec grof==="
 
 $(EXECDIR)/$(EXEC): $(OBJS) $(TEST_OBJS) $(LIB_LIBDIR)/libword.a
 	$(CC) $(OBJS) $(TEST_OBJS) $(LIB_LIBDIR)/libword.a $(LDFLAGS) -o $@ 
