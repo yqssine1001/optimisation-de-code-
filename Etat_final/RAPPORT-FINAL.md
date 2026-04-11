@@ -5,10 +5,10 @@ Dès lors qu'un projet est commencé ou repris en cours de route, il est préfé
 
 ### Organisation hiéarchique
 L'un des premiers outils qui peut être mis en place est l'organisation hiéarchique. Le principe réside en une séparation claire des différents fichiers d'un projet dans différents dossiers à la racine de ce dernier. Par exemple pour le projet qui est utilisé en exemple et qui est rédigé en C, il faut : 
-  - Un dossier pour les fichiers sources (`.c`)
-  - Un dossier pour les fichiers d'entête (`.h`)
-  - Un dossier pour les executable
-  - D'autres dossiers au besoin (documentation, tests, bibliotheque,...)
+  - Un dossier pour les fichiers sources (`.c`).
+  - Un dossier pour les fichiers d'entête (`.h`).
+  - Un dossier pour les executable.
+  - D'autres dossiers au besoin (documentation, tests, bibliotheque,...).
 Ordonner les différentes composantes de cette façon permet une lecture plus aisée du pojet et de qui fait quoi dedans. Cela est aussi pratique pour la compilation avec un Makefile.
 
 ### Modularisation du code
