@@ -1,7 +1,29 @@
 # Rapport Final - MOCA
+## Organisation d'un projet
 
-...
+Dès lors qu'un projet est commencé ou repris en cours de route, il est préférable de s'assurer que celui-ci suivent quelques schémas dans sa structure et son organisation afin de permettre son bon développement et/ou sa maintanebilité sur le long terme. 
 
+### Organisation hiéarchique
+L'un des premiers outils qui peut être mis en place est l'organisation hiéarchique. Le principe réside en une séparation claire des différents fichiers d'un projet dans différents dossiers à la racine de ce dernier. Par exemple pour le projet qui est utilisé en exemple et qui est rédigé en C, il faut : 
+  - Un dossier pour les fichiers sources (.c)
+  - Un dossier pour les fichiers d'entête (.h)
+  - Un dossier pour les executable
+  - D'autres dossiers au besoin (documentation, tests, bibliotheque,...)
+Ordonner les différentes composantes de cette façon permet une lecture plus aisée du pojet et de qui fait quoi dedans. Cela est aussi pratique pour la compilation avec un Makefile.
+
+### Modularisation du code
+Une chose importante, surtout pour maintenir un projet, est la modularisation du code : 
+ - Faire d'une fonction ce qui peut être une fonction (factoriser)
+ - Découper en différents fichiers 
+ - Séparer correctements les différentes composantes entre les fichiers sources
+La conception modulaire a pour but d'organiser le code en différents headers associés (ou non) à un fichier source ainsi qu'un fichier source principal (main) sans header.
+#### Exemple
+  Sur le projet, il nous était originellement fournit un fichier source contenant l'entièreté des fonctions et structure du projet. Pour respecter la conception modulaire, il a été choisit de découper ce fichier sources en 5 fichiers distinct : 
+  - dico.(c/h) contenant toutes les méthodes et structures ayant un rapport avec la manipulation d'un dictionnaire de mots (par la suite deviendra une bibliothèque).
+  - word.(c/h) contenant toutes les méthodes et structures ayant un rapport avec la manipulation des mots.
+  - main.c contenant la boucle de code principale, il s'agit du code qui fait tourner le programme en utilisant les autres sources. 
+  Une fois ce découpage fait, chaque fichier a été placé dans son dossier selon l'organisation hiéarchique.
+  
 ## Bibliothèques
 
 L'intégration de bibliothèques constitue une méthode dans la conception et le développement de projets logiciels.
@@ -107,4 +129,3 @@ il est recommandé d'utiliser ces outils de manière combinée dans un projet lo
 Dans le projet MOCA, Asan s'est avéré plus utile pour identifier les accès invalides notamment grace à ses traces d'appel. Cela a permis de cibler rapidement les fautes de gestion de la mémoire afin de les corriger juste après leur identification. Les autres outils (Valgrind, UBSan) ont été utilisés pour confirmer que les corrections effectuées ont résolu les problèmes identifiés.
 
 De la même manière que pour les tests, ces outils de diagnostic nous permet de detecter des erreurs mais pas de prouver leur absence. Il est donc important de les utiliser tout au long du développement pour maintenir la qualité du code et éviter l'accumulation de problèmes mémoire.
-
