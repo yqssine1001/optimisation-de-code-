@@ -174,3 +174,44 @@ il est recommandé d'utiliser ces outils de manière combinée dans un projet lo
 Dans le projet MOCA, Asan s'est avéré plus utile pour identifier les accès invalides notamment grace à ses traces d'appel. Cela a permis de cibler rapidement les fautes de gestion de la mémoire afin de les corriger juste après leur identification. Les autres outils (Valgrind, UBSan) ont été utilisés pour confirmer que les corrections effectuées ont résolu les problèmes identifiés.
 
 De la même manière que pour les tests, ces outils de diagnostic nous permet de detecter des erreurs mais pas de prouver leur absence. Il est donc important de les utiliser tout au long du développement pour maintenir la qualité du code et éviter l'accumulation de problèmes mémoire.
+## Fuzzing
+L'autre aspect important de developpement des programme est securite. Les erreurs d'exécution (runtime errors) posent le plus grand risque : Contrairement aux erreurs de syntaxe détectées à la compilation, ces fautes surviennent pendant que le programme tourne, et leur resultat est inconnu a l'avance. Parfois,une partie de telle execution erronnee peut etre abuse par un utilisateur malveillant. L'un des exemples: buffer overflow,quand on essaie d'ecrire plus de donnees que le buffer perment.
+
+Pour contrer ces menaces, il est indispensable de tester la robustesse du programme face à des données imprévues. C'est ici qu'intervient le fuzzing.
+
+Le fuzzing est une technique de test logiciel automatisée qui consiste à injecter des données invalides/inattendues ou aléatoires dans un programme pour détecter des vulnérabilités, des plantages ou des fuites de mémoire.
+Il fonctionne par la mutation aleatoire (ou moins aleatoire selon le type) des donnees a partir des donnees de depart valides.
+### AFL
+AFL est l'un des outils de fuzzing les plus populaires et performants. Il s'agit d'un fuzzer qui travaille avec la couverture de code.
+AFL utilise l'instrumentation au moment de la compilation pour suivre le parcours des données dans le programme. 
+Il fonctionne par :
+1) Injection de donnée apres la mutation de donnee initiale.
+2) Il observe si cette donnée a permis de découvrir un nouveau chemin dans la couverture
+3) Si oui, il garde cette donnée comme base pour de futures mutations
+
+AFL détecte les erreurs en surveillant les signaux envoyés par le SE lors de l'exécution du programme cible,comme :
+
+-SIGSEGV (Segmentation Fault) : Tentative d'accès à une mémoire invalide (souvent un buffer overflow)
+-SIGABRT (Abort) : Interruption anormale (par exemple tentative de liberer adresse memoire deja liberee)
+-SIGILL (Illegal Instruction) : Indique que le programme tente d'exécuter une instruction illegale (division par 0)
+
+
+Chaque fois qu'un tel signal est reçu, AFL enregistre l'entrée ayant provoqué le crash dans un dossier specifié.
+
+### Instrumentation AFL
+Pour utiliser AFL sur un projet en C, on doit suivre ces étapes :
+
+1) Compilation instrumentée : Au lieu d'utiliser gcc, on utilise afl-gcc (ou afl-clang). Cela ajoute des "capteurs" dans le binaire pour mesurer la couverture.
+
+2) Préparation des donnees d'entree : On place quelques fichiers d'entrée valides dans un dossier d'entrée (in/).
+
+3) Lancement : On exécute la commande afl-fuzz -i in -o out ./mon_programme @@.
+
+Le symbole @@ indique à AFL où placer le fichier de test généré dans les arguments du programme.
+
+### Analyse
+On surveille l'interface d'AFL: dès qu'un "unique crash" apparaît, on examine les fichiers dans out/crashes pour reproduire et corriger l'erreur. AFL peut aussi indiquer s'il y a des branches non decouvertes.Dans ce cas il va afficher un message disant de verifier le syntaxe du code.
+
+On peut aussi utiliser AFL et ASan ensemble pour ajouter des signaux supplementaires pour le rendre plus efficace par detectiond es erreurs de la memoire,notamment de la pile.
+
+Attention: il existe certaines erreurs non -detectables par ni AFL ni AFL+ASan: par exemple,ecrite a l'adresse hors le buffer. Techniquement c'est une ecriture dans l'adresse valide donc aucun crash n'est pas provoquee, mais par telle action on risque de reecrire de l'information importante dans la pile.
