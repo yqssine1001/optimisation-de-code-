@@ -13,9 +13,9 @@ Ordonner les différentes composantes de cette façon permet une lecture plus ai
 
 ### Modularisation du code
 Une chose importante, surtout pour maintenir un projet, est la modularisation du code : 
- - Faire d'une fonction ce qui peut être une fonction (factoriser)
- - Découper en différents fichiers 
- - Séparer correctements les différentes composantes entre les fichiers sources
+ - Faire d'une fonction ce qui peut être une fonction (factoriser).
+ - Découper en différents fichiers.
+ - Séparer correctements les différentes composantes entre les fichiers sources.
 La conception modulaire a pour but d'organiser le code en différents headers associés (ou non) à un fichier source ainsi qu'un fichier source principal (main) sans header.
 #### Exemple
   Sur le projet, il nous était originellement fournit un fichier source contenant l'entièreté des fonctions et structure du projet. Pour respecter la conception modulaire, il a été choisit de découper ce fichier sources en 5 fichiers distinct : 
@@ -28,8 +28,8 @@ La conception modulaire a pour but d'organiser le code en différents headers as
 Pour compiler un projet, plusieurs choix s'offrent : 
   - Tapper chaque commande à la main (long et innefficace).
   - Utiliser un script `bash` (peut efficace et recompile toujours tout le projet).
-  - Utiliser un Makefile.
-Dès lors qu'un projet utilise une organisation héarchique ainsi qu'une conception modulaire, c'est l'option Makefile qui doit être retenue.
+  - Utiliser un `Makefile`.
+Dès lors qu'un projet utilise une organisation héarchique ainsi qu'une conception modulaire, c'est l'option `Makefile` qui doit être retenue.
 
 Un `Makefile` est un fichier utilisable par l'utilitaire `make` contenant un ensemble de règles et de variables afin de compiler. 
 
@@ -38,7 +38,7 @@ Une règle est instruction appelable avec la commande `make <cible>` qui va effe
 1. `cible: condition` sur une première ligne.
 2. `commande` sur une seconde ligne avec une indentation (une règle peut effectuer plusieurs commandes si on revient a la ligne avec la même indentation que pour la commande precedente). On peut ajouter un "-" devant la commande pour continuer l'execution malgré une erreur de la commande executé.
 La cible est a la fois ce qui est sensé etre produit par la règle et son nom. La condition elle, est ce qui va être vérifié par `make` avant d'executer les commandes de la règle :
- - Si la condition est une règle alors on va appliquer le même principe qu'ici a cette derniere et si elle est executé alors la condition d'execution est remplie
+ - Si la condition est une règle alors on va appliquer le même principe qu'ici a cette derniere et si elle est executé alors la condition d'execution est remplie.
  - Si la condition est un fichier alors la règle ne sera executé que si sa cible est plus ancienne que le fichier.
  Cette particularité permet de ne pas recompiler l'entièreté d'un projet à chaque fois ce qui peut prendre beaucoup de temps selon la machine ou la taille du dit projet. 
  
