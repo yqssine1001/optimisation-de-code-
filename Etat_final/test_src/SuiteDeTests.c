@@ -10,7 +10,28 @@
 #include "word.h"
 #include "dico.h"
 
+/* ------------------------------------------------------------------ */
+/* Tests unitaires pour nextWord                                   */
+/* ------------------------------------------------------------------ */
+/*nextWord doit renvoyer null si fichier vide*/
+void test_nextWord_vide(CuTest *tc){
+    FILE *f = fopen("./tests_unitaires/test_vide","r");
+    CuAssertPtrNotNull(tc, f);
+    char* mot = next_word(f,0,0);
+    CuAssertPtrEquals(tc,NULL,mot);
+    if(f)
+        fclose(f);
+}
 
+void test_nextWord_EOF(CuTest *tc){
+    FILE *f = fopen("./tests_unitaires/test_texte","r");
+    CuAssertPtrNotNull(tc, f);
+    char* mot = next_word(f,0,0);
+    CuAssertPtrNotNull(tc,mot);
+    CuAssertStrEquals(tc,"prog",mot);
+    if(f)
+        fclose(f);
+}
 /* ------------------------------------------------------------------ */
 /* Tests unitaires pour compareWord                                   */
 /* ------------------------------------------------------------------ */

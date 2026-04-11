@@ -120,7 +120,35 @@ Pour compiler un projet avec des bibliothèques, il est nécessaire de séparer 
 Ainsi pour la compilation, en fonction du type de bibliothèque choisi (ou les 2 comme pour le projet), il sera nécessaire d'ajouter les options de compilation appropriées pour les bibliothèques, puis de lier les bibliothèques lors de l'édition de liens. Par exemple, pour notre projet MOCA, `make static` compilera le projet en utilisant la bibliothèque statique `libword.a`, tandis que `make shared` utilisera la bibliothèque partagée `libword.so`.
 
 ...
+## Tests et analyse de couverture
+Pendant le développement des projets, on risque de produire des fautes (instructions incorrectes ou manquantes) qui peuvent créer des défaillances (comportements erronés, bugs). Parfois, on peut les détecter assez vite à la relecture ou grâce aux preuves formelles, mais à l’échelle d’un grand projet, il est impossible de toutes les détecter manuellement.
 
+C’est pourquoi on crée des tests automatisés afin de trouver efficacement les erreurs. Tester implique aussi d'exécuter le programme sur des données d'entrée pour observer les résultats et les comparer à ceux attendus. Le test n'est pas probant sans exécution et comparaison des résultats.
+
+Le test n'est pas une étape unique, on peut tester à différents moments : avant, pendant ou après le développement de chaque fonction, lors de l'intégration des modules, et notamment après des modifications pour garantir la non-régression. L'idée est de couvrir tout le cycle de vie du programme.
+
+A chaque phase de conception du programme correspond un type de test adapté. On commence par les tests unitaires (conception détaillée de fonctions), puis les tests d’intégration (conception globale), les tests système (à partir de spécifications) et enfin les tests d’acceptation pour valider les besoins finaux des utilisateurs potentiels. On se concentre notamment sur les tests unitaires et de système dans le cadre de cette UE.
+
+### Conception des tests
+Pendant le choix des tests, on s'intéresse à la correction fonctionnelle. Pour cela, il faut non seulement choisir des données d'entrée pour les tests, mais aussi définir le résultat attendu pour chacun d'eux auquel on va comparer le résultat produit par le programme (problème de l'oracle).
+
+L'approche **"Boîte Noire"** : elle se base sur les spécifications.On vérifie que le programme fait ce qu'on attend de lui sans regarder le code interne.
+
+Dans le cadre du projet dictionnaire, nous avons créé, à partir de la spécification du programme, des tests système représentant des fichiers de contenus différents, ainsi que des tests pour vérifier le bon fonctionnement des fonctions de sérialisation/désérialisation du dictionnaire. Ceci permet de vérifier si le programme se comporte comme attendu pour chaque entrée et que la sérialisation/désérialisation n'altère pas la spécification et la structure du dictionnaire.
+/*mettre ici la specification du programme qui etait dans le tp de tests*/
+
+L'approche **"Boîte Blanche"** : elle se base sur le code lui-même.On analyse la structure du programme pour s'assurer que chaque instruction et chaque chemin logique sont bien testés. C'est-à-dire s'assurer que chaque fonction produit un résultat correct pour son ensemble d'entrées (pour les valeurs hors de cet ensemble, on introduit des tests de robustesse).
+
+Pour le projet,nous avons concu des tests unitaires pour chaque fonction de `word.h` et `dico.h`, par exemple.
+
+### Couvertude du code
+La notion liee a ce genre de test est **la couverture du code.** La couverture du code est une mesure pour indiquer
+si on passe partout dans le programme a partir des criteres comme toutes instructions/branches/conditions/chemins executes(es). La couverture est important car si une partie du code n'est jamais executee,alors elle ne produit jamais des erreurs qu'on recherche. Or,il faut faire attention a ne pas confondre la couverture a 100% comme indicateur d'absence des defaillances: couverture est seulement une partie informatif pour les tests.
+
+Pour observer la couverture du code,on peut compiler le programme avec les options de **-fprofile-arcs** et **-ftest-coverage** et executer gcov -b -c 'nomdufichier.c'. En regardant a la couverture pendant la conception des tests,on peut continuer a creer des tests jusqu'atteindre 100% couverture des branches du code.
+
+### Automatisation des tests
+Pour automatiser les tests, on peut utiliser des outils differents,par exemple CuTest pour les programmes ecrits en C: pour chaque test, on creer une methode dans la suite de tests qu'on execute dans le runner de test.
 ## Analyse de la mémoire
 
 La gestion correcte de la mémoire est primordiale pour la fiabilité d'une application. Les erreurs mémoire (fuites, accès invalides, comportements indéfinis) peuvent causer des crashes, des corruptions de données, des failles de sécurité et ne pas être détectées facilement par des tests fonctionnels classiques.
@@ -215,3 +243,7 @@ On surveille l'interface d'AFL: dès qu'un "unique crash" apparaît, on examine 
 On peut aussi utiliser AFL et ASan ensemble pour ajouter des signaux supplementaires pour le rendre plus efficace par detectiond es erreurs de la memoire,notamment de la pile.
 
 Attention: il existe certaines erreurs non -detectables par ni AFL ni AFL+ASan: par exemple,ecrite a l'adresse hors le buffer. Techniquement c'est une ecriture dans l'adresse valide donc aucun crash n'est pas provoquee, mais par telle action on risque de reecrire de l'information importante dans la pile.
+<<<<<<< HEAD
+=======
+
+>>>>>>> 089f12b (Ajouter tests et fuzzing dans le rapport final)
