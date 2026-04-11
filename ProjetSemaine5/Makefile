@@ -37,7 +37,7 @@ OPTGCOV= -fprofile-arcs -ftest-coverage
 CFLAGS+=$(OPTGCOV)
 LDFLAGS+=$(OPTGCOV)
 $(shell touch $(SRCS))
-endif 
+endif
 
 ifdef FINAL # La variable FINAL doit être définie à 1 pour compiler le code final
 CPPFLAGS+= -DFINAL=$(FINAL)
@@ -82,7 +82,7 @@ shared: mk_dir $(LIB_LIBDIR)/libword.so $(OBJS) $(TEST_OBJS)
 	@echo -e "\033[1;33mIMPORTANT : exécuter 'export LD_LIBRARY_PATH=lib_word/lib:$\{LD_LIBRARY_PATH}' avant d'exécuter l'application\033[0m"
 
 $(EXECDIR)/$(EXEC): $(OBJS) $(TEST_OBJS) $(LIB_LIBDIR)/libword.a
-	$(CC) $(OBJS) $(TEST_OBJS) $(LIB_LIBDIR)/libword.a $(LDFLAGS) -o $@ 
+	$(CC) $(OBJS) $(TEST_OBJS) $(LIB_LIBDIR)/libword.a $(LDFLAGS) -o $@
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	$(CC) -c $(CFLAGS) $(CPPFLAGS) $< -o $@
@@ -95,7 +95,7 @@ clean:
 	-rm $(OBJDIR)/*.o  $(EXECDIR)/* $(TEST_OBJDIR)/*.o $(LIB_OBJDIR)/*.o $(LIB_LIBDIR)/*.a $(LIB_LIBDIR)/*.so *.c.gcov $(OBJDIR)/*.gcno $(OBJDIR)/*.gcda $(TEST_OBJDIR)/*.gcno $(TEST_OBJDIR)/*.gcda
 	@echo "clean effectué"
 
-mk_dir: 
+mk_dir:
 	-mkdir -p obj
 	-mkdir -p bin
 	-mkdir -p documentation

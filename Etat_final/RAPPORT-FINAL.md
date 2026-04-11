@@ -5,8 +5,8 @@ Dès lors qu'un projet est commencé ou repris en cours de route, il est préfé
 
 ### Organisation hiéarchique
 L'un des premiers outils qui peut être mis en place est l'organisation hiéarchique. Le principe réside en une séparation claire des différents fichiers d'un projet dans différents dossiers à la racine de ce dernier. Par exemple pour le projet qui est utilisé en exemple et qui est rédigé en C, il faut : 
-  - Un dossier pour les fichiers sources (.c)
-  - Un dossier pour les fichiers d'entête (.h)
+  - Un dossier pour les fichiers sources (`.c`)
+  - Un dossier pour les fichiers d'entête (`.h`)
   - Un dossier pour les executable
   - D'autres dossiers au besoin (documentation, tests, bibliotheque,...)
 Ordonner les différentes composantes de cette façon permet une lecture plus aisée du pojet et de qui fait quoi dedans. Cela est aussi pratique pour la compilation avec un Makefile.
@@ -19,11 +19,56 @@ Une chose importante, surtout pour maintenir un projet, est la modularisation du
 La conception modulaire a pour but d'organiser le code en différents headers associés (ou non) à un fichier source ainsi qu'un fichier source principal (main) sans header.
 #### Exemple
   Sur le projet, il nous était originellement fournit un fichier source contenant l'entièreté des fonctions et structure du projet. Pour respecter la conception modulaire, il a été choisit de découper ce fichier sources en 5 fichiers distinct : 
-  - dico.(c/h) contenant toutes les méthodes et structures ayant un rapport avec la manipulation d'un dictionnaire de mots (par la suite deviendra une bibliothèque).
-  - word.(c/h) contenant toutes les méthodes et structures ayant un rapport avec la manipulation des mots.
-  - main.c contenant la boucle de code principale, il s'agit du code qui fait tourner le programme en utilisant les autres sources. 
+  - `dico.(c/h)` contenant toutes les méthodes et structures ayant un rapport avec la manipulation d'un dictionnaire de mots (par la suite deviendra une bibliothèque).
+  - `word.(c/h)` contenant toutes les méthodes et structures ayant un rapport avec la manipulation des mots.
+  - `main.c` contenant la boucle de code principale, il s'agit du code qui fait tourner le programme en utilisant les autres sources. 
   Une fois ce découpage fait, chaque fichier a été placé dans son dossier selon l'organisation hiéarchique.
-  
+
+### Compilation avec un Makefile
+Pour compiler un projet, plusieurs choix s'offrent : 
+  - Tapper chaque commande à la main (long et innefficace).
+  - Utiliser un script `bash` (peut efficace et recompile toujours tout le projet).
+  - Utiliser un Makefile.
+Dès lors qu'un projet utilise une organisation héarchique ainsi qu'une conception modulaire, c'est l'option Makefile qui doit être retenue.
+
+Un `Makefile` est un fichier utilisable par l'utilitaire `make` contenant un ensemble de règles et de variables afin de compiler. 
+
+#### Règles
+Une règle est instruction appelable avec la commande `make <cible>` qui va effectuer au besoin la règle. Elle se décompose en deux partie : 
+1. `cible: condition` sur une première ligne.
+2. `commande` sur une seconde ligne avec une indentation (une règle peut effectuer plusieurs commandes si on revient a la ligne avec la même indentation que pour la commande precedente). On peut ajouter un "-" devant la commande pour continuer l'execution malgré une erreur de la commande executé.
+La cible est a la fois ce qui est sensé etre produit par la règle et son nom. La condition elle, est ce qui va être vérifié par `make` avant d'executer les commandes de la règle :
+ - Si la condition est une règle alors on va appliquer le même principe qu'ici a cette derniere et si elle est executé alors la condition d'execution est remplie
+ - Si la condition est un fichier alors la règle ne sera executé que si sa cible est plus ancienne que le fichier.
+ Cette particularité permet de ne pas recompiler l'entièreté d'un projet à chaque fois ce qui peut prendre beaucoup de temps selon la machine ou la taille du dit projet. 
+ 
+ Une règle peut être implicite (comportement de `make`) ou explicite (ecrite par un humain) et l'implicite peut être supprimé lors de l'appel a `make` avec certaines options.
+ 
+On peut construire des règles ne suivant pas le principe de "cible=fichier" comme par exemple une règle supprimant tout les fichiers objets et les binaires générées par la compilation. Ces commandes doivent être ajoutées à une règle du `Makefile` spécifique nommée `.PHONY`.
+
+
+#### Variables
+Une variable en `Makefile` prend plus ou moins le même sens qu'en `shell` : elle stocke du texte.
+Il est donc possible de s'en servir pour indiquer le nom des différents répertoires contenants les fichiers nécéssaires à la compilation, de sorte à ce que s'il venait à changer de nom, seul la définition de la variable soit à modifier et de même pour le compilateur et ses flags, les bibliothèques utilisées, ...
+Une variable peut être précisée lors de l'appel à `make` par `make cible VARIABLE=VALEUR`.
+
+#### Commandes
+En plus des règles et des variables, `make` intègres des commandes tel que `wildcard` permettant de mimer le principe de `ls`. Il y a aussi des equivalent au chercher-remplacer entre les variables pouvant utiliser aussi bien suffixes que pattern.
+
+#### Conditionnel
+L'outil `make` propose les mots clefs `if` et `else` permettant d'ajouter a des variables du contenu selon des conditions par exemple des variables definie ou non. Cela permet de compiler avec une gestion plus précise : 
+  - Compilation en mode debug, pour avoir le même code qui peut, modulo le temps de compilation, produire instantanément un executable conçu pour déboguer et un produit fini qui peut être partagé le tout sans perdre de temps.
+  - Modification de la valeur de certaines macro lors de la compilation ce qui peut permettre d'activer ou de désactiver des fonctionnalitées du code si il est prévu comme tel
+  - Changement de compilateur, ...
+Les instructions de condition de `make` trouvent leurs équivalent dans les instructions de condition du préprocesseur qui permet donc d'effectuer ce qui est cité plus tôt
+
+#### Exemple
+Le `Makefile` du projet illustre l'utilisation de `make` et de ses outils : 
+  - Utilisation de règles de pattern et de variables pour la compilation du projet et de son organisation héarchiques ainsi que pour les test.
+  - Utilisation de compilation conditionnelle pour un mode debug
+  - Utilisation de compilation conditionnelle pour l'activation de fonctionnalitées optionnelles
+  - Utilisation de compilation conditionnelle pour l'analyse du projet (aSan, Gcov,...)
+  - Règle pour la création d'une documentation, ...
 ## Bibliothèques
 
 L'intégration de bibliothèques constitue une méthode dans la conception et le développement de projets logiciels.

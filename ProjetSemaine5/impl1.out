@@ -1,0 +1,635 @@
+desc: --massif-out-file=impl1.out
+cmd: bin/main Makefile
+time_unit: i
+#-----------
+snapshot=0
+#-----------
+time=0
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=1
+#-----------
+time=195672
+mem_heap_B=472
+mem_heap_extra_B=16
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=2
+#-----------
+time=239709
+mem_heap_B=137156
+mem_heap_extra_B=700
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=3
+#-----------
+time=310953
+mem_heap_B=138044
+mem_heap_extra_B=1084
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=4
+#-----------
+time=371396
+mem_heap_B=139162
+mem_heap_extra_B=1566
+mem_stacks_B=0
+heap_tree=detailed
+n4: 139162 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 131048 0x4001B53: monDico (dico.c:244)
+  n0: 131048 0x4001D52: main (in /home/jolyne/cours/l3/moca/team9/ProjetSemaine5/bin/main)
+ n1: 4096 0x4A3415C: _IO_file_doallocate (filedoalloc.c:91)
+  n1: 4096 0x4A44405: _IO_doallocbuf (genops.c:373)
+   n1: 4096 0x4A44405: _IO_doallocbuf (genops.c:368)
+    n1: 4096 0x4A41ECE: _IO_file_underflow@@GLIBC_2.2.5 (fileops.c:520)
+     n1: 4096 0x4A444F2: _IO_default_uflow (genops.c:388)
+      n1: 4096 0x400396E: next_word (word.c:12)
+       n1: 4096 0x4001B94: monDico (dico.c:245)
+        n0: 4096 0x4001D52: main (in /home/jolyne/cours/l3/moca/team9/ProjetSemaine5/bin/main)
+ n0: 2170 in 6 places, all below massif's threshold (1.00%)
+ n1: 1848 0x40015A6: addToDico (dico.c:39)
+  n1: 1848 0x4001B71: monDico (dico.c:246)
+   n0: 1848 0x4001D52: main (in /home/jolyne/cours/l3/moca/team9/ProjetSemaine5/bin/main)
+#-----------
+snapshot=5
+#-----------
+time=427404
+mem_heap_B=140244
+mem_heap_extra_B=2028
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=6
+#-----------
+time=461143
+mem_heap_B=140705
+mem_heap_extra_B=2215
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=7
+#-----------
+time=517274
+mem_heap_B=141036
+mem_heap_extra_B=2380
+mem_stacks_B=0
+heap_tree=detailed
+n4: 141036 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 131048 0x4001B53: monDico (dico.c:244)
+  n0: 131048 0x4001D52: main (in /home/jolyne/cours/l3/moca/team9/ProjetSemaine5/bin/main)
+ n1: 4096 0x4A3415C: _IO_file_doallocate (filedoalloc.c:91)
+  n1: 4096 0x4A44405: _IO_doallocbuf (genops.c:373)
+   n1: 4096 0x4A44405: _IO_doallocbuf (genops.c:368)
+    n1: 4096 0x4A41ECE: _IO_file_underflow@@GLIBC_2.2.5 (fileops.c:520)
+     n1: 4096 0x4A444F2: _IO_default_uflow (genops.c:388)
+      n1: 4096 0x400396E: next_word (word.c:12)
+       n1: 4096 0x4001B94: monDico (dico.c:245)
+        n0: 4096 0x4001D52: main (in /home/jolyne/cours/l3/moca/team9/ProjetSemaine5/bin/main)
+ n0: 3204 in 6 places, all below massif's threshold (1.00%)
+ n1: 2688 0x40015A6: addToDico (dico.c:39)
+  n1: 2688 0x4001B71: monDico (dico.c:246)
+   n0: 2688 0x4001D52: main (in /home/jolyne/cours/l3/moca/team9/ProjetSemaine5/bin/main)
+#-----------
+snapshot=8
+#-----------
+time=584967
+mem_heap_B=142087
+mem_heap_extra_B=2833
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=9
+#-----------
+time=615142
+mem_heap_B=142846
+mem_heap_extra_B=3146
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=10
+#-----------
+time=669537
+mem_heap_B=143727
+mem_heap_extra_B=3521
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=11
+#-----------
+time=734598
+mem_heap_B=144454
+mem_heap_extra_B=3842
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=12
+#-----------
+time=778826
+mem_heap_B=145104
+mem_heap_extra_B=4112
+mem_stacks_B=0
+heap_tree=detailed
+n5: 145104 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 131048 0x4001B53: monDico (dico.c:244)
+  n0: 131048 0x4001D52: main (in /home/jolyne/cours/l3/moca/team9/ProjetSemaine5/bin/main)
+ n1: 4760 0x40015A6: addToDico (dico.c:39)
+  n1: 4760 0x4001B71: monDico (dico.c:246)
+   n0: 4760 0x4001D52: main (in /home/jolyne/cours/l3/moca/team9/ProjetSemaine5/bin/main)
+ n1: 4096 0x4A3415C: _IO_file_doallocate (filedoalloc.c:91)
+  n1: 4096 0x4A44405: _IO_doallocbuf (genops.c:373)
+   n1: 4096 0x4A44405: _IO_doallocbuf (genops.c:368)
+    n1: 4096 0x4A41ECE: _IO_file_underflow@@GLIBC_2.2.5 (fileops.c:520)
+     n1: 4096 0x4A444F2: _IO_default_uflow (genops.c:388)
+      n1: 4096 0x400396E: next_word (word.c:12)
+       n1: 4096 0x4001B94: monDico (dico.c:245)
+        n0: 4096 0x4001D52: main (in /home/jolyne/cours/l3/moca/team9/ProjetSemaine5/bin/main)
+ n0: 3208 in 5 places, all below massif's threshold (1.00%)
+ n1: 1992 0x400154C: insertDico (dico.c:31)
+  n0: 1992 in 2 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=13
+#-----------
+time=812977
+mem_heap_B=145231
+mem_heap_extra_B=4177
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=14
+#-----------
+time=854118
+mem_heap_B=145561
+mem_heap_extra_B=4327
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=15
+#-----------
+time=900677
+mem_heap_B=146125
+mem_heap_extra_B=4571
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=16
+#-----------
+time=958039
+mem_heap_B=147270
+mem_heap_extra_B=5058
+mem_stacks_B=0
+heap_tree=detailed
+n7: 147270 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 131048 0x4001B53: monDico (dico.c:244)
+  n0: 131048 0x4001D52: main (in /home/jolyne/cours/l3/moca/team9/ProjetSemaine5/bin/main)
+ n1: 5768 0x40015A6: addToDico (dico.c:39)
+  n1: 5768 0x4001B71: monDico (dico.c:246)
+   n0: 5768 0x4001D52: main (in /home/jolyne/cours/l3/moca/team9/ProjetSemaine5/bin/main)
+ n1: 4096 0x4A3415C: _IO_file_doallocate (filedoalloc.c:91)
+  n1: 4096 0x4A44405: _IO_doallocbuf (genops.c:373)
+   n1: 4096 0x4A44405: _IO_doallocbuf (genops.c:368)
+    n1: 4096 0x4A41ECE: _IO_file_underflow@@GLIBC_2.2.5 (fileops.c:520)
+     n1: 4096 0x4A444F2: _IO_default_uflow (genops.c:388)
+      n1: 4096 0x400396E: next_word (word.c:12)
+       n1: 4096 0x4001B94: monDico (dico.c:245)
+        n0: 4096 0x4001D52: main (in /home/jolyne/cours/l3/moca/team9/ProjetSemaine5/bin/main)
+ n1: 2448 0x400154C: insertDico (dico.c:31)
+  n0: 2448 in 2 places, all below massif's threshold (1.00%)
+ n1: 1760 0x4003D1D: incWord (word.c:68)
+  n1: 1760 0x4001524: insertDico (dico.c:26)
+   n0: 1760 in 2 places, all below massif's threshold (1.00%)
+ n1: 1648 0x40015B4: addToDico (dico.c:40)
+  n1: 1648 0x4001B71: monDico (dico.c:246)
+   n0: 1648 0x4001D52: main (in /home/jolyne/cours/l3/moca/team9/ProjetSemaine5/bin/main)
+ n0: 502 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=17
+#-----------
+time=993087
+mem_heap_B=147629
+mem_heap_extra_B=5211
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=18
+#-----------
+time=1041128
+mem_heap_B=147837
+mem_heap_extra_B=5315
+mem_stacks_B=0
+heap_tree=detailed
+n7: 147837 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 131048 0x4001B53: monDico (dico.c:244)
+  n0: 131048 0x4001D52: main (in /home/jolyne/cours/l3/moca/team9/ProjetSemaine5/bin/main)
+ n1: 5936 0x40015A6: addToDico (dico.c:39)
+  n1: 5936 0x4001B71: monDico (dico.c:246)
+   n0: 5936 0x4001D52: main (in /home/jolyne/cours/l3/moca/team9/ProjetSemaine5/bin/main)
+ n1: 4096 0x4A3415C: _IO_file_doallocate (filedoalloc.c:91)
+  n1: 4096 0x4A44405: _IO_doallocbuf (genops.c:373)
+   n1: 4096 0x4A44405: _IO_doallocbuf (genops.c:368)
+    n1: 4096 0x4A41ECE: _IO_file_underflow@@GLIBC_2.2.5 (fileops.c:520)
+     n1: 4096 0x4A444F2: _IO_default_uflow (genops.c:388)
+      n1: 4096 0x400396E: next_word (word.c:12)
+       n1: 4096 0x4001B94: monDico (dico.c:245)
+        n0: 4096 0x4001D52: main (in /home/jolyne/cours/l3/moca/team9/ProjetSemaine5/bin/main)
+ n1: 2496 0x400154C: insertDico (dico.c:31)
+  n0: 2496 in 2 places, all below massif's threshold (1.00%)
+ n1: 2064 0x4003D1D: incWord (word.c:68)
+  n1: 2064 0x4001524: insertDico (dico.c:26)
+   n0: 2064 in 2 places, all below massif's threshold (1.00%)
+ n1: 1696 0x40015B4: addToDico (dico.c:40)
+  n1: 1696 0x4001B71: monDico (dico.c:246)
+   n0: 1696 0x4001D52: main (in /home/jolyne/cours/l3/moca/team9/ProjetSemaine5/bin/main)
+ n0: 501 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=19
+#-----------
+time=1082932
+mem_heap_B=148096
+mem_heap_extra_B=5432
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=20
+#-----------
+time=1117056
+mem_heap_B=148320
+mem_heap_extra_B=5528
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=21
+#-----------
+time=1180714
+mem_heap_B=148844
+mem_heap_extra_B=5780
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=22
+#-----------
+time=1247616
+mem_heap_B=149199
+mem_heap_extra_B=5945
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=23
+#-----------
+time=1291830
+mem_heap_B=149354
+mem_heap_extra_B=6030
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=24
+#-----------
+time=1326342
+mem_heap_B=149613
+mem_heap_extra_B=6147
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=25
+#-----------
+time=1368576
+mem_heap_B=149776
+mem_heap_extra_B=6224
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=26
+#-----------
+time=1437892
+mem_heap_B=150221
+mem_heap_extra_B=6435
+mem_stacks_B=0
+heap_tree=detailed
+n7: 150221 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 131048 0x4001B53: monDico (dico.c:244)
+  n0: 131048 0x4001D52: main (in /home/jolyne/cours/l3/moca/team9/ProjetSemaine5/bin/main)
+ n1: 6440 0x40015A6: addToDico (dico.c:39)
+  n1: 6440 0x4001B71: monDico (dico.c:246)
+   n0: 6440 0x4001D52: main (in /home/jolyne/cours/l3/moca/team9/ProjetSemaine5/bin/main)
+ n1: 4096 0x4A3415C: _IO_file_doallocate (filedoalloc.c:91)
+  n1: 4096 0x4A44405: _IO_doallocbuf (genops.c:373)
+   n1: 4096 0x4A44405: _IO_doallocbuf (genops.c:368)
+    n1: 4096 0x4A41ECE: _IO_file_underflow@@GLIBC_2.2.5 (fileops.c:520)
+     n1: 4096 0x4A444F2: _IO_default_uflow (genops.c:388)
+      n1: 4096 0x400396E: next_word (word.c:12)
+       n1: 4096 0x4001B94: monDico (dico.c:245)
+        n0: 4096 0x4001D52: main (in /home/jolyne/cours/l3/moca/team9/ProjetSemaine5/bin/main)
+ n1: 3600 0x4003D1D: incWord (word.c:68)
+  n2: 3600 0x4001524: insertDico (dico.c:26)
+   n1: 2208 0x40014A1: insertDico (dico.c:22)
+    n0: 2208 in 2 places, all below massif's threshold (1.00%)
+   n0: 1392 in 1 place, below massif's threshold (1.00%)
+ n1: 2712 0x400154C: insertDico (dico.c:31)
+  n0: 2712 in 2 places, all below massif's threshold (1.00%)
+ n1: 1824 0x40015B4: addToDico (dico.c:40)
+  n1: 1824 0x4001B71: monDico (dico.c:246)
+   n0: 1824 0x4001D52: main (in /home/jolyne/cours/l3/moca/team9/ProjetSemaine5/bin/main)
+ n0: 501 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=27
+#-----------
+time=1466098
+mem_heap_B=150280
+mem_heap_extra_B=6472
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=28
+#-----------
+time=1523383
+mem_heap_B=150727
+mem_heap_extra_B=6673
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=29
+#-----------
+time=1575231
+mem_heap_B=151037
+mem_heap_extra_B=6819
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=30
+#-----------
+time=1650338
+mem_heap_B=151396
+mem_heap_extra_B=6996
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=31
+#-----------
+time=1703662
+mem_heap_B=152077
+mem_heap_extra_B=7283
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=32
+#-----------
+time=1778121
+mem_heap_B=152797
+mem_heap_extra_B=7603
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=33
+#-----------
+time=1817990
+mem_heap_B=152959
+mem_heap_extra_B=7681
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=34
+#-----------
+time=1878821
+mem_heap_B=153249
+mem_heap_extra_B=7823
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=35
+#-----------
+time=1942684
+mem_heap_B=153615
+mem_heap_extra_B=8001
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=36
+#-----------
+time=2012392
+mem_heap_B=154219
+mem_heap_extra_B=8277
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=37
+#-----------
+time=2058394
+mem_heap_B=154650
+mem_heap_extra_B=8470
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=38
+#-----------
+time=2105652
+mem_heap_B=154800
+mem_heap_extra_B=8536
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=39
+#-----------
+time=2149207
+mem_heap_B=155201
+mem_heap_extra_B=8719
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=40
+#-----------
+time=2196312
+mem_heap_B=161096
+mem_heap_extra_B=8880
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=41
+#-----------
+time=2743564
+mem_heap_B=161096
+mem_heap_extra_B=8880
+mem_stacks_B=0
+heap_tree=detailed
+n7: 161096 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 131048 0x4001B53: monDico (dico.c:244)
+  n0: 131048 0x4001D52: main (in /home/jolyne/cours/l3/moca/team9/ProjetSemaine5/bin/main)
+ n1: 9216 0x4A3415C: _IO_file_doallocate (filedoalloc.c:91)
+  n1: 9216 0x4A44405: _IO_doallocbuf (genops.c:373)
+   n2: 9216 0x4A44405: _IO_doallocbuf (genops.c:368)
+    n1: 5120 0x4A42278: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:779)
+     n1: 5120 0x4A42E9A: _IO_new_file_xsputn (fileops.c:1305)
+      n2: 5120 0x4A42E9A: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1258)
+       n1: 4096 0x4A0F5E5: __printf_buffer_flush_to_file (printf_buffer_to_file.c:59)
+        n1: 4096 0x4A0F6CB: __printf_buffer_to_file_done (printf_buffer_to_file.c:120)
+         n1: 4096 0x4A1B004: __vfprintf_internal (vfprintf-internal.c:1549)
+          n1: 4096 0x4A0E1DB: fprintf (fprintf.c:32)
+           n1: 4096 0x400175D: displayDico (dico.c:72)
+            n1: 4096 0x4001BB2: monDico (dico.c:249)
+             n0: 4096 0x4001D52: main (in /home/jolyne/cours/l3/moca/team9/ProjetSemaine5/bin/main)
+       n0: 1024 in 1 place, below massif's threshold (1.00%)
+    n1: 4096 0x4A41ECE: _IO_file_underflow@@GLIBC_2.2.5 (fileops.c:520)
+     n1: 4096 0x4A444F2: _IO_default_uflow (genops.c:388)
+      n1: 4096 0x400396E: next_word (word.c:12)
+       n1: 4096 0x4001B94: monDico (dico.c:245)
+        n0: 4096 0x4001D52: main (in /home/jolyne/cours/l3/moca/team9/ProjetSemaine5/bin/main)
+ n1: 7952 0x40015A6: addToDico (dico.c:39)
+  n1: 7952 0x4001B71: monDico (dico.c:246)
+   n0: 7952 0x4001D52: main (in /home/jolyne/cours/l3/moca/team9/ProjetSemaine5/bin/main)
+ n1: 6256 0x4003D1D: incWord (word.c:68)
+  n2: 6256 0x4001524: insertDico (dico.c:26)
+   n2: 3744 0x40014A1: insertDico (dico.c:22)
+    n1: 2320 0x4001456: insertDico (dico.c:17)
+     n0: 2320 in 3 places, all below massif's threshold (1.00%)
+    n0: 1424 in 2 places, all below massif's threshold (1.00%)
+   n1: 2512 0x4001456: insertDico (dico.c:17)
+    n0: 2512 in 3 places, all below massif's threshold (1.00%)
+ n2: 3384 0x400154C: insertDico (dico.c:31)
+  n1: 1776 0x40014A1: insertDico (dico.c:22)
+   n0: 1776 in 3 places, all below massif's threshold (1.00%)
+  n0: 1608 in 1 place, below massif's threshold (1.00%)
+ n1: 2272 0x40015B4: addToDico (dico.c:40)
+  n1: 2272 0x4001B71: monDico (dico.c:246)
+   n0: 2272 0x4001D52: main (in /home/jolyne/cours/l3/moca/team9/ProjetSemaine5/bin/main)
+ n0: 968 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=42
+#-----------
+time=3781704
+mem_heap_B=156552
+mem_heap_extra_B=8872
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=43
+#-----------
+time=3848049
+mem_heap_B=158872
+mem_heap_extra_B=9800
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=44
+#-----------
+time=3916596
+mem_heap_B=160472
+mem_heap_extra_B=10440
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=45
+#-----------
+time=3967186
+mem_heap_B=161512
+mem_heap_extra_B=10856
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=46
+#-----------
+time=4038260
+mem_heap_B=163192
+mem_heap_extra_B=11528
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=47
+#-----------
+time=4087086
+mem_heap_B=164152
+mem_heap_extra_B=11912
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=48
+#-----------
+time=4139299
+mem_heap_B=165032
+mem_heap_extra_B=12264
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=49
+#-----------
+time=4170546
+mem_heap_B=165592
+mem_heap_extra_B=12488
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=50
+#-----------
+time=4200014
+mem_heap_B=166312
+mem_heap_extra_B=12776
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=51
+#-----------
+time=4228823
+mem_heap_B=166792
+mem_heap_extra_B=12968
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=52
+#-----------
+time=4840864
+mem_heap_B=166848
+mem_heap_extra_B=12984
+mem_stacks_B=0
+heap_tree=peak
+n9: 166848 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 131048 0x4001B53: monDico (dico.c:244)
+  n0: 131048 0x4001D52: main (in /home/jolyne/cours/l3/moca/team9/ProjetSemaine5/bin/main)
+ n1: 7952 0x40015A6: addToDico (dico.c:39)
+  n1: 7952 0x4001B71: monDico (dico.c:246)
+   n0: 7952 0x4001D52: main (in /home/jolyne/cours/l3/moca/team9/ProjetSemaine5/bin/main)
+ n3: 7224 0x4001995: deserializeDico (dico.c:130)
+  n2: 3752 0x4001A71: deserializeDico (dico.c:142)
+   n1: 2016 0x4001A71: deserializeDico (dico.c:142)
+    n0: 2016 in 3 places, all below massif's threshold (1.00%)
+   n0: 1736 in 2 places, all below massif's threshold (1.00%)
+  n2: 3416 0x4001A55: deserializeDico (dico.c:139)
+   n1: 2016 0x4001A71: deserializeDico (dico.c:142)
+    n0: 2016 in 3 places, all below massif's threshold (1.00%)
+   n0: 1400 in 2 places, all below massif's threshold (1.00%)
+  n0: 56 in 1 place, below massif's threshold (1.00%)
+ n1: 6256 0x4003D1D: incWord (word.c:68)
+  n2: 6256 0x4001524: insertDico (dico.c:26)
+   n2: 3744 0x40014A1: insertDico (dico.c:22)
+    n1: 2320 0x4001456: insertDico (dico.c:17)
+     n0: 2320 in 3 places, all below massif's threshold (1.00%)
+    n0: 1424 in 2 places, all below massif's threshold (1.00%)
+   n1: 2512 0x4001456: insertDico (dico.c:17)
+    n0: 2512 in 3 places, all below massif's threshold (1.00%)
+ n1: 5120 0x4A3415C: _IO_file_doallocate (filedoalloc.c:91)
+  n1: 5120 0x4A44405: _IO_doallocbuf (genops.c:373)
+   n2: 5120 0x4A44405: _IO_doallocbuf (genops.c:368)
+    n1: 4096 0x4A41ECE: _IO_file_underflow@@GLIBC_2.2.5 (fileops.c:520)
+     n1: 4096 0x4A444F2: _IO_default_uflow (genops.c:388)
+      n1: 4096 0x400396E: next_word (word.c:12)
+       n1: 4096 0x4001B94: monDico (dico.c:245)
+        n0: 4096 0x4001D52: main (in /home/jolyne/cours/l3/moca/team9/ProjetSemaine5/bin/main)
+    n0: 1024 in 1 place, below massif's threshold (1.00%)
+ n1: 3384 0x400154C: insertDico (dico.c:31)
+  n0: 3384 in 2 places, all below massif's threshold (1.00%)
+ n1: 3096 0x4001987: deserializeDico (dico.c:129)
+  n0: 3096 in 3 places, all below massif's threshold (1.00%)
+ n1: 2272 0x40015B4: addToDico (dico.c:40)
+  n1: 2272 0x4001B71: monDico (dico.c:246)
+   n0: 2272 0x4001D52: main (in /home/jolyne/cours/l3/moca/team9/ProjetSemaine5/bin/main)
+ n0: 496 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=53
+#-----------
+time=4869095
+mem_heap_B=142936
+mem_heap_extra_B=4744
+mem_stacks_B=0
+heap_tree=empty
