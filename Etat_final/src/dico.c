@@ -11,30 +11,27 @@ int hash(char *m) {
 }
 
 void insertDico(dico **dictionary, mot_t *linkWord) {
-  dico *newDictionary = *dictionary;
-  while (newDictionary != NULL &&
-         compareWord(&(newDictionary->mot->data), &(linkWord->data)) > 0) {
-    *dictionary = newDictionary;
-    insertDico(&(newDictionary->fg), linkWord);
+  if (*dictionary == NULL) {
+    dico *newNode = (dico *)malloc(sizeof(dico));
+    if (newNode == NULL)
+      return;
+    newNode->mot = linkWord;
+    newNode->fg = newNode->fd = NULL;
+    *dictionary = newNode;
     return;
   }
-  while (newDictionary != NULL &&
-         compareWord(&(newDictionary->mot->data), &(linkWord->data)) < 0) {
-    *dictionary = newDictionary;
-    insertDico(&(newDictionary->fd), linkWord);
-    return;
-  }
-  if (newDictionary != NULL &&
-      compareWord(&(newDictionary->mot->data), &(linkWord->data)) == 0) {
-    incWord(&newDictionary->mot->data, linkWord->data.tete_liste->line,
+
+  int cmp = compareWord(&(*dictionary)->mot->data, &linkWord->data);
+
+  if (cmp > 0) {
+    insertDico(&((*dictionary)->fg), linkWord);
+  } else if (cmp < 0) {
+    insertDico(&((*dictionary)->fd), linkWord);
+  } else {
+    incWord(&(*dictionary)->mot->data, linkWord->data.tete_liste->line,
             linkWord->data.tete_liste->colonne);
     free(linkWord->data.tete_liste);
     free(linkWord);
-  } else {
-    newDictionary = (dico *)malloc(sizeof(dico));
-    newDictionary->mot = linkWord;
-    newDictionary->fg = newDictionary->fd = NULL;
-    *dictionary = newDictionary;
   }
 }
 
