@@ -101,5 +101,5 @@ mot_data_t **extractJSON(struct json_object *o);
  */
 int monDico(int argc, char *argv[]);
 void freeDico(dico *d);
-
+void displayDicoInternal(dico *dictionary, char *texte, char *filename);
 #endif

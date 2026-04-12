@@ -36,7 +36,7 @@ void test_nextWord(CuTest *tc){
         }
         fclose(f);
         exit(0);
-        
+
     }
     else{
         int status;
@@ -57,6 +57,40 @@ static mot_data_t *make_word(const char *mot) {
     w->tete_liste = NULL;
     w->queue_liste = NULL;
     return w;
+}
+
+int compare_displayDico(char *input, char *output, char *expected_output)
+{
+    FILE *f = fopen(input, "r");
+    unsigned int line = 0;
+    unsigned int colonne = 0;
+    char *word = NULL;
+    dico *dictionary = NULL;
+    while ((word = next_word(f, &line, &colonne)) != NULL) {
+      addToDico(&dictionary, word, &line, &colonne);
+      free(word);
+    }
+    displayDicoInternal(dictionary, input, expected_output);
+    free(dictionary);
+    return compare_file(expected_output, output);
+}
+
+void test_compareDico_un_mot(CuTest *tc)
+{
+    CuAssertIntEquals(tc, 0, compare_displayDico("./tests_unitaires/inputs/mot_simple.txt",
+        "./tests_unitaires/outputs/mot_simple.txt",  "./tests_unitaires/outputs_expected/mot_simple.txt"));
+}
+
+void test_compareDico_null(CuTest *tc)
+{
+    CuAssertIntEquals(tc, 0, compare_displayDico("./tests_unitaires/inputs/test_vide",
+        "./tests_unitaires/outputs/displayDico_null.txt",  "./tests_unitaires/outputs_expected/displayDico_null.txt"));
+}
+
+void test_compareDico_texte(CuTest *tc)
+{
+    CuAssertIntEquals(tc, 0, compare_displayDico("./tests_unitaires/inputs/test_texte",
+        "./tests_unitaires/outputs/displayDico_texte.txt",  "./tests_unitaires/outputs_expected/displayDico_texte.txt"));
 }
 
 /* compareWord(NULL, w2) doit retourner 1 */
@@ -175,7 +209,7 @@ void test_displayWord(CuTest *tc){
     incWord(w2,2,1);
     char *input = "./tests_unitaires/outputs/displayWord.txt";
     char *expected= "./tests_unitaires/outputs_expected/displayWord.txt";
-    FILE *f = fopen(input,"w"); 
+    FILE *f = fopen(input,"w");
     CuAssertPtrNotNull(tc,f);
     displayWord(w1,f);
     displayWord(w2,f);
@@ -189,7 +223,7 @@ void test_displayWord_null(CuTest *tc){
     mot_data_t *w1 = NULL;
     char *input = "./tests_unitaires/outputs/displayWord_null.txt";
     char *expected= "./tests_unitaires/outputs_expected/displayWord_null.txt";
-    FILE *f = fopen(input,"w"); 
+    FILE *f = fopen(input,"w");
     CuAssertPtrNotNull(tc,f);
     displayWord(w1,f);
     fclose(f);
@@ -201,7 +235,7 @@ void test_displayWord_listeVide(CuTest *tc){
     mot_data_t *w1 = make_word("titi");
     char *input = "./tests_unitaires/outputs/displayWord_listeVide.txt";
     char *expected= "./tests_unitaires/outputs_expected/displayWord_listeVide.txt";
-    FILE *f = fopen(input,"w"); 
+    FILE *f = fopen(input,"w");
     CuAssertPtrNotNull(tc,f);
     displayWord(w1,f);
     fclose(f);
@@ -211,7 +245,7 @@ void test_displayWord_listeVide(CuTest *tc){
 }
 /*tests unitaires pour fonctions de dico*/
 mot_t *cree_mot_t(mot_data_t *data){
-    mot_t *w = (mot_t *)malloc(sizeof(mot_t)); 
+    mot_t *w = (mot_t *)malloc(sizeof(mot_t));
     w->data = *data;
     return w;
 }
@@ -349,8 +383,12 @@ CuSuite *MaTestSuite(void) {
 
     SUITE_ADD_TEST(suite,  test_insertDico);
     SUITE_ADD_TEST(suite,  test_addToDico);
-    
-   
+
+    // Ajouter test unitaire pour displayDico
+    SUITE_ADD_TEST(suite, test_compareDico_un_mot);
+    SUITE_ADD_TEST(suite, test_compareDico_null);
+    SUITE_ADD_TEST(suite, test_compareDico_texte);
+
     // Ajouter les tests système
     SUITE_ADD_TEST(suite, test_systeme_plusieurs_espaces);
     SUITE_ADD_TEST(suite, test_systeme_ponctuation);
@@ -360,6 +398,3 @@ CuSuite *MaTestSuite(void) {
     SUITE_ADD_TEST(suite, test_systeme_normal);
     return suite;
 }
-
-
-

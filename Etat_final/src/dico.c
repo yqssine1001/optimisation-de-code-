@@ -58,11 +58,11 @@ void addToDico(dico **dictionary, char *word, unsigned int *line,
   }
 }
 
-void displayDico(dico *dictionary, char *texte) {
+void displayDicoInternal(dico *dictionary, char *texte, char *filename) {
   FILE *f = NULL;
-  f = fopen(DICORES, "w+");
+  f = fopen(filename, "w+");
   if (f == NULL) {
-    fprintf(stderr, "Erreur ouverture fichier %s\n", DICORES);
+    fprintf(stderr, "Erreur ouverture fichier %s\n", filename);
     return;
   }
   if (!feof(f))
@@ -75,6 +75,10 @@ void displayDico(dico *dictionary, char *texte) {
     fflush(f);
   }
   fclose(f);
+}
+
+void displayDico(dico *dictionary, char *texte) {
+    displayDicoInternal(dictionary, texte, DICORES);
 }
 
 void displayNodes(dico *d, FILE *f) {

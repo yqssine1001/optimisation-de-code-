@@ -1,0 +1,5 @@
+Contenu dictionnaire pour ./tests_unitaires/inputs/test_texte :
+algo (3,1)
+moca (3,7)
+prog (2,1)
+sr (2,6)

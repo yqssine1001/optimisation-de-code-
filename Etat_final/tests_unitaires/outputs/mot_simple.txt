@@ -1,0 +1,2 @@
+Contenu dictionnaire pour ./tests_unitaires/inputs/mot_simple.txt : 
+Frite (1,1)
