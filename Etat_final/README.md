@@ -1,3 +1,30 @@
+## Correction/Ajout concernant I/O
+- Correction du mode d’ouverture du fichier résultat rw+ vers w+ (Déclenchait un SIGSEGV) + ajout de vérifications d’erreur sur les ouvertures de fichiers.
+- Passage d’un fichier d’entrée codé en dur à un argument en ligne de commande.
+- La sérialisation/désérialisation en format JSON à été commentée (pour le moment).
+
+## Structuration du code
+- Découpage du code en modules séparés :
+  - logique dictionnaire dans `dico.c`
+  - logique mot/parsing dans `word.c`
+  - structures dans `structNoeud.h`
+  - point d’entrée dans `main.c`
+- Création des interfaces  :
+  - `dico.h`
+  - `word.h`
+
+Ainsi :
+Le code source se trouve dans `src/`
+Les fichiers d’en-tête dans `include/`
+Les fichiers binaires compilés dans `bin/`
+Les fichiers objets compilés dans `obj/`
+
+## Mise en place de la compilation automatisé du projet
+- Ajout d’un Makefile pour gérer la compilation du projet en fonction de la structure modulaire.
+- Compilation conditionnelle :
+  - Intégration d’un mode DEBUG pour afficher les informations de débogage.
+  - Intégration d’un mode FICJSON activable à la compilation (réintroduction de la sérialisation/désérialisation JSON).
+
 
 ## Bibliothèques
 
