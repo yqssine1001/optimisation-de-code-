@@ -46,6 +46,32 @@ Création de deux cibles pour gérer la compilation du projet avec la possibilit
 - `make static` : compile le projet en utilisant la bibliothèque statique libword.a
 - `make shared` : compile le projet en utilisant la bibliothèque partagée libword.so
 
+## Ajout des tests unitaires/systemes
+
+### Tests systeme
+
+Creation de repertoire `tests_systeme` avec les donnees d'entree dans `inputs` et les sorties attendus dans `expected_outputs`.
+
+Creation des tests de systeme dans `SuiteDeTests.c` pour chaque fichier dans inputs qui comparent les resultats aux fichiers de expected_outputs.
+
+Creation des repertoires `test_src,test_include et test_obj` pour les fichier de la bibliotheque CuTest
+Ajout du fichier `compare_file.c` avec ce but.
+
+*Erreur de segmentation* trouvee lors l'execution des tests `test_vide.txt`, `test_EOF.txt` 
+=>  **Fichier** : `word.c`
+
+Modification des fonctions pour prendre en compte absence de saut de ligne a la fin du fichier ou fichier vide.
+
+*Certains symboles traites comme mots par le programme*
+=> **Fichier**: `word.h`
+
+Ajout d'autres symboles dans la definition de SEP
+
+### Tests unitaires
+
+Creation de repertoire tests_unitaires pours certaines fonctions qui necessitent un fichier en argument.
+Creation des tests unitaires pour les fonctions de modules word et dico, des tests unitaires pour serialisation/deserialisation des tests dans `SuiteDeTests.c`
+
 ## Analyse/Correction de la mémoire
 
 ### Fuite mémoire dans `insertDico()`
@@ -116,6 +142,12 @@ Des fonctions `freeDico()` et `freeDicoShallow()` ont été ajoutées pour libé
 `copiedico` partage les listes d'emplacements avec `dictionary` (copie superficielle dans `deserializeDico` depuis `newLinkWord->data = *elt`) d'où l'utilisation de `freeDicoShallow` pour éviter un double `free`.
 
 Ajout de `freeDicoShallow(copiedico)`, `freeDico(dictionary)` et `free(serialized_dico)` en fin de `monDico`, avec `freeDico`/`freeDicoShallow` définies dans `dico.c`.
+
+## Fuzzing
+
+Ajout des macros FUZZ et ASAN dans `Makefile` pour l'instrumentation du code
+
+Creation des scripts `runAFL.sh` et `runAFL-Asan.sh` qui executent `main` avec les options de compilation correspondantes.
 
 ## Profiling
 
