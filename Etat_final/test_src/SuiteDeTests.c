@@ -9,6 +9,7 @@
 #include "compare_file.h"
 #include "word.h"
 #include "dico.h"
+/*tests unitaires pour fonctions de word*/
 /* ------------------------------------------------------------------ */
 /*      Test unitaire pour nextWord                                   */
 /* ------------------------------------------------------------------ */
@@ -208,6 +209,45 @@ void test_displayWord_listeVide(CuTest *tc){
     int diff = compare_file(input, expected);
     CuAssertIntEquals(tc, 0, diff);
 }
+/*tests unitaires pour fonctions de dico*/
+mot_t *cree_mot_t(mot_data_t *data,int hash){
+    mot_t *w = (mot_t *)malloc(sizeof(mot_t)); 
+    w->data = *data;
+    w->lehash = hash;
+    return w;
+}
+void test_insertDico(CuTest *tc){
+    dico *d = NULL;
+    CuAssertPtrEquals(tc,NULL,d);
+    mot_data_t *w1 = make_word("barbe");
+    incWord(w1,1,14);
+    incWord(w1,2,9);
+    mot_data_t *w2 = make_word("citron");
+    incWord(w2,1,7);
+    incWord(w2,4,9);
+    mot_data_t *w3 = make_word("abeille");
+    incWord(w3,3,14);
+    incWord(w3,2,1);
+
+    mot_t *m1 = cree_mot_t(w1,124);
+    mot_t *m2 = cree_mot_t(w2,125);
+    mot_t *m3 = cree_mot_t(w3,126);
+
+    insertDico(&d,m1);
+    CuAssertPtrNotNull(tc,d);
+    CuAssertPtrEquals(tc,m1,d->mot);
+    insertDico(&d,m2);
+    CuAssertPtrEquals(tc,m2,d->fd->mot);
+    insertDico(&d,m3);
+    CuAssertPtrEquals(tc,m3,d->fg->mot);
+    free(w1);
+    free(w2);
+    free(w3);
+    free(m1);
+    free(m2);
+    free(m3);
+    free(d);
+}
 /* ------------------------------------------------------------------ */
 /* Tests systèmes                                                     */
 /* ------------------------------------------------------------------ */
@@ -282,6 +322,9 @@ CuSuite *MaTestSuite(void) {
     SUITE_ADD_TEST(suite,  test_displayWord);
     SUITE_ADD_TEST(suite,  test_displayWord_null);
     SUITE_ADD_TEST(suite,  test_displayWord_listeVide);
+
+    SUITE_ADD_TEST(suite,  test_insertDico);
+   
     // Ajouter les tests système
     SUITE_ADD_TEST(suite, test_systeme_plusieurs_espaces);
     SUITE_ADD_TEST(suite, test_systeme_ponctuation);
