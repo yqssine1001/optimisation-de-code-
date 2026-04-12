@@ -9,28 +9,40 @@
 #include "compare_file.h"
 #include "word.h"
 #include "dico.h"
-
 /* ------------------------------------------------------------------ */
-/* Tests unitaires pour nextWord                                   */
+/*      Test unitaire pour nextWord                                   */
 /* ------------------------------------------------------------------ */
-/*nextWord doit renvoyer null si fichier vide*/
-void test_nextWord_vide(CuTest *tc){
-    FILE *f = fopen("./tests_unitaires/test_vide","r");
-    CuAssertPtrNotNull(tc, f);
-    char* mot = next_word(f,0,0);
-    CuAssertPtrEquals(tc,NULL,mot);
-    if(f)
-        fclose(f);
-}
+void test_nextWord(CuTest *tc){
+    pid_t pid = fork();
+    CuAssert(tc, "fork() a echoue", pid >= 0);
+    if(pid==0){
+        FILE *f = fopen("./tests_unitaires/test_texte","r");
+        CuAssertPtrNotNull(tc, f);
+        const char *expected[] = {"prog", "sr", "algo", "lambda"};
+        unsigned int ligne = 0;
+        unsigned int colonne = 0;
 
-void test_nextWord_EOF(CuTest *tc){
-    FILE *f = fopen("./tests_unitaires/test_texte","r");
-    CuAssertPtrNotNull(tc, f);
-    char* mot = next_word(f,0,0);
-    CuAssertPtrNotNull(tc,mot);
-    CuAssertStrEquals(tc,"prog",mot);
-    if(f)
+        for(int i=0;i<4;i++){
+            char *mot = next_word(f,&ligne,&colonne);
+            if (!mot || strcmp(mot, expected[i]) != 0) {
+                exit(i + 1);
+            }
+            free(mot);
+        }
+        if (next_word(f, &ligne, &colonne) != NULL){
+            fclose(f);
+            exit(99);
+        }
         fclose(f);
+        exit(0);
+        
+    }
+    else{
+        int status;
+        waitpid(pid, &status, 0);
+        CuAssert(tc, "Le processus fils a crashé", WIFEXITED(status));
+        CuAssertIntEquals(tc, 0, WEXITSTATUS(status));
+    }
 }
 /* ------------------------------------------------------------------ */
 /* Tests unitaires pour compareWord                                   */
@@ -127,7 +139,27 @@ void test_compareWord_un_caractere(CuTest *tc) {
     free(w1);
     free(w2);
 }
+/* ------------------------------------------------------------------ */
+/*      Test unitaire pour incWord                                    */
+/* ------------------------------------------------------------------ */
+void test_incWord(CuTest *tc){
+    mot_data_t *w = make_word("toto");
+    CuAssertPtrEquals(tc,NULL,w->tete_liste);
+    CuAssertPtrEquals(tc,NULL,w->queue_liste);
 
+    incWord(w,1,14);
+    CuAssertPtrNotNull(tc,w->tete_liste);
+    CuAssertPtrEquals(tc,w->queue_liste,w->tete_liste); //verifie si queue et tete pointent vers le meme emplacement
+    CuAssertIntEquals(tc,1,w->tete_liste->line);
+    CuAssertIntEquals(tc,14,w->tete_liste->colonne);
+
+    incWord(w,2,9);
+    CuAssertPtrNotNull(tc,w->queue_liste);
+    CuAssertIntEquals(tc,2,w->queue_liste->line);
+    CuAssertIntEquals(tc,9,w->queue_liste->colonne);
+    CuAssertPtrEquals(tc,NULL,w->queue_liste->next);
+    free(w);
+}
 /* ------------------------------------------------------------------ */
 /* Tests systèmes                                                     */
 /* ------------------------------------------------------------------ */
@@ -184,6 +216,8 @@ void test_systeme_normal(CuTest *tc) {
 /* ------------------------------------------------------------------ */
 CuSuite *MaTestSuite(void) {
     CuSuite *suite = CuSuiteNew();
+    //Ajouter test unitaire pour next_word
+    SUITE_ADD_TEST(suite,test_nextWord);
     // Ajouter les tests unitaires pour compareWord
     SUITE_ADD_TEST(suite, test_compareWord_w1_null);
     SUITE_ADD_TEST(suite, test_compareWord_w2_null);
@@ -195,6 +229,8 @@ CuSuite *MaTestSuite(void) {
     SUITE_ADD_TEST(suite, test_compareWord_w2_prefixe_de_w1);
     SUITE_ADD_TEST(suite, test_compareWord_casse);
     SUITE_ADD_TEST(suite, test_compareWord_un_caractere);
+    //Ajouter test unitaire pour incWord
+    SUITE_ADD_TEST(suite,  test_incWord);
     // Ajouter les tests système
     SUITE_ADD_TEST(suite, test_systeme_plusieurs_espaces);
     SUITE_ADD_TEST(suite, test_systeme_ponctuation);
