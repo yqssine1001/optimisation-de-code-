@@ -58,9 +58,13 @@ Creation des repertoires `test_src,test_include et test_obj` pour les fichier de
 Ajout du fichier `compare_file.c` avec ce but.
 
 *Erreur de segmentation* trouvee lors l'execution des tests `test_vide.txt`, `test_EOF.txt` 
-=>  **Fichier** : `word.c`
+=>  **Fichiers** : `word.c`, `dico.c`
 
-Modification des fonctions pour prendre en compte absence de saut de ligne a la fin du fichier ou fichier vide.
+Modification des fonctions pour prendre en compte absence de saut de ligne a la fin du fichier ou fichier vide:
+
+-Ajout des conditions pour EOF word.c`
+
+-Remplacement de la condition dangereuse de la boucle *while ((word = next_word(f, &line, &colonne)) != NULL)* de `monDico dans dico.c` par while ((word = next_word(f, &line, &colonne)) != NULL)
 
 *Certains symboles traites comme mots par le programme*
 => **Fichier**: `word.h`
