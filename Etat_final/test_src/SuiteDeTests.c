@@ -16,7 +16,7 @@ void test_nextWord(CuTest *tc){
     pid_t pid = fork();
     CuAssert(tc, "fork() a echoue", pid >= 0);
     if(pid==0){
-        FILE *f = fopen("./tests_unitaires/test_texte","r");
+        FILE *f = fopen("./tests_unitaires/inputs/test_texte","r");
         CuAssertPtrNotNull(tc, f);
         const char *expected[] = {"prog", "sr", "algo", "moca"};
         unsigned int ligne = 0;
@@ -161,6 +161,54 @@ void test_incWord(CuTest *tc){
     free(w);
 }
 /* ------------------------------------------------------------------ */
+/*      Test unitaire pour displayWord                                */
+/* ------------------------------------------------------------------ */
+void test_displayWord(CuTest *tc){
+    mot_data_t *w1 = make_word("titi");
+    mot_data_t *w2 = make_word("toto");
+    incWord(w1,1,14);
+    incWord(w1,2,9);
+    incWord(w1,3,42);
+    incWord(w2,1,7);
+    incWord(w2,1,16);
+    incWord(w2,2,1);
+    char *input = "./tests_unitaires/outputs/displayWord.txt";
+    char *expected= "./tests_unitaires/outputs_expected/displayWord.txt";
+    FILE *f = fopen(input,"w"); 
+    CuAssertPtrNotNull(tc,f);
+    displayWord(w1,f);
+    displayWord(w2,f);
+    fclose(f);
+    free(w1);
+    free(w2);
+    int diff = compare_file(input, expected);
+    CuAssertIntEquals(tc, 0, diff);
+}
+void test_displayWord_null(CuTest *tc){
+    mot_data_t *w1 = NULL;
+    char *input = "./tests_unitaires/outputs/displayWord_null.txt";
+    char *expected= "./tests_unitaires/outputs_expected/displayWord_null.txt";
+    FILE *f = fopen(input,"w"); 
+    CuAssertPtrNotNull(tc,f);
+    displayWord(w1,f);
+    fclose(f);
+    free(w1);
+    int diff = compare_file(input, expected);
+    CuAssertIntEquals(tc, 0, diff);
+}
+void test_displayWord_listeVide(CuTest *tc){
+    mot_data_t *w1 = make_word("titi");
+    char *input = "./tests_unitaires/outputs/displayWord_listeVide.txt";
+    char *expected= "./tests_unitaires/outputs_expected/displayWord_listeVide.txt";
+    FILE *f = fopen(input,"w"); 
+    CuAssertPtrNotNull(tc,f);
+    displayWord(w1,f);
+    fclose(f);
+    free(w1);
+    int diff = compare_file(input, expected);
+    CuAssertIntEquals(tc, 0, diff);
+}
+/* ------------------------------------------------------------------ */
 /* Tests systèmes                                                     */
 /* ------------------------------------------------------------------ */
 
@@ -231,6 +279,9 @@ CuSuite *MaTestSuite(void) {
     SUITE_ADD_TEST(suite, test_compareWord_un_caractere);
     //Ajouter test unitaire pour incWord
     SUITE_ADD_TEST(suite,  test_incWord);
+    SUITE_ADD_TEST(suite,  test_displayWord);
+    SUITE_ADD_TEST(suite,  test_displayWord_null);
+    SUITE_ADD_TEST(suite,  test_displayWord_listeVide);
     // Ajouter les tests système
     SUITE_ADD_TEST(suite, test_systeme_plusieurs_espaces);
     SUITE_ADD_TEST(suite, test_systeme_ponctuation);
