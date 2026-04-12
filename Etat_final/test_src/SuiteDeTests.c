@@ -18,7 +18,7 @@ void test_nextWord(CuTest *tc){
     if(pid==0){
         FILE *f = fopen("./tests_unitaires/test_texte","r");
         CuAssertPtrNotNull(tc, f);
-        const char *expected[] = {"prog", "sr", "algo", "lambda"};
+        const char *expected[] = {"prog", "sr", "algo", "moca"};
         unsigned int ligne = 0;
         unsigned int colonne = 0;
 
