@@ -210,10 +210,9 @@ void test_displayWord_listeVide(CuTest *tc){
     CuAssertIntEquals(tc, 0, diff);
 }
 /*tests unitaires pour fonctions de dico*/
-mot_t *cree_mot_t(mot_data_t *data,int hash){
+mot_t *cree_mot_t(mot_data_t *data){
     mot_t *w = (mot_t *)malloc(sizeof(mot_t)); 
     w->data = *data;
-    w->lehash = hash;
     return w;
 }
 void test_insertDico(CuTest *tc){
@@ -221,31 +220,56 @@ void test_insertDico(CuTest *tc){
     CuAssertPtrEquals(tc,NULL,d);
     mot_data_t *w1 = make_word("barbe");
     incWord(w1,1,14);
-    incWord(w1,2,9);
+     mot_data_t *w12 = make_word("barbe");
+    incWord(w12,2,9);
     mot_data_t *w2 = make_word("citron");
     incWord(w2,1,7);
-    incWord(w2,4,9);
     mot_data_t *w3 = make_word("abeille");
     incWord(w3,3,14);
-    incWord(w3,2,1);
 
-    mot_t *m1 = cree_mot_t(w1,124);
-    mot_t *m2 = cree_mot_t(w2,125);
-    mot_t *m3 = cree_mot_t(w3,126);
+    mot_t *m1 = cree_mot_t(w1);
+    mot_t *m12 = cree_mot_t(w12);
+    mot_t *m2 = cree_mot_t(w2);
+    mot_t *m3 = cree_mot_t(w3);
 
     insertDico(&d,m1);
     CuAssertPtrNotNull(tc,d);
     CuAssertPtrEquals(tc,m1,d->mot);
+    insertDico(&d,m12);
+    CuAssertIntEquals(tc,2,d->mot->data.queue_liste->line);
+    CuAssertIntEquals(tc,9,d->mot->data.queue_liste->colonne);
     insertDico(&d,m2);
     CuAssertPtrEquals(tc,m2,d->fd->mot);
+    CuAssertPtrNotNull(tc,d->fd->mot->data.tete_liste);
     insertDico(&d,m3);
     CuAssertPtrEquals(tc,m3,d->fg->mot);
+    CuAssertPtrNotNull(tc,d->fg->mot->data.tete_liste);
     free(w1);
     free(w2);
     free(w3);
     free(m1);
     free(m2);
     free(m3);
+    free(d);
+}
+void test_addToDico(CuTest *tc){
+    dico *d = NULL;
+    CuAssertPtrEquals(tc,NULL,d);
+    unsigned int l=1,c=4;
+    addToDico(&d,"barbe",&l,&c);
+    l=2,c=9;
+    addToDico(&d,"barbe",&l,&c);
+    CuAssertStrEquals(tc,"barbe",d->mot->data.lemot);
+    CuAssertIntEquals(tc,2,d->mot->data.queue_liste->line);
+    CuAssertIntEquals(tc,9,d->mot->data.queue_liste->colonne);
+    l=1,c=7;
+    addToDico(&d,"citron",&l,&c);
+    CuAssertStrEquals(tc,"citron",d->fd->mot->data.lemot);
+    CuAssertPtrNotNull(tc,d->fd->mot->data.tete_liste);
+    l=3,c=14;
+    addToDico(&d,"abeille",&l,&c);
+    CuAssertStrEquals(tc,"abeille",d->fg->mot->data.lemot);
+    CuAssertPtrNotNull(tc,d->fg->mot->data.tete_liste);
     free(d);
 }
 /* ------------------------------------------------------------------ */
@@ -324,6 +348,8 @@ CuSuite *MaTestSuite(void) {
     SUITE_ADD_TEST(suite,  test_displayWord_listeVide);
 
     SUITE_ADD_TEST(suite,  test_insertDico);
+    SUITE_ADD_TEST(suite,  test_addToDico);
+    
    
     // Ajouter les tests système
     SUITE_ADD_TEST(suite, test_systeme_plusieurs_espaces);
