@@ -66,11 +66,14 @@ int compare_displayDico(char *input, char *output, char *expected_output)
     unsigned int colonne = 0;
     char *word = NULL;
     dico *dictionary = NULL;
-    while ((word = next_word(f, &line, &colonne)) != NULL) {
-      addToDico(&dictionary, word, &line, &colonne);
-      free(word);
+    if(f)
+    {
+        while ((word = next_word(f, &line, &colonne)) != NULL) {
+            addToDico(&dictionary, word, &line, &colonne);
+            free(word);
+        }
     }
-    displayDicoInternal(dictionary, input, expected_output);
+    displayDicoInternal(dictionary, input, output);
     free(dictionary);
     return compare_file(expected_output, output);
 }
@@ -91,6 +94,12 @@ void test_compareDico_texte(CuTest *tc)
 {
     CuAssertIntEquals(tc, 0, compare_displayDico("./tests_unitaires/inputs/test_texte",
         "./tests_unitaires/outputs/displayDico_texte.txt",  "./tests_unitaires/outputs_expected/displayDico_texte.txt"));
+}
+
+void test_compareDico_entree_nulle(CuTest *tc)
+{
+    CuAssertIntEquals(tc, 0, compare_displayDico("./tests_unitaires/inputs/test_videee",
+        "./tests_unitaires/outputs/displayDico_entree_nulle.txt",  "./tests_unitaires/outputs_expected/displayDico_entree_nulle.txt"));
 }
 
 /* compareWord(NULL, w2) doit retourner 1 */
@@ -388,6 +397,7 @@ CuSuite *MaTestSuite(void) {
     SUITE_ADD_TEST(suite, test_compareDico_un_mot);
     SUITE_ADD_TEST(suite, test_compareDico_null);
     SUITE_ADD_TEST(suite, test_compareDico_texte);
+    SUITE_ADD_TEST(suite, test_compareDico_entree_nulle);
 
     // Ajouter les tests système
     SUITE_ADD_TEST(suite, test_systeme_plusieurs_espaces);
