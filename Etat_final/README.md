@@ -119,14 +119,14 @@ Ajout de `freeDicoShallow(copiedico)`, `freeDico(dictionary)` et `free(serialize
 
 ## Profiling
 
-### Itération inutile dans incWord
+### Itération inutile dans `incWord`
 
-Modification de la fonction incWord pour qu'elle fasse un bon usage de la structure qu'elle manipule (passage d'une complexité de O(n) a O(1)). Elle n'utilisait pas l'un des attribut de la structure et itérait tout les éléments de la liste au lieu d'acceder au dernier qu'elle connait. 
+Modification de la fonction `incWord` pour qu'elle fasse un bon usage de la structure qu'elle manipule (passage d'une complexité de O(n) a O(1)). Elle n'utilisait pas l'un des attribut de la structure et itérait tout les éléments de la liste au lieu d'acceder au dernier qu'elle connait. 
 
 La fonction est passée de 97,95% du temps total d'execution du programme a 1,84%.
 
-### Optimisation d'insertDico
+### Optimisation d'`insertDico`
 
-Dans la fonction insertDico, plusieurs appels à compareWord étaient effectués sans besoin (possibilité de stocker le résultat) ce qui ralentissait considérablement la fonction, cela a été retiré après révision de la logique du bloc de code. 
+Dans la fonction `insertDico`, plusieurs appels à `compareWord` étaient effectués sans besoin (possibilité de stocker le résultat) ce qui ralentissait considérablement la fonction, cela a été retiré après révision de la logique du bloc de code. 
 
-Les résultats sont une diminution de 33% du nombre d'appel à compareWord.
+Les résultats sont une diminution de 33% du nombre d'appel à `compareWord`.
